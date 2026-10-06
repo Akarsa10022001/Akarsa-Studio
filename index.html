@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akarsa Studio — Where Art Meets Intelligence</title>
+  <meta name="description" content="Akarsa is an AI-driven, truth-seeking creative studio where art meets intelligence. Branding, content, UGC, social media, performance ads, websites and AI systems — under one roof." />
+  <meta property="og:title" content="Akarsa Studio — Where Art Meets Intelligence" />
+  <meta property="og:description" content="A rule-breaking creative studio for brands that refuse to look ordinary. Content, ads, branding, websites and AI — under one roof." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#F4F4F3" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='110 60 400 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop offset='0' stop-color='%230b0a10'/%3E%3Cstop offset='.45' stop-color='%231d1430'/%3E%3Cstop offset='.72' stop-color='%236b3fd6'/%3E%3Cstop offset='1' stop-color='%23ff4f81'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='110' y='60' width='400' height='400' rx='100' fill='url(%23g)'/%3E%3Cpath fill='%23fff' d='M300,122%20L172,246%20L243,250%20A71,93%200%200%201%20172,343%20L172,396%20A128,140%200%200%200%20300,256%20Z%20M313,256%20L372,256%20A75,87%200%200%200%20447,343%20L447,396%20A134,140%200%200%201%20313,256%20Z'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5/500.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5/600.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5/700.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/anton@5/400.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/caveat@5/700.css" />
+  <link rel="stylesheet" href="styles.css?v=15" />
+</head>
+<body class="is-loading">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="akg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0b0a10"/><stop offset=".45" stop-color="#1d1430"/><stop offset=".72" stop-color="#6b3fd6"/><stop offset="1" stop-color="#ff4f81"/></linearGradient></defs></svg>
+
+  <!-- ============ LOADER ============ -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__inner">
+      <div class="loader__word"><span>A</span><span>k</span><span>a</span><span>r</span><span>s</span><span>a</span></div>
+      <div class="loader__line"><i></i></div>
+      <div class="loader__meta"><span>Where art meets intelligence</span><span class="loader__count">0</span></div>
+    </div>
+  </div>
+
+  <!-- ============ CURSOR ============ -->
+  <div class="cursor" aria-hidden="true"><div class="cursor__dot"></div><div class="cursor__ring"><span class="cursor__label"></span></div></div>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <div class="nav__bar">
+      <a href="#top" class="nav__logo" aria-label="Akarsa home">
+        <svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
+        <span>Akarsa</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#work" data-scramble>Work</a>
+        <a href="#services" data-scramble>Services</a>
+        <a href="#story" data-scramble>Our Story</a>
+        <a href="#process" data-scramble>Process</a>
+        <a href="#faq" data-scramble>FAQ</a>
+      </nav>
+      <a class="nav__cta" data-wa href="#">Let’s Talk</a>
+      <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+    </div>
+    <div class="nav__mobile">
+      <a href="#work">Work</a><a href="#services">Services</a><a href="#story">Our Story</a><a href="#process">Process</a><a href="#faq">FAQ</a>
+      <a class="btn btn--dark" data-wa href="#"><span class="btn__label">Start on WhatsApp</span></a>
+    </div>
+  </header>
+
+  <!-- floating WhatsApp -->
+  <a class="wa-float" data-wa href="#" aria-label="Chat with Akarsa on WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
+    <span class="wa-float__tip">Chat with us</span>
+  </a>
+
+  <main class="page">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <svg class="ribbon" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <path id="ribbonPath" d="M-200,760 C120,700 360,640 620,560 S1080,330 1700,560" />
+        </defs>
+        <use href="#ribbonPath" class="ribbon__band" />
+        <text class="ribbon__text"><textPath href="#ribbonPath" startOffset="0" class="ribbon__tp" dominant-baseline="middle">UGC • SHORT-FORM • SOCIAL MEDIA • INFLUENCER MARKETING • META ADS • GOOGLE ADS • YOUTUBE ADS • CHATGPT ADS • BRANDING • LOGO DESIGN • WEBSITES • ANIMATION • UGC • SHORT-FORM • SOCIAL MEDIA • INFLUENCER MARKETING • META ADS • GOOGLE ADS • YOUTUBE ADS • CHATGPT ADS • BRANDING • LOGO DESIGN • WEBSITES • ANIMATION • UGC • SHORT-FORM • SOCIAL MEDIA • INFLUENCER MARKETING • META ADS • GOOGLE ADS •</textPath></text>
+      </svg>
+
+      <div class="container hero__grid">
+        <div class="hero__left">
+          <h1 class="hero__title">
+            <span class="hl"><span class="hl__i">Where</span></span>
+            <span class="hl"><span class="hl__i"><em class="circled">art<svg viewBox="0 0 120 60" preserveAspectRatio="none" aria-hidden="true"><path d="M8,34 C6,14 40,5 66,6 C96,7 116,18 112,34 C108,50 76,56 50,54 C24,52 6,46 10,28 C13,16 30,10 44,9" /></svg></em> meets</span></span>
+            <span class="hl"><span class="hl__i">intelligence.</span></span>
+          </h1>
+          <ul class="hero__benefits">
+            <li data-pop><i class="star"></i>Brand &amp; Content</li>
+            <li data-pop><i class="star"></i>Performance Advertising</li>
+            <li data-pop><i class="star"></i>Websites &amp; AI Systems</li>
+          </ul>
+        </div>
+
+        <a class="hero__stack" data-social-link="instagram" href="https://www.instagram.com/akarsa_studio/" data-cursor="Watch">
+          <div class="phone-wrap pw--3"><div class="phone phone--3"><div class="media media--top" data-art="5" data-src="assets/instagram/r12.jpg"></div></div></div>
+          <div class="phone-wrap pw--2"><div class="phone phone--2"><div class="media media--top" data-art="3" data-src="assets/instagram/r01.jpg"></div></div></div>
+          <div class="phone-wrap pw--1"><div class="phone phone--1">
+            <div class="stories">
+              <div class="stories__bars"><i><b></b></i><i><b></b></i><i><b></b></i></div>
+              <div class="stories__slide is-active"><div class="media" data-art="1" data-src="assets/instagram/r02.jpg"></div><p class="stories__cap"><span>Short-form</span></p></div>
+              <div class="stories__slide"><div class="media" data-art="2" data-src="assets/instagram/r05.jpg"></div><p class="stories__cap"><span>Meta Ads</span></p></div>
+              <div class="stories__slide"><div class="media" data-art="8" data-src="assets/instagram/r09.jpg"></div><p class="stories__cap"><span>Akarsa Live</span></p></div>
+            </div>
+          </div></div>
+        </a>
+
+        <div class="hero__right">
+          <a class="np-card" href="#proof" data-pop data-cursor="See it">
+            <div class="np-card__img np-card__img--poster"><div class="poster" data-poster="result"></div></div>
+            <div class="np-card__text">
+              <span class="eyebrow eyebrow--purple">Latest result</span>
+              <strong>₹30K → 52 enquiries with Meta Ads</strong>
+            </div>
+            <span class="np-card__arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+          <div class="hero__cta">
+            <p data-pop>A system for authentic attraction. Akarsa is an AI-driven, truth-seeking studio that turns brand essence into signal — design, data and gravity, aligned.</p>
+            <a class="btn btn--dark magnetic" data-wa href="#" data-pop>
+              <span class="btn__label">Start a conversation</span>
+              <span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PLATFORMS STRIP ============ -->
+    <section class="logos">
+      <p class="eyebrow eyebrow--muted center" data-reveal>20+ brands leveled up their game with Akarsa</p>
+      <div class="logos__viewport logos__viewport--marks">
+        <div class="logos__track logos__track--marks"><span class="blogo blogo--mono" title="Starbucks"><img src="assets/clients/marks/starbucks.svg" alt="" /><b class="blogo__word">STARBUCKS</b></span><span class="blogo blogo--mono" title="Adidas"><img src="assets/clients/marks/adidas.svg" alt="" /><b class="blogo__word blogo__word--ad">adidas</b></span><span class="blogo blogo--dec" title="Decathlon"><img src="assets/clients/marks/decathlon.svg" alt="Decathlon" /></span><span class="blogo blogo--badge" title="Burger Singh"><img src="assets/clients/marks/burger-singh.png" alt="Burger Singh" /></span><span class="blogo blogo--mono" title="Chirmi"><img src="assets/clients/marks/chirmi.png" alt="Chirmi" /></span><span class="blogo blogo--badge" title="The Duke’s Table"><img src="assets/clients/marks/dukes-table.png" alt="The Duke’s Table" /></span><span class="blogo blogo--mono" title="Olympia Fitness Gym"><img src="assets/clients/marks/olympia-gym.png" alt="Olympia Fitness Gym" /></span><span class="blogo blogo--mono" title="Nomad Pizza"><img src="assets/clients/marks/nomad-pizza.png" alt="Nomad Pizza" /></span><span class="blogo blogo--badge" title="The Crush Coffee"><img src="assets/clients/marks/crush-coffee.png" alt="The Crush Coffee" /></span><span class="blogo blogo--mono" title="The Korean Trends"><img src="assets/clients/marks/korean-trends.png" alt="The Korean Trends" /></span><span class="blogo blogo--badge" title="Mayaram’s Farm"><img src="assets/clients/marks/mayarams-farm.png" alt="Mayaram’s Farm" /></span><span class="blogo blogo--mono" title="Bake Affaire"><img src="assets/clients/marks/bake-affaire.png" alt="Bake Affaire" /></span><span class="blogo blogo--mono" title="Nothing Before Coffee"><img src="assets/clients/marks/nothing-before-coffee.png" alt="Nothing Before Coffee" /></span><span class="blogo blogo--mono" title="Kunafa Bytes"><img src="assets/clients/marks/kunafa-bytes.png" alt="Kunafa Bytes" /></span><span class="blogo blogo--mono" title="Lokal"><img src="assets/clients/marks/lokal.png" alt="Lokal" /></span><span class="blogo blogo--mono" title="Urban Theka"><img src="assets/clients/marks/urban-theka.png" alt="Urban Theka" /></span><span class="blogo blogo--badge" title="Mudoven"><img src="assets/clients/marks/mudoven.png" alt="Mudoven" /></span><span class="blogo blogo--mono" title="Kahani"><img src="assets/clients/marks/kahani.png" alt="Kahani" /></span><span class="blogo blogo--mono" title="Varenyam"><img src="assets/clients/marks/varenyam.png" alt="Varenyam" /></span><span class="blogo blogo--mono" title="Fleuristry"><img src="assets/clients/marks/fleuristry.png" alt="Fleuristry" /></span><span class="blogo blogo--mono blogo--stack" title="Zhanna Events & Flowers"><img src="assets/clients/marks/zhanna.png" alt="" /><small>EVENTS &amp; FLOWERS</small></span><span class="blogo blogo--heaven" title="7th Heaven"><i>7</i><b>Heaven</b></span><span class="blogo blogo--mono" title="Starbucks"><img src="assets/clients/marks/starbucks.svg" alt="" /><b class="blogo__word">STARBUCKS</b></span><span class="blogo blogo--mono" title="Adidas"><img src="assets/clients/marks/adidas.svg" alt="" /><b class="blogo__word blogo__word--ad">adidas</b></span><span class="blogo blogo--dec" title="Decathlon"><img src="assets/clients/marks/decathlon.svg" alt="Decathlon" /></span><span class="blogo blogo--badge" title="Burger Singh"><img src="assets/clients/marks/burger-singh.png" alt="Burger Singh" /></span><span class="blogo blogo--mono" title="Chirmi"><img src="assets/clients/marks/chirmi.png" alt="Chirmi" /></span><span class="blogo blogo--badge" title="The Duke’s Table"><img src="assets/clients/marks/dukes-table.png" alt="The Duke’s Table" /></span><span class="blogo blogo--mono" title="Olympia Fitness Gym"><img src="assets/clients/marks/olympia-gym.png" alt="Olympia Fitness Gym" /></span><span class="blogo blogo--mono" title="Nomad Pizza"><img src="assets/clients/marks/nomad-pizza.png" alt="Nomad Pizza" /></span><span class="blogo blogo--badge" title="The Crush Coffee"><img src="assets/clients/marks/crush-coffee.png" alt="The Crush Coffee" /></span><span class="blogo blogo--mono" title="The Korean Trends"><img src="assets/clients/marks/korean-trends.png" alt="The Korean Trends" /></span><span class="blogo blogo--badge" title="Mayaram’s Farm"><img src="assets/clients/marks/mayarams-farm.png" alt="Mayaram’s Farm" /></span><span class="blogo blogo--mono" title="Bake Affaire"><img src="assets/clients/marks/bake-affaire.png" alt="Bake Affaire" /></span><span class="blogo blogo--mono" title="Nothing Before Coffee"><img src="assets/clients/marks/nothing-before-coffee.png" alt="Nothing Before Coffee" /></span><span class="blogo blogo--mono" title="Kunafa Bytes"><img src="assets/clients/marks/kunafa-bytes.png" alt="Kunafa Bytes" /></span><span class="blogo blogo--mono" title="Lokal"><img src="assets/clients/marks/lokal.png" alt="Lokal" /></span><span class="blogo blogo--mono" title="Urban Theka"><img src="assets/clients/marks/urban-theka.png" alt="Urban Theka" /></span><span class="blogo blogo--badge" title="Mudoven"><img src="assets/clients/marks/mudoven.png" alt="Mudoven" /></span><span class="blogo blogo--mono" title="Kahani"><img src="assets/clients/marks/kahani.png" alt="Kahani" /></span><span class="blogo blogo--mono" title="Varenyam"><img src="assets/clients/marks/varenyam.png" alt="Varenyam" /></span><span class="blogo blogo--mono" title="Fleuristry"><img src="assets/clients/marks/fleuristry.png" alt="Fleuristry" /></span><span class="blogo blogo--mono blogo--stack" title="Zhanna Events & Flowers"><img src="assets/clients/marks/zhanna.png" alt="" /><small>EVENTS &amp; FLOWERS</small></span><span class="blogo blogo--heaven" title="7th Heaven"><i>7</i><b>Heaven</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ PAIN POINTS (pinned) ============ -->
+    <section class="pain">
+      <div class="pain__sticky">
+        <h2 class="pain__title">Growing a brand feels harder than it should.</h2>
+        <div class="pain__card" style="--x:6%;--o:0;--r:-3deg"><i class="xmark"></i><p>Five agencies, zero cohesion</p></div>
+        <div class="pain__card" style="--x:64%;--o:300;--r:2deg"><i class="xmark"></i><p>Ads that spend fast but sell slow</p></div>
+        <div class="pain__card" style="--x:38%;--o:600;--r:-1deg"><i class="xmark"></i><p>Content that looks “nice” but never performs</p></div>
+        <div class="pain__card" style="--x:9%;--o:900;--r:2deg"><i class="xmark"></i><p>A website that quietly turns visitors away</p></div>
+        <div class="pain__card" style="--x:68%;--o:1200;--r:-2deg"><i class="xmark"></i><p>Posting every day, growing nowhere</p></div>
+        <div class="pain__card" style="--x:34%;--o:1500;--r:1deg"><i class="xmark"></i><p>Ideas that sound like everyone else</p></div>
+      </div>
+    </section>
+
+    <!-- ============ STORY / MISSION ============ -->
+    <section class="mission" id="story">
+      <svg class="scribble scribble--a" viewBox="0 0 600 900" aria-hidden="true"><path d="M420,10 C380,140 300,230 250,300 C190,390 40,420 30,560 C20,700 220,720 260,640 C300,560 160,520 120,640 C80,760 200,860 340,890" /></svg>
+      <svg class="scribble scribble--b" viewBox="0 0 600 900" aria-hidden="true"><path d="M580,180 C470,260 420,400 470,520 C520,640 600,620 560,560 C520,500 400,560 330,700 C280,800 240,860 200,900" /></svg>
+
+      <div class="container mission__head">
+        <span class="pill" data-pop>Who we are</span>
+        <h2 class="h2 split">We don’t sell illusions. We engineer impact.</h2>
+        <p class="lead" data-reveal>Akarsa is a rule-breaking, truth-seeking studio. We question everything that feels ordinary, combine creativity with data and intelligence, and create what others hesitate to imagine.</p>
+      </div>
+
+      <div class="container feature">
+        <div class="logo-wall" data-reveal><span class="wt" style="--wc:#1e5631"><img class="wt__svg" src="assets/clients/marks/starbucks.svg" alt="Starbucks" /></span><span class="wt" style="--wc:#22134a"><img class="wt__svg" src="assets/clients/marks/adidas.svg" alt="Adidas" /><b class="wt__word">adidas</b></span><span class="wt" style="--wc:#c8102e"><img class="wt__badge" src="assets/clients/marks/burger-singh.png" alt="" /></span><span class="wt" style="--wc:#e8692a"><img class="wt__mark" src="assets/clients/marks/chirmi.png" alt="" /></span><span class="wt" style="--wc:#f2a516"><img class="wt__badge" src="assets/clients/marks/dukes-table.png" alt="" /></span><span class="wt" style="--wc:#1c1917"><img class="wt__mark" src="assets/clients/marks/nomad-pizza.png" alt="" /></span><span class="wt" style="--wc:#1482c2"><img class="wt__dec" src="assets/clients/marks/decathlon.svg" alt="Decathlon" /></span><span class="wt" style="--wc:#6b46b5"><img class="wt__mark" src="assets/clients/marks/korean-trends.png" alt="" /></span><span class="wt" style="--wc:#b5122b"><img class="wt__mark" src="assets/clients/marks/olympia-gym.png" alt="" /></span><span class="wt" style="--wc:#0f2f6b"><img class="wt__badge" src="assets/clients/marks/mayarams-farm.png" alt="" /></span><span class="wt" style="--wc:#d4202f"><img class="wt__mark" src="assets/clients/marks/bake-affaire.png" alt="" /></span><span class="wt" style="--wc:#1d4fb8"><img class="wt__mark" src="assets/clients/marks/nothing-before-coffee.png" alt="" /></span>
+          <div class="sticker sticker--pink" data-pop>
+            <strong>20+</strong><span>Brands leveled up</span>
+          </div>
+        </div>
+        <div class="feature__text">
+          <span class="eyebrow eyebrow--pink" data-reveal>The art</span>
+          <h3 class="h2 split">Art, led by emotion.</h3>
+          <p data-reveal>Every project begins with curiosity and ends with impact. Our designers, filmmakers and storytellers craft identities, short films and content that make people <em>feel</em> something — and remember you for it.</p>
+        </div>
+      </div>
+
+      <div class="container feature feature--rev">
+        <div class="feature__text">
+          <span class="eyebrow eyebrow--purple" data-reveal>The intelligence</span>
+          <h3 class="h2 split">Intelligence, powered by AI.</h3>
+          <p data-reveal>Artificial intelligence sits at the core of how we think and build. It powers <em>Akarsa One</em> — our AI business intelligence that finds your buyers — and sharpens every decision from creative testing to ad targeting, while human intuition always leads.</p>
+        </div>
+        <div class="feature__media feature__media--wide" data-reveal>
+          <div class="media media--rounded media--panel" style="--pc:#1d1430" data-reel="assets/instagram/r10.jpg|poster:data|assets/instagram/r11.jpg"></div>
+          <div class="sticker sticker--purple" data-pop>
+            <strong>₹577</strong><span>Cost per enquiry, down from ₹7,500</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="work" id="work">
+      <div class="container">
+        <div class="section-head center">
+          <span class="pill" data-pop>Selected work</span>
+          <h2 class="h2 split">Work that speaks for itself.</h2>
+        </div>
+
+        <a class="project project--big" href="https://www.instagram.com/akarsa_studio/reels/" target="_blank" rel="noopener" data-cursor="Watch" data-reveal>
+          <div class="project__bar"><span class="project__name">Global brands</span><span class="project__meta">/ Starbucks · Adidas · Decathlon</span><span class="project__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+          <div class="project__img"><div class="media media--panel" style="--pc:#1c1917" data-reel="assets/clients/reels/adidas.jpg|assets/clients/reels/starbucks.jpg|assets/clients/reels/decathlon.jpg"></div></div>
+        </a>
+        <div class="work__grid">
+          <a class="project" href="https://www.instagram.com/akarsa_studio/reels/" target="_blank" rel="noopener" data-cursor="Watch" data-reveal>
+            <div class="project__bar"><span class="project__name">Olympia Gym</span><span class="project__meta">/ Gym Magic</span><span class="project__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+            <div class="project__img"><div class="media media--panel media--light" style="--pc:#fde2e6" data-reel="assets/clients/reels/olympia-gym.jpg"></div></div>
+          </a>
+          <a class="project" href="https://www.instagram.com/akarsa_studio/reels/" target="_blank" rel="noopener" data-cursor="Watch" data-reveal>
+            <div class="project__bar"><span class="project__name">Burger Singh</span><span class="project__meta">/ Melt Magic</span><span class="project__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+            <div class="project__img"><div class="media media--panel media--light" style="--pc:#ffe6cf" data-reel="assets/clients/reels/burger-singh.jpg"></div></div>
+          </a>
+          <a class="project" href="https://www.instagram.com/akarsa_studio/reels/" target="_blank" rel="noopener" data-cursor="Watch" data-reveal>
+            <div class="project__bar"><span class="project__name">The Duke’s Table</span><span class="project__meta">/ Duke Taste</span><span class="project__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+            <div class="project__img"><div class="media media--panel media--light" style="--pc:#fff1c9" data-reel="assets/clients/reels/dukes-table.jpg"></div></div>
+          </a>
+          <a class="project" href="https://www.instagram.com/akarsa_studio/reels/" target="_blank" rel="noopener" data-cursor="Watch" data-reveal>
+            <div class="project__bar"><span class="project__name">The Korean Trends</span><span class="project__meta">/ Style Wave</span><span class="project__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+            <div class="project__img"><div class="media media--panel media--light" style="--pc:#ebe3ff" data-reel="assets/clients/reels/korean-trends.jpg"></div></div>
+          </a>
+        </div>
+        <div class="work__more"><a class="btn btn--dark magnetic" href="https://www.instagram.com/akarsa_studio/reels/" target="_blank" rel="noopener" data-pop><span class="btn__label">See all client work</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a></div>
+      </div>
+    </section>
+
+    <!-- ============ RING ============ -->
+    <section class="ring-sec">
+      <div class="ring" aria-hidden="true">
+        <div class="ring__item"><div class="media" data-art="1" data-src="assets/clients/reels/chirmi.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="2" data-src="assets/clients/reels/mayarams-farm.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="3" data-src="assets/clients/reels/kunafa-bytes.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="4" data-src="assets/clients/reels/lokal.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="5" data-src="assets/clients/reels/mudoven.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="6" data-src="assets/clients/reels/urban-theka.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="7" data-src="assets/clients/reels/kahani.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="8" data-src="assets/clients/reels/7th-heaven.jpg"></div></div>
+        <div class="ring__item"><div class="media" data-art="1" data-src="assets/clients/reels/varenyam.jpg"></div></div>
+      </div>
+      <a class="ring__cta" data-wa href="#" data-cursor="Let’s go">
+        <span class="split-inline">Your brand could be next</span>
+        <span class="ring__arrow magnetic"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+      </a>
+    </section>
+
+    <!-- ============ SERVICES (stacked folders) ============ -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head center">
+          <span class="pill" data-pop>What we do</span>
+          <h2 class="h2 split">Everything your brand needs, under one roof.</h2>
+        </div>
+
+        <div class="stack">
+          <article class="svc svc--purple" style="--i:0">
+            <div class="svc__tab"><span class="svc__tab-pre">Service / </span>01</div>
+            <div class="svc__body">
+              <div class="svc__text">
+                <h3 class="svc__title">Content &amp; Production</h3>
+                <p>Scroll-stopping short-form, authentic UGC, cinematic editing and motion that feels native to every feed — built to hook in the first second and hold attention till the last.</p>
+                <ul class="chips"><li>UGC</li><li>Short-form reels</li><li>Video editing</li><li>Animation</li></ul>
+              </div>
+              <div class="svc__foot"><strong>Hook-first</strong><span>Made for how people actually scroll</span></div>
+              <div class="svc__media"><div class="media media--panel media--glass" data-reel="assets/instagram/r06.jpg|poster:hook"></div></div>
+            </div>
+          </article>
+
+          <article class="svc svc--pink" style="--i:1">
+            <div class="svc__tab"><span class="svc__tab-pre">Service / </span>02</div>
+            <div class="svc__body">
+              <div class="svc__text">
+                <h3 class="svc__title">Social &amp; Influence</h3>
+                <p>From content calendars to community, we run your social presence with consistency and intent — and pair you with creators who genuinely fit your brand.</p>
+                <ul class="chips"><li>Social media management</li><li>Influencer marketing</li><li>Community</li></ul>
+              </div>
+              <div class="svc__foot"><strong>Always on</strong><span>Planned, published and optimised</span></div>
+              <div class="svc__media"><div class="media media--panel media--glass" data-reel="poster:always|assets/clients/reels/nothing-before-coffee.jpg"></div></div>
+            </div>
+          </article>
+
+          <article class="svc svc--stone" style="--i:2">
+            <div class="svc__tab"><span class="svc__tab-pre">Service / </span>03</div>
+            <div class="svc__body">
+              <div class="svc__text">
+                <h3 class="svc__title">Performance Advertising</h3>
+                <p>Data-led campaigns across every platform that matters. We research, test, iterate and scale creative on real numbers — no guesswork, no vibes, just what performs.</p>
+                <ul class="chips"><li>Meta ads</li><li>Google ads</li><li>YouTube ads</li><li>ChatGPT ads</li></ul>
+              </div>
+              <div class="svc__foot"><strong>13× cheaper</strong><span>Cost per enquiry: ₹7,500 → ₹577</span></div>
+              <div class="svc__media"><div class="media media--panel media--glass" data-reel="assets/instagram/r04.jpg|poster:cpl"></div></div>
+            </div>
+          </article>
+
+          <article class="svc svc--green" style="--i:3">
+            <div class="svc__tab"><span class="svc__tab-pre">Service / </span>04</div>
+            <div class="svc__body">
+              <div class="svc__text">
+                <h3 class="svc__title">Brand &amp; Design</h3>
+                <p>Identities with a point of view. Logos, visual languages and graphic systems that turn complex ideas into something simple, beautiful and unmistakably yours.</p>
+                <ul class="chips"><li>Brand identity</li><li>Logo design</li><li>Graphic design</li><li>Packaging</li></ul>
+              </div>
+              <div class="svc__foot"><strong>Timeless</strong><span>Designed to outlive trends</span></div>
+              <div class="svc__media"><div class="media media--panel media--glass" data-reel="poster:brand|poster:logo"></div></div>
+            </div>
+          </article>
+
+          <article class="svc svc--orange" style="--i:4">
+            <div class="svc__tab"><span class="svc__tab-pre">Service / </span>05</div>
+            <div class="svc__body">
+              <div class="svc__text">
+                <h3 class="svc__title">Web &amp; Intelligent Systems</h3>
+                <p>Websites that think, adapt and perform — designed, developed and looked after by us. Plus AI-driven systems — like <em>Akarsa One</em> — that find your buyers and automate the busywork.</p>
+                <ul class="chips"><li>Website development</li><li>Website management</li><li>AI automation</li><li>Akarsa One</li></ul>
+              </div>
+              <div class="svc__foot"><strong>Built to scale</strong><span>Fast, secure and future-ready</span></div>
+              <div class="svc__media"><div class="media media--panel media--glass" data-reel="assets/clients/reels/nomad-pizza.jpg|poster:one"></div></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMPARISON ============ -->
+    <section class="compare">
+      <div class="container">
+        <h2 class="h2 split center">Don’t settle for ordinary.</h2>
+        <div class="compare__cards">
+          <div class="cmp cmp--other">
+            <h4>Other agencies</h4>
+            <ul>
+              <li><i class="tick tick--muted"></i><span>Templates and trends</span></li>
+              <li><i class="tick tick--muted"></i><span>A different vendor for every need</span></li>
+              <li><i class="tick tick--muted"></i><span>Creative guesswork</span></li>
+              <li><i class="tick tick--muted"></i><span>Vanity metrics</span></li>
+              <li><i class="tick tick--muted"></i><span>Creative <em>or</em> technical</span></li>
+            </ul>
+          </div>
+          <div class="cmp cmp--us">
+            <h4 class="cmp__brand"><svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>Akarsa</h4>
+            <ul>
+              <li><i class="tick"></i><span>Original ideas, built from zero</span></li>
+              <li><i class="tick"></i><span>One studio for everything</span></li>
+              <li><i class="tick"></i><span>AI-tested, data-led creative</span></li>
+              <li><i class="tick"></i><span>Clear insights &amp; real growth</span></li>
+              <li><i class="tick"></i><span>Creative <em>and</em> technical</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROCESS ============ -->
+    <section class="process" id="process">
+      <div class="container">
+        <div class="section-head">
+          <span class="pill" data-pop>Our process</span>
+          <h2 class="h2 split">From first conversation to real impact.</h2>
+        </div>
+        <div class="steps">
+          <div class="step step--pink" data-pop>
+            <div class="step__top"><span>01</span><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z"/><path d="M8 9h8M8 12h5"/></svg></div>
+            <div class="step__viz viz-chat"><p class="bub bub--in">We post daily but get zero leads.</p><p class="bub bub--out">Let’s decode why.</p><p class="bub bub--in bub--typing"><i></i><i></i><i></i></p></div>
+            <div class="step__bottom"><h4>Listen</h4><p>We listen to your goals and decode the vision behind them.</p></div>
+          </div>
+          <div class="step step--purple" data-pop>
+            <div class="step__top"><span>02</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg></div>
+            <div class="step__viz viz-plan"><span><i class="tick"></i>Audience mapped</span><span><i class="tick"></i>Hooks drafted</span><span><i class="tick"></i>Channels picked</span><span><i class="tick"></i>Budget planned</span></div>
+            <div class="step__bottom"><h4>Strategise</h4><p>We map the roadmap — audience, channels and message.</p></div>
+          </div>
+          <div class="step step--stone" data-pop>
+            <div class="step__top"><span>03</span><svg viewBox="0 0 24 24"><path d="m12 3 2.6 5.6L20 9.5l-4 4 1 5.8L12 16.6 7 19.3l1-5.8-4-4 5.4-.9L12 3Z"/></svg></div>
+            <div class="step__viz viz-create"><div class="poster" data-poster="reel"></div><div class="poster" data-poster="ad"></div><div class="poster" data-poster="post"></div></div>
+            <div class="step__bottom"><h4>Create</h4><p>Design, storytelling and technology merge into one.</p></div>
+          </div>
+          <div class="step step--green" data-pop>
+            <div class="step__top"><span>04</span><svg viewBox="0 0 24 24"><path d="M5 20V14M10 20V10M15 20V7M20 20V4"/></svg></div>
+            <div class="step__viz viz-grow"><span class="viz-grow__tag">↑ 1,240% enquiries</span><div class="viz-grow__bars"><i style="--h:18%"></i><i style="--h:30%"></i><i style="--h:26%"></i><i style="--h:48%"></i><i style="--h:64%"></i><i style="--h:92%"></i></div></div>
+            <div class="step__bottom"><h4>Refine &amp; Scale</h4><p>We test, refine and scale what truly performs.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROOF ============ -->
+    <section class="testi" id="proof">
+      <div class="container">
+        <div class="section-head center">
+          <span class="pill" data-pop>Proof, not promises</span>
+          <h2 class="h2 split">Results you can actually count.</h2>
+        </div>
+        <div class="testi__grid">
+          <a class="tcard tcard--land" href="https://www.instagram.com/akarsa_studio/reel/DeEImQ5OMDT/" target="_blank" rel="noopener" data-cursor="Watch" data-reveal>
+            <div class="tcard__media"><div class="media media--panel" style="--pc:#1c1917" data-reel="assets/instagram/r03.jpg"></div></div>
+            <div class="tcard__body">
+              <span class="eyebrow eyebrow--purple">Meta Ads · Case study</span>
+              <h4>₹30,000 turned into 52 real enquiries.</h4>
+              <p>Cost per enquiry fell from ₹7,500 to just ₹577 — the kind of result we chase on every single campaign.</p>
+              <span class="tcard__link">Watch the breakdown <svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+            </div>
+          </a>
+          <article class="tcard tcard--stat tcard--pink" data-reveal>
+            <strong class="tcard__big" data-count="13" data-suffix="×">13×</strong>
+            <h4>Cheaper enquiries</h4>
+            <p>₹7,500 → ₹577 cost per enquiry on Meta Ads.</p>
+          </article>
+          <article class="tcard tcard--stat tcard--purple" data-reveal>
+            <strong class="tcard__big" data-count="3" data-suffix="×">3×</strong>
+            <h4>Qualified leads</h4>
+            <p>With Akarsa One — our AI that finds your buyers. No guesswork.</p>
+          </article>
+          <article class="tcard tcard--clients" data-reveal>
+            <span class="eyebrow eyebrow--muted">Trusted by</span>
+            <strong class="tcard__big" data-count="22">22</strong>
+            <h4>Brands and counting</h4>
+            <p>Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke’s Table, Olympia Gym &amp; more.</p>
+          </article>
+          <a class="tcard tcard--quote" href="https://www.instagram.com/akarsa_studio/reel/DcQUNc4OVVV/" target="_blank" rel="noopener" data-reveal>
+            <span class="tcard__mark">“</span>
+            <h4>Your brand doesn’t have a design problem. It has a thinking problem.</h4>
+            <div class="person"><svg class="avatar avatar--mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="200" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg><div><strong>Akarsa Live</strong><span>Ritik Sharma × Malhar Chaudhari</span></div></div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEAM ============ -->
+    <section class="team">
+      <div class="container center">
+        <span class="pill" data-pop>Our team</span>
+        <h2 class="h2 split">The minds behind Akarsa.</h2>
+        <div class="founder" data-pop>
+          <img src="assets/founder/ritik-sharma.jpg" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" />
+          <div><strong>Ritik Sharma</strong><span>Founder &amp; Director · Host of Akarsa Live</span></div>
+        </div>
+      </div>
+      <div class="team__row">
+        <svg class="team__wave" viewBox="0 0 1440 300" preserveAspectRatio="none" aria-hidden="true"><path d="M-20,250 C200,240 260,120 420,130 C600,140 560,250 760,220 C960,190 900,60 1100,70 C1260,80 1300,160 1460,120" /></svg>
+        <div class="role role--purple" style="--r:-6deg;--y:10px"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 0 18c1 0 1.5-.7 1.5-1.5 0-1.2-1-1.5-1-2.5 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4-4-7.5-9-7.5Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="10" cy="7" r="1"/><circle cx="15" cy="7" r="1"/></svg><strong>Designers</strong></div>
+        <div class="role role--pink" style="--r:4deg;--y:40px"><svg viewBox="0 0 24 24"><path d="m8 7-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg><strong>Developers</strong></div>
+        <div class="role role--orange" style="--r:-3deg;--y:-10px"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/></svg><strong>Filmmakers</strong></div>
+        <div class="role role--green" style="--r:5deg;--y:30px"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/><path d="M9.5 14.5 12 9l2.5 5.5M10.3 13h3.4"/></svg><strong>AI Specialists</strong></div>
+        <div class="role role--stone" style="--r:-4deg;--y:0px"><svg viewBox="0 0 24 24"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg><strong>Strategists</strong></div>
+        <div class="role role--purple" style="--r:6deg;--y:25px"><svg viewBox="0 0 24 24"><path d="M3 11v3a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M15 9a3 3 0 0 1 0 6M18 6a7 7 0 0 1 0 12"/></svg><strong>Marketers</strong></div>
+      </div>
+      <div class="container center team__foot">
+        <p data-reveal>Designers, developers, filmmakers and AI specialists who work as one — so vision and execution never get lost in translation.</p>
+        <a class="btn btn--dark magnetic" data-wa href="#" data-pop><span class="btn__label">Talk to the team</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      </div>
+    </section>
+
+    <!-- ============ ENGAGEMENT / PRICING ============ -->
+    <section class="pricing">
+      <div class="container pricing__grid">
+        <div class="pricing__left">
+          <span class="pill" data-pop>Ways to work with us</span>
+          <h2 class="h2 split">Flexible plans for every stage.</h2>
+          <div class="switch" role="tablist" aria-label="Engagement type">
+            <span class="switch__pill"></span>
+            <button role="tab" class="is-active" data-plan="monthly" aria-selected="true">Monthly</button>
+            <button role="tab" data-plan="project" aria-selected="false">One-time project</button>
+          </div>
+          <a class="custom" data-wa href="#" data-pop>
+            <span class="custom__avatar"><svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg><i class="online"></i></span>
+            <span class="custom__text"><strong>Need something custom?</strong><span>Let’s talk on WhatsApp</span></span>
+            <span class="custom__arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
+          </a>
+        </div>
+
+        <div class="plan plan--light" data-reveal>
+          <div class="plan__head">
+            <h4 class="plan__name" data-monthly="Growth" data-project="Brand Launch">Growth</h4>
+            <p class="plan__desc" data-monthly="For brands ready to show up consistently" data-project="For new brands and bold rebrands">For brands ready to show up consistently</p>
+            <div class="plan__price"><span class="plan__num" data-monthly="Tailored" data-project="Tailored">Tailored</span><span class="plan__per" data-monthly="/MO" data-project="/PROJECT">/MO</span></div>
+          </div>
+          <ul class="plan__list"
+              data-monthly="Content strategy &amp; calendar|Short-form &amp; UGC production|Social media management|Monthly performance report|Dedicated point of contact"
+              data-project="Brand identity &amp; logo|Visual language &amp; guidelines|Launch website|Launch content kit|Two revision rounds">
+          </ul>
+          <a class="btn btn--dark btn--block magnetic" data-wa href="#"><span class="btn__label">Get a proposal</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+
+        <div class="plan plan--dark" data-reveal>
+          <div class="plan__head">
+            <h4 class="plan__name"><span data-monthly="Studio Partner" data-project="Growth Engine">Studio Partner</span> <em class="badge">Popular</em></h4>
+            <p class="plan__desc" data-monthly="Full-service growth, one dedicated team" data-project="A complete launch-to-scale system">Full-service growth, one dedicated team</p>
+            <div class="plan__price"><span class="plan__num" data-monthly="Tailored" data-project="Tailored">Tailored</span><span class="plan__per" data-monthly="/MO" data-project="/PROJECT">/MO</span></div>
+          </div>
+          <ul class="plan__list"
+              data-monthly="Everything in Growth|Meta, Google, YouTube &amp; ChatGPT ads|Influencer campaigns|Website management|AI-powered insights &amp; automation"
+              data-project="Brand, website &amp; content|Performance ad setup|Influencer seeding|AI automation build|Unlimited revisions">
+          </ul>
+          <a class="btn btn--light btn--block magnetic" data-wa href="#"><span class="btn__label">Get a proposal</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BELIEFS (blog layout) ============ -->
+    <section class="beliefs">
+      <div class="container">
+        <div class="beliefs__head">
+          <div>
+            <span class="pill" data-pop>The Akarsa way</span>
+            <h2 class="h2 split">What we believe.</h2>
+          </div>
+          <a class="btn btn--dark magnetic" data-wa href="#" data-pop><span class="btn__label">Work with us</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+        <div class="beliefs__grid">
+          <article class="belief" data-reveal data-cursor="Read">
+            <div class="belief__img" style="--pc:#ffe3e1"><div class="poster" data-poster="truth"></div><span class="belief__chip">Principle 01</span></div>
+            <span class="eyebrow eyebrow--muted">Principle 01</span>
+            <h4>Truth over illusions.</h4>
+            <p>No fake followers, no vanity metrics, no empty promises. We tell you what’s really working — and what isn’t — so every rupee earns its place.</p>
+          </article>
+          <article class="belief" data-reveal data-cursor="Read">
+            <div class="belief__img" style="--pc:#ece5ff"><div class="poster" data-poster="ai"></div><span class="belief__chip">Principle 02</span></div>
+            <span class="eyebrow eyebrow--muted">Principle 02</span>
+            <h4>AI assists. Emotion leads.</h4>
+            <p>Machines bring precision and speed. People bring meaning. Every project is a collaboration between human insight and machine logic.</p>
+          </article>
+          <article class="belief" data-reveal data-cursor="Read">
+            <div class="belief__img" style="--pc:#dcf5ee"><div class="poster" data-poster="systems"></div><span class="belief__chip">Principle 03</span></div>
+            <span class="eyebrow eyebrow--muted">Principle 03</span>
+            <h4>Posting isn’t growth. Systems are.</h4>
+            <p>Random posting doesn’t build brands. We design systems — strategy, content, ads and data working together — that are tested, refined and built to compound.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq">
+      <div class="container faq__wrap">
+        <h2 class="h2 split center">Questions, answered.</h2>
+        <div class="faq__list">
+          <div class="qa is-open" data-reveal>
+            <button class="qa__q" aria-expanded="true"><span>What is Akarsa?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>Akarsa is a creation studio where art meets intelligence. We build brands, digital experiences and growth systems that blend human emotion with artificial precision. Every project begins with curiosity and ends with impact.</p></div>
+          </div>
+          <div class="qa" data-reveal>
+            <button class="qa__q" aria-expanded="false"><span>What services do you offer?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>Everything a modern brand needs to grow: UGC and short-form content, video editing and animation, social media management, influencer marketing, Meta, Google, YouTube and ChatGPT ads, brand identity, logo and graphic design, and website development and management — plus AI-driven systems that tie it all together.</p></div>
+          </div>
+          <div class="qa" data-reveal>
+            <button class="qa__q" aria-expanded="false"><span>How is Akarsa different from a regular agency?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>We aren’t built on routine. Our work doesn’t follow patterns — it creates them. We combine creativity, data and intelligence to design systems that think, adapt and perform, and you get one team that handles both the creative and the technical.</p></div>
+          </div>
+          <div class="qa" data-reveal>
+            <button class="qa__q" aria-expanded="false"><span>Do you actually use AI in your work?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>Yes. AI is a core part of how we think and build — we use it to analyse, automate and inspire creative output, and to sharpen marketing precision. But emotion and intuition always lead; AI is the instrument, not the artist.</p></div>
+          </div>
+          <div class="qa" data-reveal>
+            <button class="qa__q" aria-expanded="false"><span>What does “rule-breaking studio” mean?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>It means we don’t settle for what already exists. We question norms and rebuild ideas from the ground up to find new forms of beauty and truth in design and technology. It isn’t rebellion — it’s refinement.</p></div>
+          </div>
+          <div class="qa" data-reveal>
+            <button class="qa__q" aria-expanded="false"><span>Who do you work with?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>Founders, local favourites and global names alike — cafés and restaurants like Burger Singh, Chirmi and The Duke’s Table, fashion and retail brands like Adidas, Decathlon and The Korean Trends, plus fitness, education and lifestyle brands. If you want your digital presence to inspire, perform and evolve — you belong with Akarsa.</p></div>
+          </div>
+          <div class="qa" data-reveal>
+            <button class="qa__q" aria-expanded="false"><span>How does a project run, start to finish?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>Every collaboration begins with understanding. We listen to your goals, decode your vision and map the strategy. Then design, storytelling and technology merge into a single process of creation — and everything is tested and refined before it goes live.</p></div>
+          </div>
+          <div class="qa" data-reveal>
+            <button class="qa__q" aria-expanded="false"><span>How do we get started?</span><i class="qa__icon"></i></button>
+            <div class="qa__a"><p>It begins with a conversation. Message us on WhatsApp with your idea or your vision — we’ll connect, understand what you need and build a clear roadmap to turn it into something extraordinary.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA ============ -->
+    <section class="cta">
+      <div class="container cta__grid">
+        <div class="cta__card" data-reveal>
+          <svg class="cta__scribble" viewBox="0 0 300 140" aria-hidden="true"><path d="M-10,110 C40,120 90,60 70,30 C50,0 10,40 40,70 C80,110 200,80 310,-10" /></svg>
+          <h2 class="h2 cta__title split">Let’s create what others hesitate to imagine.</h2>
+          <p>Tell us where you want to go. We’ll bring the art, the intelligence and the plan to get you there.</p>
+          <a class="btn btn--light magnetic" data-wa href="#"><span class="btn__label">Start on WhatsApp</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        </div>
+        <div class="cta__media" data-reveal><div class="media media--panel" style="--pc:#2a1b4d" data-reel="poster:talk|assets/clients/reels/crush-coffee.jpg|poster:next"></div><span class="cta__chip cta__chip--a">Replies within a day</span><span class="cta__chip cta__chip--b">20+ brands grown</span></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <svg class="footer__loop" viewBox="0 0 300 600" aria-hidden="true"><path d="M300,40 C150,40 60,140 80,260 C100,380 260,360 240,260 C220,160 60,240 70,380 C80,520 200,580 300,560" /></svg>
+    <div class="container footer__top">
+      <h3 class="footer__tag">We don’t sell illusions. We engineer impact.</h3>
+      <div class="footer__col">
+        <span class="eyebrow eyebrow--dark">Navigation</span>
+        <a href="#work">Work</a><a href="#services">Services</a><a href="#story">Our Story</a><a href="#process">Process</a><a href="#faq">FAQ</a>
+      </div>
+      <div class="footer__col footer__social">
+        <span class="eyebrow eyebrow--dark">Follow us</span>
+        <div class="socials">
+          <a data-social="instagram" aria-label="Instagram" href="#"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          
+          <a data-social="youtube" aria-label="YouTube" href="#"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor"/></svg></a>
+          <a data-social="facebook" aria-label="Facebook" href="#"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2V3Z"/></svg></a>
+          <a data-social="pinterest" aria-label="Pinterest" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8.5c2.8-1 5 .6 4.6 3.2-.3 2-2 3.3-3.6 2.6M12 11l-2.5 9.5"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer__mid">
+      <div class="footer__contact">
+        <span class="eyebrow eyebrow--dark">Contact</span>
+        <a class="footer__big" data-wa href="#">WhatsApp us →</a>
+        <a class="footer__line" data-email href="#"></a>
+        <span class="footer__line" data-phone></span>
+        <span class="footer__line" data-address></span>
+      </div>
+      <a class="footer__card" data-wa href="#">
+        <strong>Have an idea?</strong>
+        <span>Share it with us on WhatsApp. We usually reply the same day.</span>
+        <span class="btn btn--dark btn--block"><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+      </a>
+    </div>
+    <div class="container footer__brand">
+      <svg class="footer__mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
+      <span class="footer__word">Akarsa</span>
+    </div>
+    <div class="container footer__bottom">
+      <span>© <span data-year>2026</span> Akarsa Studio Private Limited. All rights reserved.</span>
+      <a href="#top" class="to-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="config.js?v=15"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="script.js?v=15"></script>
+</body>
+</html>
