@@ -87,6 +87,15 @@
   };
   $$('[data-poster]').forEach(el => buildPoster(el, el.dataset.poster));
 
+  /* ---------------- descriptive alt text (SEO + accessibility) ---------------- */
+  const CLIENT_NAMES = { starbucks: 'Starbucks', adidas: 'Adidas', decathlon: 'Decathlon', 'olympia-gym': 'Olympia Fitness Gym', 'burger-singh': 'Burger Singh', 'dukes-table': 'The Duke’s Table', 'korean-trends': 'The Korean Trends', chirmi: 'Chirmi', 'mayarams-farm': 'Mayaram’s Farm', 'kunafa-bytes': 'Kunafa Bytes', lokal: 'Lokal', mudoven: 'Mudoven', 'urban-theka': 'Urban Theka', kahani: 'Kahani', '7th-heaven': '7th Heaven', varenyam: 'Varenyam', zhanna: 'Zhanna Events & Flowers', 'bake-affaire': 'Bake Affaire', 'nothing-before-coffee': 'Nothing Before Coffee', 'nomad-pizza': 'Nomad Pizza', 'crush-coffee': 'The Crush Coffee' };
+  const IG_ALTS = { r01: 'Akarsa Studio “Ruko!” short-form reel', r02: 'Akarsa Studio reel: Your marketing is a lie', r03: 'Meta Ads case study: ₹30K turned into 52 enquiries', r04: 'Akarsa Studio reel: Posting is not growth, you need a system', r05: 'Akarsa Studio reel: Are Meta ads a waste of money?', r06: 'Akarsa Studio talking-head short-form video', r08: 'Fleuristry brand film by Akarsa Studio', r09: 'Akarsa Live with Ritik Sharma and Malhar Chaudhari', r10: 'Akarsa One AI business intelligence reel', r11: 'Akarsa Studio reel: Spent ₹40,000 and got zero clients?', r12: 'Akarsa Studio short film reel' };
+  const altFor = src => {
+    const key = (src.split('/').pop() || '').replace(/\.\w+$/, '');
+    if (src.includes('/clients/reels/')) return `${CLIENT_NAMES[key] || 'Client'} social media reel by Akarsa Studio`;
+    return IG_ALTS[key] || 'Akarsa Studio work';
+  };
+
   /* ---------------- media slots ---------------- */
   $$('.media').forEach(m => {
     if (m.dataset.art) {
@@ -105,7 +114,7 @@
           return;
         }
         const im = document.createElement('img');
-        Object.assign(im, { className: 'reel', loading: 'lazy', decoding: 'async', alt: '' });
+        Object.assign(im, { className: 'reel', loading: 'lazy', decoding: 'async', alt: altFor(r) });
         im.src = r;
         wrap.appendChild(im);
       });
@@ -116,7 +125,7 @@
     const isVideo = /\.(mp4|webm|mov)$/i.test(src);
     const el = document.createElement(isVideo ? 'video' : 'img');
     if (isVideo) Object.assign(el, { muted: true, loop: true, autoplay: true, playsInline: true, preload: 'metadata' });
-    else { el.loading = 'lazy'; el.alt = ''; el.decoding = 'async'; }
+    else { el.loading = m.closest('.hero') ? 'eager' : 'lazy'; el.alt = m.closest('[aria-hidden="true"]') ? '' : altFor(src); el.decoding = 'async'; }
     el.addEventListener(isVideo ? 'loadeddata' : 'load', () => { el.classList.add('is-loaded'); m.classList.add('has-src'); }, { once: true });
     el.addEventListener('error', () => el.remove(), { once: true });
     el.src = src;
@@ -201,6 +210,7 @@
   /* ---------------- initial states (hidden behind loader) ---------------- */
   gsap.set('.nav', { yPercent: -160 });
   gsap.set('.hl__i', { yPercent: 110 });
+  gsap.set('.hero__kicker', { autoAlpha: 0, y: 14 });
   gsap.set('.hero [data-pop]', { autoAlpha: 0, scale: 0.8, y: 20 });
   gsap.set('.np-card', { autoAlpha: 0, scale: 0.8, x: 40, y: 20 });
   gsap.set('.phone-wrap', { autoAlpha: 0, scale: 0.7, y: 40 });
@@ -220,8 +230,10 @@
       ScrollTrigger.refresh();
     }
   });
-  if (reduced) {
-    tlLoad.set(loader, { autoAlpha: 0 }).add(() => intro.play());
+  let seen = false;
+  try { seen = sessionStorage.getItem('akarsa-seen') === '1'; sessionStorage.setItem('akarsa-seen', '1'); } catch (e) { /* storage blocked */ }
+  if (reduced || seen) {
+    tlLoad.to(loader, { autoAlpha: 0, duration: reduced ? 0 : 0.35 }).add(() => intro.play());
   } else {
     tlLoad
       .to('.loader__word span', { yPercent: -110, duration: 0.9, stagger: 0.05 }, 0.1)
@@ -237,6 +249,7 @@
   /* ---------------- hero intro (spring pops like the reference) ---------------- */
   intro
     .to('.nav', { yPercent: 0, duration: 1, ease: 'expo.out' }, 0)
+    .to('.hero__kicker', { autoAlpha: 1, y: 0, duration: 0.8, ease: 'back.out(2)' }, 0)
     .to('.hl__i', { yPercent: 0, duration: 1.1, stagger: 0.1, ease: 'expo.out' }, 0.05)
     .to('.circled path', { strokeDashoffset: 0, duration: 1.1, ease: 'power2.inOut' }, 0.7)
     .to('.pw--3', { autoAlpha: 1, scale: 1, y: 0, duration: 1, ease: 'back.out(1.4)' }, 0.35)
@@ -282,6 +295,11 @@
   })();
 
   /* ---------------- platform marquee (reacts to scroll speed) ---------------- */
+  // the second half of each marquee track is a visual duplicate for looping — hide it from assistive tech
+  $$('.logos__track').forEach(track => {
+    const kids = [...track.children];
+    kids.slice(kids.length / 2).forEach(k => k.setAttribute('aria-hidden', 'true'));
+  });
   $$('.logos__track').forEach((track, k) => {
     const rev = track.classList.contains('logos__track--b');
     const tw = rev
