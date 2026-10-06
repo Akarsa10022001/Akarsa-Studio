@@ -934,3 +934,5 @@ em{font-style:normal}
 .hero__kicker i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.2)}
 .footer__intro{display:grid;gap:16px;align-content:start}
 .footer__about{max-width:440px;font-size:15px;line-height:1.55;color:rgba(28,25,23,.72)}
+.footer__addr{font-size:16px!important;font-weight:500!important;max-width:420px;line-height:1.45;text-decoration:underline;text-decoration-color:rgba(28,25,23,.3);text-underline-offset:4px}
+.footer__addr:hover{text-decoration-color:#1c1917}

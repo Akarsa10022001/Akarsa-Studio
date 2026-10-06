@@ -20,7 +20,11 @@
   });
   $$('[data-email]').forEach(a => { if (cfg.email) { a.href = `mailto:${cfg.email}`; a.textContent = cfg.email; } else a.remove(); });
   $$('[data-phone]').forEach(el => { if (cfg.phoneDisplay) el.textContent = cfg.phoneDisplay; else el.remove(); });
-  $$('[data-address]').forEach(el => { if (cfg.address) el.textContent = cfg.address; else el.remove(); });
+  $$('[data-address]').forEach(el => {
+    if (!cfg.address) return el.remove();
+    el.textContent = cfg.address;
+    if (el.tagName === 'A') { el.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent('Akarsa Studio, ' + cfg.address)}`; el.target = '_blank'; el.rel = 'noopener'; }
+  });
   $$('[data-social]').forEach(a => {
     const url = (cfg.socials || {})[a.dataset.social];
     if (url) { a.href = url; a.target = '_blank'; a.rel = 'noopener'; } else a.remove();

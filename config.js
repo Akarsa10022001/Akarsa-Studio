@@ -10,7 +10,7 @@ window.AKARSA = {
 
   email: "", // e.g. "hello@akarsa.studio" (leave empty to hide)
   phoneDisplay: "+91 81098 01383",
-  address: "", // city / office address (leave empty to hide)
+  address: "Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010",
 
   socials: {
     instagram: "https://www.instagram.com/akarsa_studio/",
