@@ -30,4 +30,10 @@
     <image:image><image:loc>https://www.akarsaone.xyz/assets/instagram/r03.jpg</image:loc><image:title>Meta Ads case study: ₹30K turned into 52 enquiries</image:title></image:image>
     <image:image><image:loc>https://www.akarsaone.xyz/assets/founder/ritik-sharma.jpg</image:loc><image:title>Ritik Sharma, Founder &amp; Director of Akarsa Studio</image:title></image:image>
   </url>
+  <url>
+    <loc>https://www.akarsaone.xyz/privacy</loc>
+    <lastmod>2026-10-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
 </urlset>
