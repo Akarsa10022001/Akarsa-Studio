@@ -2,6 +2,22 @@
 <html lang="en-IN">
 <head>
   <meta charset="utf-8" />
+  <!-- OpenAI Ads pixel: loads tracking and fires "lead_created" on WhatsApp clicks -->
+  <script>
+    window.oaiq = window.oaiq || function () { (window.oaiq.q = window.oaiq.q || []).push(arguments); };
+    (function () {
+      var tag = document.createElement("script");
+      tag.async = true;
+      tag.src = "https://bzrcdn.openai.com/sdk/oaiq.min.js";
+      document.head.appendChild(tag);
+    })();
+    oaiq("init", { pixelId: "LE4edrtbuXecbo6afZT4SS", debug: true });
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
+      if (!link) return;
+      oaiq("measure", "lead_created", { type: "customer_action" });
+    }, true);
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akarsa Studio | AI Marketing Agency in Indore, India</title>
   <meta name="description" content="Akarsa Studio is an AI-driven marketing agency in Indore, India: social media, UGC &amp; reels, influencer marketing, Meta &amp; Google ads, branding and websites." />
