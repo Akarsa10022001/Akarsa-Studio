@@ -71,8 +71,8 @@ Akarsa Studio is an AI-driven marketing agency in Vijay Nagar, Indore — social
 Akarsa Studio (Akarsa Studio Private Limited) is an AI-driven marketing agency based in Vijay Nagar, Indore. We create content, run ads and build brands for businesses across India — social media management, UGC and reels, influencer marketing, Meta, Google, YouTube, Reddit and ChatGPT ads, branding and logo design, and website development. Our work includes campaigns for 20+ brands such as Starbucks, Adidas, Decathlon, Burger Singh and Chirmi. In one Meta ads campaign we turned ₹30,000 into 52 enquiries, cutting cost per enquiry from ₹7,500 to ₹577. Spend more than $1,000 on Reddit ads with us and get a dedicated Reddit team. Founded by Ritik Sharma.
 
 **Priority listings (all free):**
-1. Google Business Profile — category "Marketing agency" (+ Social media agency, Advertising agency, Website designer). Biggest local win; ask clients for reviews.
-2. Bing Places for Business (import from Google) + Bing Webmaster Tools (import from Search Console).
+1. Google Business Profile — **done 17 Oct 2026:** verified; description updated; categories Marketing agency (primary), Advertising agency, Internet marketing service, Web Designer, Graphic designer, Video production service ("Social media agency" isn't offered in India). Next: get 5+ reviews — send clients https://g.page/r/CcurrO6xi-njEBM/review (Google says 5+ reviews can get up to twice as many customers).
+2. Bing Places for Business (import from Google) + Bing Webmaster Tools (import from Search Console) — needs a Microsoft sign-in. Meanwhile all 18 URLs were pushed to Bing/Yandex via IndexNow (17 Oct).
 3. Apple Business Connect.
 4. LinkedIn company page (Ritik's profile → "Founder at Akarsa Studio").
 5. Agency directories AI engines cite: Clutch, GoodFirms, DesignRush, Sortlist, TechBehemoths.
