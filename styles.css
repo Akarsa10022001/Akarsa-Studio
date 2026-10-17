@@ -996,3 +996,14 @@ em{font-style:normal}
   .newads__grid{grid-template-columns:1fr}
   .adcard{padding:22px;border-radius:26px}
 }
+
+/* internal links to dedicated service pages + footer link columns (homepage) */
+.svc__more{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:14px;font-size:14px;font-weight:700}
+.svc__more a{text-decoration:underline;text-decoration-color:rgba(28,25,23,.35);text-underline-offset:4px}
+.svc__more a:hover{text-decoration-color:#1c1917}
+.adcard__more{font-size:14px;font-weight:700;text-decoration:underline;text-underline-offset:4px;opacity:.9}
+.footer__top--home{grid-template-columns:1.3fr 1fr 1fr 1fr}
+.footer__col--links{gap:4px}
+.footer__col--links a{font-size:15px!important;border:0!important;padding:2px 0!important;font-weight:600}
+.footer__col--links a:hover{background:none!important;color:#1c1917!important;text-decoration:underline}
+@media (max-width:900px){.footer__top--home{grid-template-columns:1fr 1fr}}
