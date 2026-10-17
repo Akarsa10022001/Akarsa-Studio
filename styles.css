@@ -936,3 +936,63 @@ em{font-style:normal}
 .footer__about{max-width:440px;font-size:15px;line-height:1.55;color:rgba(28,25,23,.72)}
 .footer__addr{font-size:16px!important;font-weight:500!important;max-width:420px;line-height:1.45;text-decoration:underline;text-decoration-color:rgba(28,25,23,.3);text-underline-offset:4px}
 .footer__addr:hover{text-decoration-color:#1c1917}
+
+/* =========================================================
+   NEW AD PLATFORMS — Reddit + ChatGPT
+   ========================================================= */
+.nav__new{display:inline-flex;align-items:center;gap:6px}
+.nav__new i,.nav__newtag{font-style:normal;font-size:9px;font-weight:700;letter-spacing:.08em;padding:2px 6px;border-radius:99px;background:#FF4500;color:#fff;line-height:1.4}
+@media (max-width:1180px) and (min-width:901px){.nav__links{gap:22px;font-size:15px}}
+.newads{padding:40px 0 120px}
+.pill--new{display:inline-flex;align-items:center;gap:8px;background:#1c1917;color:#fff}
+.pill--new i{width:7px;height:7px;border-radius:50%;background:#FF4500;box-shadow:0 0 0 3px rgba(255,69,0,.3);animation:pulse-r 1.8s infinite}
+@keyframes pulse-r{0%{box-shadow:0 0 0 0 rgba(255,69,0,.55)}70%{box-shadow:0 0 0 8px rgba(255,69,0,0)}100%{box-shadow:0 0 0 0 rgba(255,69,0,0)}}
+.newads .lead{margin-top:18px}
+.newads__grid{display:grid;grid-template-columns:1.08fr 1fr;gap:20px;align-items:stretch}
+.adcard{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:18px;padding:32px;border-radius:32px;background-image:radial-gradient(rgba(255,255,255,.14) 1.3px,transparent 1.7px);background-size:18px 18px}
+.adcard--reddit{background-color:#FF4500;color:#fff}
+.adcard--gpt{background-color:#1c1917;color:#f4f4f3;background-image:radial-gradient(rgba(255,255,255,.07) 1.3px,transparent 1.7px),radial-gradient(70% 50% at 100% 0%,rgba(16,163,127,.35),transparent 70%)}
+.adcard__head{display:flex;align-items:center;gap:12px}
+.adcard__logo{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;background:rgba(0,0,0,.18)}
+.adcard--gpt .adcard__logo{background:#10a37f}
+.adcard__logo img{width:28px;height:28px}
+.adcard__tag{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:99px;background:rgba(255,255,255,.18)}
+.adcard__title{font-size:clamp(32px,3.4vw,48px);line-height:1.05;font-weight:700;letter-spacing:-.04em}
+.adcard__text{font-size:17px;line-height:1.5;opacity:.88;max-width:520px}
+.adcard .btn{align-self:flex-start;margin-top:auto}
+/* mock promoted Reddit post */
+.rd-post{display:flex;gap:12px;padding:14px 16px;border-radius:18px;background:#fff;color:#1c1917;box-shadow:0 24px 40px -24px rgba(0,0,0,.45);rotate:-1.5deg;max-width:520px}
+.rd-post__votes{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:13px;font-weight:700;min-width:40px}
+.rd-post__votes svg{width:22px;height:22px;fill:#FF4500}
+.rd-post__meta{display:flex;align-items:center;gap:6px;font-size:12px;color:#78716C}
+.rd-post__meta em{font-style:normal;font-weight:700;color:#0079d3}
+.rd-post__sub{width:18px;height:18px;border-radius:50%;background:#FF4500}
+.rd-post__title{font-size:17px;font-weight:700;line-height:1.3;letter-spacing:-.02em;margin:6px 0 10px}
+.rd-post__actions{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:#78716C}
+.rd-post__cta{padding:6px 14px;border-radius:99px;background:#0079d3;color:#fff;font-weight:700}
+/* the $1,000 offer */
+.offer{position:relative;overflow:hidden;display:grid;gap:6px;padding:22px 24px;border-radius:24px;background:#fff;color:#1c1917;box-shadow:0 30px 50px -30px rgba(0,0,0,.5)}
+.offer::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,168,242,.35) 50%,transparent 70%);background-size:250% 100%;animation:offer-shine 3.6s ease-in-out infinite;pointer-events:none}
+@keyframes offer-shine{0%{background-position:150% 0}60%,100%{background-position:-50% 0}}
+.offer__eyebrow{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FF4500}
+.offer__big{font-family:"Anton",Impact,sans-serif;font-weight:400;font-size:clamp(44px,5vw,64px);line-height:1;letter-spacing:-.01em}
+.offer__line{font-size:18px;line-height:1.35}
+.offer__line b{background:linear-gradient(transparent 60%,#FFA8F2 60%)}
+.offer__list,.adcard__points{display:grid;gap:8px;margin-top:8px}
+.offer__list li,.adcard__points li{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:600}
+.offer__list .tick{background:#FF4500}
+.offer__list .tick::after{border-color:#fff}
+.adcard__points .tick{background:#10a37f}
+.adcard__points .tick::after{border-color:#fff}
+/* mock ChatGPT conversation */
+.gpt-chat{display:grid;gap:10px;padding:16px;border-radius:20px;background:#262321;border:1px solid rgba(255,255,255,.08)}
+.gpt-chat__q{justify-self:end;max-width:85%;padding:10px 14px;border-radius:18px 18px 6px 18px;background:#3a3633;font-size:15px}
+.gpt-chat__a{max-width:90%;font-size:15px;color:#d6d3d1}
+.gpt-chat__ad{display:grid;gap:2px;padding:12px 14px;border-radius:14px;background:#f4f4f3;color:#1c1917;border-left:4px solid #10a37f}
+.gpt-chat__ad strong{font-size:17px}
+.gpt-chat__ad span:last-child{font-size:13px;color:#57534E}
+.gpt-chat__label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#10a37f}
+@media (max-width:900px){
+  .newads__grid{grid-template-columns:1fr}
+  .adcard{padding:22px;border-radius:26px}
+}

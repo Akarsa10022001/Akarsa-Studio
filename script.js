@@ -270,7 +270,7 @@
     const path = $('#ribbonPath');
     const tp = $('.ribbon__tp');
     if (!path || !tp) return;
-    const seq = 'UGC • SHORT-FORM • SOCIAL MEDIA • INFLUENCER MARKETING • META ADS • GOOGLE ADS • YOUTUBE ADS • CHATGPT ADS • BRANDING • LOGO DESIGN • WEBSITES • ANIMATION • ';
+    const seq = 'UGC • SHORT-FORM • SOCIAL MEDIA • INFLUENCER MARKETING • META ADS • GOOGLE ADS • REDDIT ADS • CHATGPT ADS • YOUTUBE ADS • BRANDING • LOGO DESIGN • WEBSITES • ANIMATION • ';
     tp.textContent = seq;
     const seqLen = tp.getComputedTextLength() || 1500;
     const pathLen = path.getTotalLength();
@@ -354,6 +354,11 @@
   });
   /* ---------------- logo wall ---------------- */
   $$('.logo-wall').forEach(w => gsap.fromTo($$('.wt', w), { scale: 0.5, rotation: () => gsap.utils.random(-14, 14), autoAlpha: 0 }, { scale: 1, rotation: 0, autoAlpha: 1, duration: 0.8, stagger: { each: 0.05, from: 'random' }, ease: 'back.out(1.8)', clearProps: 'transform', scrollTrigger: { trigger: w, start: 'top 80%', once: true } }));
+
+  /* ---------------- Reddit + ChatGPT ads section ---------------- */
+  $$('.rd-post').forEach(p => gsap.from(p, { y: 30, rotation: -3, autoAlpha: 0, duration: 0.9, ease: 'back.out(1.6)', clearProps: 'transform', scrollTrigger: { trigger: p, start: 'top 88%' } }));
+  $$('.gpt-chat').forEach(c => gsap.from($$('.gpt-chat > *', c), { y: 16, autoAlpha: 0, scale: 0.94, duration: 0.6, stagger: 0.5, ease: 'back.out(2)', clearProps: 'transform', scrollTrigger: { trigger: c, start: 'top 85%' } }));
+  $$('.offer__list li, .adcard__points li').forEach(li => gsap.from(li, { x: -14, autoAlpha: 0, duration: 0.5, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: li, start: 'top 92%' } }));
 
   /* ---------------- generic reveals ---------------- */
   $$('.split, .split-inline').forEach(el => {
