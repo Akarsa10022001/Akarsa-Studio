@@ -74,6 +74,7 @@ ADDRESS_CARD = '''<div class="pvisual pvisual--mock"><div class="addr-card">
   <span class="addr-card__eyebrow">Visit the studio</span>
   <strong>Akarsa Studio</strong>
   <address>Office No. 702, Shagun Arcade, Main Rd,<br/>near Apna Sweets, PU 4, near Vijay Nagar Square,<br/>Vijay Nagar, Indore, Madhya Pradesh 452010</address>
+  <p class="addr-card__hours">Mon–Fri 11:00 am – 7:30 pm · Sat 12:00 – 3:30 pm · Sun closed</p>
   <a class="addr-card__btn" href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore%20452010" target="_blank" rel="noopener">Get directions ↗</a>
 </div></div>'''
 
@@ -547,6 +548,7 @@ page(
 <tr><th>What we are</th><td>An AI-driven, truth-seeking marketing agency — “where art meets intelligence”</td></tr>
 <tr><th>Founder</th><td>Ritik Sharma, Founder &amp; Director</td></tr>
 <tr><th>Headquarters</th><td>Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010, India</td></tr>
+<tr><th>Office hours</th><td>Monday–Friday 11:00 am – 7:30 pm, Saturday 12:00 – 3:30 pm, Sunday closed</td></tr>
 <tr><th>Phone / WhatsApp</th><td>+91 81098 01383</td></tr>
 <tr><th>Website</th><td>https://www.akarsaone.xyz</td></tr>
 <tr><th>Services</th><td>Social media marketing, UGC &amp; short-form video, video editing &amp; animation, influencer marketing, Meta ads, Google ads, YouTube ads, Reddit ads, ChatGPT ads, brand identity &amp; logo design, graphic design, website development &amp; management, AI marketing automation</td></tr>

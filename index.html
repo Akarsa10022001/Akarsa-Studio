@@ -11,7 +11,7 @@
       tag.src = "https://bzrcdn.openai.com/sdk/oaiq.min.js";
       document.head.appendChild(tag);
     })();
-    oaiq("init", { pixelId: "LE4edrtbuXecbo6afZT4SS", debug: true });
+    oaiq("init", { pixelId: "LE4edrtbuXecbo6afZT4SS", debug: false });
     document.addEventListener("click", function (e) {
       var link = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
       if (!link) return;
@@ -317,6 +317,20 @@
     "addressCountry": "IN"
    },
    "hasMap": "https://www.google.com/maps/search/?api=1&query=Akarsa+Studio+Shagun+Arcade+Vijay+Nagar+Indore+452010",
+   "openingHoursSpecification": [
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+     "opens": "11:00",
+     "closes": "19:30"
+    },
+    {
+     "@type": "OpeningHoursSpecification",
+     "dayOfWeek": "Saturday",
+     "opens": "12:00",
+     "closes": "15:30"
+    }
+   ],
    "areaServed": [
     {
      "@type": "City",
