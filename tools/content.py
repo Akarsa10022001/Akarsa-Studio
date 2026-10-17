@@ -47,7 +47,7 @@ REDDIT_MOCK = '''<div class="pvisual pvisual--mock pvisual--reddit"><div class="
   <div class="rd-post__body"><div class="rd-post__meta"><span class="rd-post__sub"></span>r/IndianStartups · <em>Promoted</em></div>
   <p class="rd-post__title">Your brand, in front of the exact communities that buy.</p>
   <div class="rd-post__actions"><span>💬 86 comments</span><span class="rd-post__cta">Learn more</span></div></div>
-</div><div class="offer offer--mini"><span class="offer__eyebrow">Reddit team offer</span><strong class="offer__big">$1,000+</strong><span class="offer__line">spend on Reddit ads = a <b>dedicated Reddit team</b></span></div></div>'''
+</div><div class="offer offer--mini"><span class="offer__eyebrow">Reddit team offer</span><strong class="offer__big">$1,000+</strong><span class="offer__line">spend on Reddit ads = a <b>dedicated team from Reddit</b></span></div></div>'''
 
 GOOGLE_MOCK = '''<div class="pvisual pvisual--mock"><div class="gad" aria-hidden="true">
   <div class="gad__bar"><span>marketing agency in indore</span><i></i></div>
@@ -148,17 +148,18 @@ page(
 page(
     slug="reddit-ads-agency-india", kind="service", group="Ads",
     title="Reddit Ads Agency in India | Akarsa Studio",
-    desc="Reddit ads that reach the right communities. Spend $1,000+ on Reddit ads and get a dedicated Reddit team that handles, optimises and precisely targets.",
+    desc="Reddit ads that reach the right communities. Spend $1,000+ on Reddit ads with us and Reddit assigns a dedicated team from Reddit to your brand.",
     nav_label="Reddit Ads",
     eyebrow="New · Reddit Ads", h1="Reddit Ads Agency in India",
     lead="Reach people inside the communities where they ask for recommendations — before your competitors do.",
-    answer="Akarsa Studio runs Reddit ads for Indian and global brands from Indore, targeting by community, interest and conversation. Spend more than $1,000 on Reddit ads and you get a dedicated Reddit team that handles your campaigns, optimises them continuously and precisely targets your audience.",
-    visual=REDDIT_MOCK, wa=WA + "Reddit ads and the dedicated Reddit team.", cta_label="Get your Reddit team",
+    answer="Akarsa Studio runs Reddit ads for Indian and global brands from Indore, targeting by community, interest and conversation. Spend more than $1,000 on Reddit ads with us and Reddit assigns a dedicated team from Reddit itself, working alongside Akarsa to optimise and precisely target your campaigns.",
+    visual=REDDIT_MOCK, wa=WA + "Reddit ads and the dedicated team from Reddit.", cta_label="Get your Reddit team",
     service_type="Reddit advertising",
     sections=[
-        ("The offer: a dedicated Reddit team at $1,000+", '''<div class="offer offer--wide"><span class="offer__eyebrow">Exclusive Reddit offer</span><strong class="offer__big">Spend $1,000+</strong>
-<span class="offer__line">on Reddit ads and get a <b>dedicated Reddit team</b> for your brand</span>
-<ul class="offer__list"><li><i class="tick"></i>Handles your campaigns end to end</li><li><i class="tick"></i>Optimises them continuously</li><li><i class="tick"></i>Precisely targets your audience</li></ul></div>'''),
+        ("The offer: a dedicated team from Reddit at $1,000+", '''<div class="offer offer--wide"><span class="offer__eyebrow">Exclusive Reddit offer</span><strong class="offer__big">Spend $1,000+</strong>
+<span class="offer__line">on Reddit ads with us and get a <b>dedicated team from Reddit</b></span>
+<ul class="offer__list"><li><i class="tick"></i>Reddit’s own team assigned to your brand</li><li><i class="tick"></i>Working alongside the Akarsa team</li><li><i class="tick"></i>Sharper optimisation &amp; precise targeting</li></ul></div>
+<p>When your Reddit ad spend with Akarsa crosses $1,000, Reddit assigns a dedicated team from Reddit to your account. They work hand in hand with us on targeting and optimisation, while we keep handling your strategy, Reddit-native creative, tracking and reporting.</p>'''),
         ("Why Reddit, and why now", '''<p>Reddit is different from every other ad platform: in the words of Reddit’s Durgesh Kaushik, “we are organised by interests, not social connections.” People join communities to ask questions and compare options — exactly the moment a brand wants to be present.</p>
 <ul class="ticks">
 <li><b>100,000+ active communities</b> worldwide, covering almost every niche a business sells into.</li>
@@ -174,7 +175,7 @@ page(
 <li><b>Keyword and conversation targeting</b> — appear next to discussions about your category.</li>
 <li><b>Location targeting</b> — focus spend on India, specific regions, or global markets.</li>
 </ul>
-<p>Reddit-native creative matters as much as targeting: ads that read like a helpful post outperform ads that read like a banner. That’s what our dedicated Reddit team writes.</p>'''),
+<p>Reddit-native creative matters as much as targeting: ads that read like a helpful post outperform ads that read like a banner. That’s what our Reddit specialists write.</p>'''),
         ("What do Reddit ads cost?", '''<p>Reddit’s stated minimum is $5 a day. Third-party 2026 estimates put typical CPCs around $0.50–$2.50 and CPMs around $3–$9 globally, while one 2025 India guide reported roughly ₹8–₹20 per click. Your real numbers depend on the communities and offer — we forecast them during your audit. Read our full <a href="/insights/reddit-ads-cost-india">Reddit ads cost in India guide</a>.</p>'''),
     ],
     cards=[("Community research", "We map the subreddits, interests and conversations where your buyers already are."),
@@ -183,8 +184,8 @@ page(
            ("Pixel & conversion tracking", "Reddit Pixel and conversion events set up so every lead and sale is measured."),
            ("Comment management", "We monitor and respond to comments on your promoted posts — Reddit audiences reward brands that engage."),
            ("Continuous optimisation", "Weekly tests on creative, communities and bids, with transparent reporting.")],
-    steps=[("Audit", "Your goals, audience and the communities they use."), ("Create", "Reddit-native ads and landing pages."), ("Launch", "Tight targeting, conversion tracking live from day one."), ("Optimise", "Your dedicated team improves results every week.")],
-    faqs=[("What do I get if I spend more than $1,000 on Reddit ads?", "A dedicated Reddit team that handles your campaigns end to end, optimises them continuously and precisely targets your audience — community research, Reddit-native creative, tracking, comment management and weekly reporting."),
+    steps=[("Audit", "Your goals, audience and the communities they use."), ("Create", "Reddit-native ads and landing pages."), ("Launch", "Tight targeting, conversion tracking live from day one."), ("Optimise", "Weekly improvements — with Reddit’s own team on board past $1,000.")],
+    faqs=[("What do I get if I spend more than $1,000 on Reddit ads?", "A dedicated team from Reddit itself. When your Reddit ad spend with Akarsa crosses $1,000, Reddit assigns its own team to your account. They work alongside us on optimisation and precise targeting, while we handle community research, Reddit-native creative, tracking, comment management and weekly reporting."),
           ("Are Reddit ads worth it for Indian brands?", "Often, yes — especially for brands whose buyers research before purchasing. Fewer than 10% of large consumer brands in India run formal Reddit campaigns, so competition is low, and Reddit is investing in India with Hindi and Bengali machine translation."),
           ("How much do Reddit ads cost in India?", "Reddit’s minimum is $5 a day. Third-party estimates suggest typical CPCs of about $0.50–$2.50 globally, and one 2025 India guide reported around ₹8–₹20 per click. We forecast your costs during the audit."),
           ("Can Reddit ads target only Indian users?", "Yes. Reddit supports location targeting, so campaigns can focus on India, specific regions, or international markets if you sell globally."),
@@ -552,7 +553,7 @@ page(
 <tr><th>Products</th><td>Akarsa One — AI business intelligence that finds buyers (3× qualified leads)</td></tr>
 <tr><th>Clients</th><td>20+ brands including Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke’s Table, Olympia Fitness Gym, The Korean Trends, Mayaram’s Farm, Bake Affaire, Nomad Pizza, The Crush Coffee, Nothing Before Coffee, Kunafa Bytes, Lokal, Urban Theka, Kahani, Mudoven, 7th Heaven, Varenyam, Zhanna Events &amp; Flowers and Fleuristry</td></tr>
 <tr><th>Notable result</th><td>Meta ads: ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577</td></tr>
-<tr><th>Offers</th><td>Spend more than $1,000 on Reddit ads and get a dedicated Reddit team</td></tr>
+<tr><th>Offers</th><td>Spend more than $1,000 on Reddit ads with us and Reddit assigns a dedicated team from Reddit to your brand</td></tr>
 <tr><th>Social</th><td>Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook /Akarsadyniq · Pinterest /beakarsa</td></tr>
 </table></div>'''),
         ("What we believe", '''<p><b>We don’t sell illusions. We engineer impact.</b> Akarsa isn’t built on routine — we question what feels ordinary, combine creativity with data and intelligence, and create what others hesitate to imagine.</p>
@@ -612,7 +613,7 @@ page(
     eyebrow="Guide · Reddit ads", h1="Reddit Ads Cost in India (2026): CPC, CPM, Budgets & Is It Worth It?",
     lead="Benchmarks, caveats and a practical way to test Reddit ads — with sources.",
     answer="Reddit ads have a minimum budget of $5 a day. Third-party 2026 estimates put typical CPCs around $0.50–$2.50 and CPMs around $3–$9 globally, and one 2025 India guide reported roughly ₹8–₹20 per click and ₹50–₹120 per 1,000 impressions. Reddit doesn’t publish official averages, so test with a small budget and measure your own cost per lead.",
-    takeaways=["Minimum: $5/day; bids from about $0.20.", "Global 2026 estimates: CPC ~$0.50–$2.50, CPM ~$3–$9 (third-party).", "India (2025 guide): ~₹8–₹20 CPC, ~₹50–₹120 CPM.", "Fewer than 10% of large consumer brands in India run formal Reddit campaigns.", "Target by community, interest, keyword and location.", "Akarsa offer: spend $1,000+ and get a dedicated Reddit team."],
+    takeaways=["Minimum: $5/day; bids from about $0.20.", "Global 2026 estimates: CPC ~$0.50–$2.50, CPM ~$3–$9 (third-party).", "India (2025 guide): ~₹8–₹20 CPC, ~₹50–₹120 CPM.", "Fewer than 10% of large consumer brands in India run formal Reddit campaigns.", "Target by community, interest, keyword and location.", "Akarsa offer: spend $1,000+ with us and get a dedicated team from Reddit."],
     sections=[
         ("Reddit ads cost: the benchmarks", '''<div class="facts"><table>
 <tr><th>Metric</th><td><b>Range</b></td></tr>
@@ -635,7 +636,7 @@ page(
           ("What is the average CPC for Reddit ads in India?", "One 2025 India guide reported roughly ₹8–₹20 per click. Global 2026 estimates range around $0.50–$2.50. Reddit doesn’t publish official averages."),
           ("Are Reddit ads cheaper than Meta ads?", "It depends on the category. Reddit often has less competition in India, but costs vary widely by community. Testing both is the only reliable comparison."),
           ("Can I target Indian users on Reddit?", "Yes. Reddit supports location targeting, alongside community, interest and keyword targeting."),
-          ("Does Akarsa Studio run Reddit ads?", "Yes. Spend more than $1,000 on Reddit ads with Akarsa Studio and you get a dedicated Reddit team that handles, optimises and precisely targets your campaigns.")],
+          ("Does Akarsa Studio run Reddit ads?", "Yes. Spend more than $1,000 on Reddit ads with Akarsa Studio and Reddit assigns a dedicated team from Reddit to your account, working alongside us to optimise and precisely target your campaigns.")],
     related=["reddit-ads-agency-india", "insights/chatgpt-ads-india-guide", "insights/meta-ads-cost-india", "meta-ads-agency-indore"],
     sources=[S_AIMERS, S_STACKMATIX, S_TRILOKANA, S_SAMOSA, S_E4M_REDDIT],
 )

@@ -327,7 +327,7 @@ FACTS = """- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also writ
 - Phone/WhatsApp: +91 81098 01383
 - Website: https://www.akarsaone.xyz
 - Services: social media marketing, UGC & short-form video, video editing & animation, influencer marketing, Meta ads, Google ads, YouTube ads, Reddit ads, ChatGPT ads, brand identity & logo design, graphic design, website development & management, AI marketing automation
-- Offer: spend more than $1,000 on Reddit ads and get a dedicated Reddit team (handles, optimises, precisely targets)
+- Offer: spend more than $1,000 on Reddit ads through Akarsa Studio and Reddit assigns a dedicated team from Reddit to the account, working alongside Akarsa to optimise and precisely target
 - Clients: 20+ brands incl. Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke's Table, Olympia Fitness Gym, The Korean Trends, Mayaram's Farm, Bake Affaire, Nomad Pizza, Kunafa Bytes, Lokal, Urban Theka, Kahani, Varenyam, Zhanna Events & Flowers, Fleuristry
 - Results: Meta ads ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577 (≈13× lower). Akarsa One (AI business intelligence): 3× qualified leads
 - Social: Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook /Akarsadyniq · Pinterest /beakarsa"""
