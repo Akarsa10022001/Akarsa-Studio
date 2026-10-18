@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "21"  # asset cache-buster for styles/config
+V = "22"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 MARK = '<svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>'
 ORG_ID = SITE + "/#organization"
@@ -101,11 +101,8 @@ def head(p):
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <script>document.documentElement.classList.add('js')</script>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5/400.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5/600.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/open-sauce-one@5/700.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/anton@5/400.css" />
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/open-sauce-one-latin-700-normal.woff2" crossorigin />
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/open-sauce-one-latin-400-normal.woff2" crossorigin />
   <link rel="stylesheet" href="/styles.css?v={V}" />
   <link rel="stylesheet" href="/page.css?v={V}" />
   <script type="application/ld+json">

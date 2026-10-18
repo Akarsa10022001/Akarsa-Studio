@@ -140,6 +140,16 @@
   const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('in-view', e.isIntersecting)), { rootMargin: '100px' });
   $$('.media[data-art]').forEach(m => io.observe(m));
 
+  // the sticky footer is only painted once the end of the page is close (see .footer-gated in styles.css)
+  const footer = $('.footer');
+  const pageEnd = $('.page__end');
+  if (footer && pageEnd) {
+    const gateFooter = () => footer.classList.toggle('is-near', pageEnd.getBoundingClientRect().top < innerHeight * 2);
+    gateFooter();
+    addEventListener('scroll', gateFooter, { passive: true });
+    addEventListener('resize', gateFooter);
+  } else footer?.classList.add('is-near');
+
   /* ---------------- split text ---------------- */
   const split = el => {
     const words = el.textContent.trim().split(/\s+/);
@@ -240,13 +250,13 @@
     tlLoad.to(loader, { autoAlpha: 0, duration: reduced ? 0 : 0.35 }).add(() => intro.play());
   } else {
     tlLoad
-      .to('.loader__word span', { yPercent: -110, duration: 0.9, stagger: 0.05 }, 0.1)
-      .to('.loader__line i', { scaleX: 1, duration: 1.6, ease: 'power2.inOut' }, 0.1)
-      .to(count, { v: 100, duration: 1.6, ease: 'power2.inOut', onUpdate: () => ($('.loader__count').textContent = Math.round(count.v)) }, 0.1)
-      .to('.loader__word span', { yPercent: -220, duration: 0.6, stagger: 0.03, ease: 'power3.in' }, 1.75)
-      .to('.loader__meta, .loader__line', { autoAlpha: 0, duration: 0.3 }, 1.8)
-      .to(loader, { clipPath: 'inset(0 0 100% 0 round 0 0 48px 48px)', duration: 0.9, ease: 'expo.inOut' }, 2.1)
-      .add(() => intro.play(), 2.45);
+      .to('.loader__word span', { yPercent: -110, duration: 0.7, stagger: 0.04 }, 0.05)
+      .to('.loader__line i', { scaleX: 1, duration: 1, ease: 'power2.inOut' }, 0.05)
+      .to(count, { v: 100, duration: 1, ease: 'power2.inOut', onUpdate: () => ($('.loader__count').textContent = Math.round(count.v)) }, 0.05)
+      .to('.loader__word span', { yPercent: -220, duration: 0.5, stagger: 0.03, ease: 'power3.in' }, 1.05)
+      .to('.loader__meta, .loader__line', { autoAlpha: 0, duration: 0.25 }, 1.05)
+      .to(loader, { clipPath: 'inset(0 0 100% 0 round 0 0 48px 48px)', duration: 0.8, ease: 'expo.inOut' }, 1.3)
+      .add(() => intro.play(), 1.6);
   }
   gsap.set('.loader__word span', { yPercent: 110 });
 
@@ -461,7 +471,7 @@
   gsap.from('.role', { y: 80, scale: 0.6, rotation: () => gsap.utils.random(-20, 20), autoAlpha: 0, duration: 1, ease: 'back.out(1.7)', stagger: 0.08, clearProps: 'transform', scrollTrigger: { trigger: '.team__row', start: 'top 80%' } });
 
   /* ---------------- footer reveal ---------------- */
-  gsap.from('.footer__brand', { yPercent: 40, autoAlpha: 0.2, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'bottom bottom', end: () => `+=${$('.footer').offsetHeight}`, scrub: true } });
+  gsap.fromTo('.footer__brand', { yPercent: 40, autoAlpha: 0.2 }, { yPercent: 0, autoAlpha: 1, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'bottom bottom', end: () => `+=${$('.footer').offsetHeight}`, scrub: true } });
 
   /* ---------------- pricing switch ---------------- */
   (() => {

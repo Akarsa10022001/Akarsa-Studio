@@ -1,6 +1,15 @@
 /* =========================================================
    AKARSA STUDIO — styles
    ========================================================= */
+/* self-hosted fonts (Open Sauce One, Anton, Caveat — SIL Open Font License, via Fontsource) */
+@font-face{font-family:'Open Sauce One';font-style:normal;font-display:swap;font-weight:400;src:url(/assets/fonts/open-sauce-one-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'Open Sauce One';font-style:normal;font-display:swap;font-weight:500;src:url(/assets/fonts/open-sauce-one-latin-500-normal.woff2) format('woff2')}
+@font-face{font-family:'Open Sauce One';font-style:normal;font-display:swap;font-weight:600;src:url(/assets/fonts/open-sauce-one-latin-600-normal.woff2) format('woff2')}
+@font-face{font-family:'Open Sauce One';font-style:normal;font-display:swap;font-weight:700;src:url(/assets/fonts/open-sauce-one-latin-700-normal.woff2) format('woff2')}
+@font-face{font-family:'Anton';font-style:normal;font-display:swap;font-weight:400;src:url(/assets/fonts/anton-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Anton';font-style:normal;font-display:swap;font-weight:400;src:url(/assets/fonts/anton-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Caveat';font-style:normal;font-display:swap;font-weight:700;src:url(/assets/fonts/caveat-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Caveat';font-style:normal;font-display:swap;font-weight:700;src:url(/assets/fonts/caveat-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
   --bg:#F4F4F3;
   --ink:#1C1917;
@@ -507,6 +516,9 @@ em{font-style:normal}
    FOOTER (revealed beneath the page)
    ========================================================= */
 .footer{position:sticky;bottom:0;z-index:1;background:var(--pink);padding:110px 0 24px;overflow:hidden}
+/* the sticky footer sits behind the page; keep it unpainted until the page's end is near so loading doesn't shift it */
+.footer-gated .footer:not(.is-near){visibility:hidden}
+.page__end{position:absolute;left:0;bottom:0;width:1px;height:1px;pointer-events:none}
 .footer__loop{position:absolute;right:-40px;top:40px;width:260px;height:520px;overflow:visible;pointer-events:none}
 .footer__loop path{fill:none;stroke:var(--purple);stroke-width:14;stroke-linecap:round}
 .footer__top{position:relative;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
