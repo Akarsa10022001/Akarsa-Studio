@@ -55,11 +55,9 @@ def schema(p):
     graph.append({"@type": ptype, "@id": page_url + "#webpage", "url": page_url, "name": p["title"], "description": p["desc"], "inLanguage": "en-IN",
                   "isPartOf": {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Akarsa Studio"}, "about": {"@id": ORG_ID},
                   "dateModified": TODAY, "primaryImageOfPage": SITE + "/og-image.jpg"})
-    items = []
-    for i, (name, slug) in enumerate(crumbs(p), 1):
-        it = {"@type": "ListItem", "position": i, "name": name}
-        if slug is not None: it["item"] = url(slug)
-        items.append(it)
+    # Google requires "item" on every breadcrumb, so crumbs without their own page are left out
+    linked = [(name, slug) for name, slug in crumbs(p) if slug is not None]
+    items = [{"@type": "ListItem", "position": i, "name": name, "item": url(slug)} for i, (name, slug) in enumerate(linked, 1)]
     graph.append({"@type": "BreadcrumbList", "itemListElement": items})
     if p["kind"] == "service":
         graph.append({"@type": "Service", "name": p["h1"], "serviceType": p.get("service_type", p["h1"]), "description": strip(p["answer"]), "url": page_url,
@@ -191,10 +189,12 @@ def footer():
 
 def wa_link(msg): return "https://wa.me/918109801383?text=" + quote(msg)
 
+CRUMB_ANCHORS = {"Services": "#services", "Case studies": "#work"}
+
 def crumb_html(p):
     parts = []
     for name, slug in crumbs(p):
-        if slug is None: parts.append(f"<span>{esc(name)}</span>")
+        if slug is None: parts.append(f'<a href="/{CRUMB_ANCHORS[name]}">{esc(name)}</a>')
         elif slug == p["slug"]: parts.append(f'<span aria-current="page">{esc(name)}</span>')
         else: parts.append(f'<a href="/{slug}">{esc(name)}</a>')
     return '<nav class="crumbs" aria-label="Breadcrumb">' + '<i>/</i>'.join(parts) + '</nav>'
