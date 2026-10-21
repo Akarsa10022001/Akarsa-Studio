@@ -68,4 +68,29 @@
   // reveal on scroll
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
   $$('[data-in]').forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 60}ms`; io.observe(el); });
+
+  // chart tooltips: each bar row carries "Label|details" in data-tip (hover and keyboard focus)
+  const tipRows = $$('[data-tip]');
+  if (tipRows.length) {
+    const tip = document.createElement('div');
+    tip.className = 'rtip';
+    tip.setAttribute('role', 'tooltip');
+    document.body.appendChild(tip);
+    const show = (row, x, y) => {
+      const [head, ...rest] = row.dataset.tip.split('|');
+      const strong = document.createElement('strong');
+      strong.textContent = head;
+      tip.replaceChildren(strong, document.createTextNode(rest.join(' · ')));
+      tip.style.left = `${Math.max(12, Math.min(x + 14, innerWidth - tip.offsetWidth - 12))}px`;
+      tip.style.top = `${y + 14 + tip.offsetHeight > innerHeight ? y - tip.offsetHeight - 10 : y + 14}px`;
+      tip.classList.add('is-on');
+    };
+    const hide = () => tip.classList.remove('is-on');
+    tipRows.forEach(r => {
+      r.addEventListener('pointermove', e => show(r, e.clientX, e.clientY));
+      r.addEventListener('pointerleave', hide);
+      r.addEventListener('focus', () => { const b = r.getBoundingClientRect(); show(r, b.left + b.width / 2, b.bottom - 8); });
+      r.addEventListener('blur', hide);
+    });
+  }
 })();

@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "23"  # asset cache-buster for styles/config
+V = "24"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # free 30-minute audit call; page.js opens it as a Calendly popup
 CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>'
@@ -29,7 +29,7 @@ PIXEL = _m.group(0) if _m else ""
 SERVICES_ORDER = ["social-media-marketing-agency-indore", "meta-ads-agency-indore", "google-ads-agency-indore", "reddit-ads-agency-india",
                   "chatgpt-ads-agency-india", "ugc-video-production-agency", "influencer-marketing-agency-indore", "branding-agency-indore",
                   "website-development-company-indore", "digital-marketing-agency-vijay-nagar-indore"]
-GUIDES_ORDER = ["insights/chatgpt-ads-india-guide", "insights/reddit-ads-cost-india", "insights/meta-ads-cost-india", "case-studies/meta-ads-30k-52-enquiries"]
+GUIDES_ORDER = ["results", "insights/chatgpt-ads-india-guide", "insights/reddit-ads-cost-india", "insights/meta-ads-cost-india", "case-studies/meta-ads-30k-52-enquiries"]
 
 ORG_NODE = {
     "@type": "Organization", "@id": ORG_ID, "name": "Akarsa Studio", "legalName": "Akarsa Studio Private Limited", "url": SITE + "/",
@@ -121,6 +121,7 @@ NAV = f'''<body class="subpage">
       <nav class="nav__links" aria-label="Primary">
         <a href="/#services">Services</a>
         <a href="/#work">Work</a>
+        <a href="/results">Results</a>
         <a href="/reddit-ads-agency-india" class="nav__new">Reddit Ads<i>NEW</i></a>
         <a href="/chatgpt-ads-agency-india">ChatGPT Ads</a>
         <a href="/insights/">Insights</a>
@@ -130,7 +131,7 @@ NAV = f'''<body class="subpage">
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav__mobile">
-      <a href="/">Home</a><a href="/#services">Services</a><a href="/reddit-ads-agency-india">Reddit Ads <i class="nav__newtag">NEW</i></a><a href="/chatgpt-ads-agency-india">ChatGPT Ads</a><a href="/insights/">Insights</a><a href="/about">About</a>
+      <a href="/">Home</a><a href="/#services">Services</a><a href="/results">Results</a><a href="/reddit-ads-agency-india">Reddit Ads <i class="nav__newtag">NEW</i></a><a href="/chatgpt-ads-agency-india">ChatGPT Ads</a><a href="/insights/">Insights</a><a href="/about">About</a>
       <a class="btn btn--dark" data-book="menu" href="{BOOKING}"><span class="btn__label">Book a free audit call</span></a>
     </div>
   </header>
@@ -198,7 +199,8 @@ def crumb_html(p):
 
 def hero(p):
     btn2 = "" if p["kind"] == "article" else '<a class="ghost" href="#faq">Read the FAQs ↓</a>'
-    upd = f'<p class="phero__date">Updated <time datetime="{TODAY}">17 October 2026</time> · By the Akarsa Studio team</p>' if p["kind"] in ("article", "case") else ""
+    iso, label = p.get("updated", (TODAY, "17 October 2026"))
+    upd = f'<p class="phero__date">Updated <time datetime="{iso}">{label}</time> · By the Akarsa Studio team</p>' if p["kind"] in ("article", "case") else ""
     visual = p.get("visual", "")
     return f'''  <main class="page" id="main">
     <section class="phero{' phero--article' if not visual else ''}">
@@ -328,7 +330,7 @@ FACTS = f"""- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also wri
 - Services: social media marketing, UGC & short-form video, video editing & animation, influencer marketing, Meta ads, Google ads, YouTube ads, Reddit ads, ChatGPT ads, brand identity & logo design, graphic design, website development & management, AI marketing automation
 - Offer: spend more than $1,000 on Reddit ads through Akarsa Studio and Reddit assigns a dedicated team from Reddit to the account, working alongside Akarsa to optimise and precisely target
 - Clients: 20+ brands incl. Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke's Table, Olympia Fitness Gym, The Korean Trends, Mayaram's Farm, Bake Affaire, Nomad Pizza, Kunafa Bytes, Lokal, Urban Theka, Kahani, Varenyam, Zhanna Events & Flowers, Fleuristry
-- Results: Meta ads ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577 (≈13× lower). Akarsa One (AI business intelligence): 3× qualified leads
+- Results: Meta ads ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577 (≈13× lower). E-commerce client (RC toys), 6 Sep–7 Oct 2026: 196 purchases from ₹74,600, ₹381 per purchase, 3.7× average ROAS. International store: $419 → $1,149 (2.74× ROAS). Own lead campaigns (Meta API, Aug 2025–Oct 2026): ₹25,944 spent, 186 leads; best ₹28.68 and ₹47.76 per lead. Full data: https://www.akarsaone.xyz/results Akarsa One (AI business intelligence): 3× qualified leads
 - Social: Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook /Akarsadyniq · Pinterest /beakarsa"""
 
 def build_llms():

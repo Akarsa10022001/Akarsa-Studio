@@ -84,8 +84,44 @@ ABOUT_VISUAL = '''<div class="pvisual pvisual--mock"><div class="founder-card">
   <p>“We don’t sell illusions. We engineer impact.”</p>
 </div></div>'''
 
+# ---------- verified results: stat tiles + bar charts built as real tables ----------
+# Numbers come from Meta Ads Manager (client exports) or Meta's API (our own accounts); keep the maths notes in sync.
+def kpis(items):
+    return f'<div class="rkpis{" rkpis--3" if len(items) == 3 else ""}">' + "".join(f'<div class="rkpi" data-in><strong>{v}</strong><span>{l}</span></div>' for v, l in items) + '</div>'
+
+def bars(title, sub, col, rows, best=None):
+    # rows: (label, value, shown, tooltip); bars scale from zero; `best` highlights one row, None = all accent
+    top = max(r[1] for r in rows)
+    trs = "".join(
+        f'<tr tabindex="0" data-tip="{lab}|{tip}"><th scope="row">{lab}</th>'
+        f'<td class="rchart__track"><span class="rbar{" rbar--top" if best is None or i == best else ""}" style="--w:{v / top * 100:.1f}%"></span></td>'
+        f'<td class="rchart__val">{shown}</td></tr>'
+        for i, (lab, v, shown, tip) in enumerate(rows))
+    return (f'<figure class="rchart" data-in><figcaption><strong>{title}</strong><span>{sub}</span></figcaption>'
+            f'<table><thead class="vh"><tr><th scope="col">Item</th><th scope="col">Bar</th><th scope="col">{col}</th></tr></thead><tbody>{trs}</tbody></table></figure>')
+
+def vsource(text):
+    return f'<p class="vsrc"><i aria-hidden="true"></i>{text}</p>'
+
+# RC-toy e-commerce client, ads level, 6 Sep–7 Oct 2026, 7-day click (client's Ads Manager)
+RC_ADS = [("Ad 1", 38, 15820, 416, 3.1, 138420, 2.1), ("Ad 2", 52, 17960, 345, 4.0, 162310, 1.8), ("Ad 3", 36, 13640, 379, 3.4, 119870, 2.0),
+          ("Ad 4", 28, 9720, 347, 4.2, 96540, 1.6), ("Ad 5", 42, 17460, 416, 3.8, 141220, 1.9)]
+
+def _rc_table():
+    rows = "".join(f'<tr><th scope="row">{a}</th><td>{p}</td><td>₹{s_:,}</td><td>₹{c}</td><td>{r:.1f}×</td><td>{re_:,}</td><td>{f}</td></tr>' for a, p, s_, c, r, re_, f in RC_ADS)
+    return ('<div class="rtable" data-in><table><thead><tr><th scope="col">Ad</th><th scope="col">Purchases</th><th scope="col">Amount spent</th><th scope="col">Cost per purchase</th>'
+            '<th scope="col">Purchase ROAS</th><th scope="col">Reach</th><th scope="col">Frequency</th></tr></thead><tbody>' + rows +
+            '</tbody><tfoot><tr><th scope="row">Total</th><td>196</td><td>₹74,600</td><td>₹381</td><td>3.7× avg</td><td>658,360</td><td>1.9</td></tr></tfoot></table></div>')
+
+RESULTS_VISUAL = '''<div class="pvisual pvisual--mock"><div class="rcard">
+  <span class="rcard__eyebrow">E-commerce brand · 6 Sep–7 Oct 2026</span>
+  <div class="rcard__stats"><div><strong>3.7×</strong><span>ROAS</span></div><div><strong>196</strong><span>purchases</span></div><div><strong>₹381</strong><span>per purchase</span></div></div>
+  <div class="rcard__bars" aria-hidden="true">''' + "".join(f'<div><span>{a}</span><i style="--w:{r / 4.2 * 100:.0f}%"></i><b>{r:.1f}×</b></div>' for a, _, _, _, r, _, _ in RC_ADS) + '''</div>
+  <span class="rcard__src">From Meta Ads Manager · 7-day click</span>
+</div></div>'''
+
 # ---------- shared blocks ----------
-PROOF_STATS = [("₹577", "cost per enquiry on Meta ads — down from ₹7,500"), ("13×", "lower cost per enquiry in that campaign"), ("3×", "qualified leads with Akarsa One, our AI business intelligence"), ("20+", "brands including Starbucks, Adidas & Decathlon")]
+PROOF_STATS = [("₹577", "cost per enquiry on Meta ads — down from ₹7,500"), ("3.7×", "average ROAS for an e-commerce brand — 196 purchases in 30 days"), ("3×", "qualified leads with Akarsa One, our AI business intelligence"), ("20+", "brands including Starbucks, Adidas & Decathlon")]
 
 PAGES = []
 
@@ -250,6 +286,8 @@ page(
     wa=WA + "Meta (Facebook & Instagram) ads.", cta_label="Get a free ad audit",
     service_type="Facebook and Instagram advertising",
     sections=[
+        ("Real results from our Meta ads", kpis([("3.7×", "average purchase ROAS"), ("196", "purchases in 30 days"), ("₹381", "per purchase")]) +
+            '<p>An Indian e-commerce brand, 6 Sep–7 Oct 2026, straight from the client’s Meta Ads Manager. <a href="/results">See every number, chart and the maths →</a></p>'),
         ("Real result: ₹30K → 52 enquiries", '''<div class="facts"><table>
 <tr><th>Ad spend</th><td>₹30,000</td></tr><tr><th>Enquiries</th><td>52</td></tr>
 <tr><th>Cost per enquiry before</th><td>₹7,500</td></tr><tr><th>Cost per enquiry after</th><td>₹577</td></tr>
@@ -527,6 +565,61 @@ page(
           ("Can you get the same result for my business?", "Every industry and offer is different, so we never promise identical numbers. We start with an audit of your current spend and show where cost per lead can come down.")],
     related=["meta-ads-agency-indore", "insights/meta-ads-cost-india", "social-media-marketing-agency-indore", "chatgpt-ads-agency-india"],
     sources=[S_CASE_REEL],
+)
+
+# =====================================================================
+# 11b. Real results (verified numbers)
+# =====================================================================
+page(
+    slug="results", kind="case", group="Proof", updated=("2026-10-21", "21 October 2026"),
+    title="Meta Ads Results & ROAS: Real Numbers | Akarsa Studio",
+    desc="Real Meta ads numbers from Ads Manager: 196 purchases at ₹381 each and 3.7× ROAS for an e-commerce brand, plus our own leads at ₹28–₹48.",
+    nav_label="Real results",
+    eyebrow="Proof · Real numbers", h1="Real Meta Ads Results, in Numbers",
+    lead="No mock-ups and no rounded-up claims. Every figure below comes from Meta Ads Manager, with the dates, the spend and the maths shown.",
+    answer="For an Indian e-commerce brand, Akarsa Studio’s Meta ads produced 196 purchases from ₹74,600 of ad spend in 30 days (6 Sep–7 Oct 2026): ₹381 per purchase and a 3.7× average ROAS. On our own lead campaigns, Meta reports 186 leads, with our best campaigns at ₹28.68 and ₹47.76 per lead.",
+    visual=RESULTS_VISUAL,
+    wa=WA + "results like the ones on your Real Results page.", cta_label="Get a free ad audit",
+    sections=[
+        ("How we check these numbers", '''<ul class="ticks">
+<li><b>Client campaigns</b> come from the client’s own Meta Ads Manager, with the date range and attribution setting stated. Client and ad names are hidden for privacy.</li>
+<li><b>Our own campaigns</b> were pulled directly from Meta’s Marketing API for Akarsa Studio’s ad accounts on 21 October 2026.</li>
+<li><b>Every derived number shows its maths</b>, so you can check it yourself. Ask us on a call and we’ll walk you through the live dashboards.</li>
+</ul>'''),
+        ("E-commerce brand: 196 purchases at ₹381 each", vsource("Client’s Meta Ads Manager · 5 ads in one campaign · 6 Sep–7 Oct 2026 · 7-day click attribution") +
+            kpis([("3.7×", "average purchase ROAS"), ("196", "purchases in 30 days"), ("₹381", "average cost per purchase"), ("₹74,600", "ad spend · 658,360 accounts reached")]) +
+            '<div class="rgrid">' +
+            bars("Purchase ROAS by ad", "Return on ad spend · higher is better", "ROAS",
+                 [(a, r, f"{r:.1f}×", f"ROAS {r:.1f}× · ₹{s_:,} spent · {p} purchases") for a, p, s_, c, r, re_, f in sorted(RC_ADS, key=lambda x: -x[4])], best=0) +
+            bars("Cost per purchase by ad", "What each sale cost in ads · lower is better", "Cost per purchase",
+                 [(a, c, f"₹{c}", f"₹{c} per purchase · {p} purchases · ₹{s_:,} spent") for a, p, s_, c, r, re_, f in sorted(RC_ADS, key=lambda x: x[3])], best=0) +
+            '</div>' + _rc_table() +
+            '<p class="src-note">Maths check: ₹74,600 ÷ 196 purchases = ₹381 per purchase. Each ad’s spend × its ROAS, added up, comes to about ₹2.74 lakh of tracked sales, roughly ₹3.68 back for every ₹1. Ads Manager’s “3.7” is the simple average of the five ads.</p>'),
+        ("International e-commerce brand: 2.74× ROAS", vsource("Client’s Meta Ads Manager · ad-set view · USD account · website purchases") +
+            kpis([("2.74×", "website purchase ROAS"), ("18", "website purchases"), ("$1,149", "purchase value"), ("$419", "ad spend")]) +
+            bars("Purchase ROAS: the campaign’s top four ad sets", "Return on ad spend · higher is better", "ROAS",
+                 [("Ad set 1", 9.07, "9.07×", "$15.32 spent → $139.00 · 4 purchases"), ("Ad set 2", 4.60, "4.60×", "$31.90 spent → $146.85 · 2 purchases"),
+                  ("Ad set 3", 3.47, "3.47×", "$75.59 spent → $262.50 · 3 purchases"), ("Ad set 4", 2.06, "2.06×", "$129.94 spent → $268.04 · 5 purchases")], best=0) +
+            '<p class="src-note">Maths check: $1,149.39 ÷ $419.39 = 2.74× for the whole campaign. The four ad sets above are the ones in the client’s report; the campaign had others, which is why its totals ($419.39 spent, 18 purchases) are higher than these four added together. The 9.07× ad set ran on a small $15 budget.</p>'),
+        ("Our own ads: 186 leads from ₹25,944", vsource("Meta Marketing API · Akarsa Studio’s two ad accounts · Aug 2025 – Oct 2026 · pulled 21 Oct 2026") +
+            kpis([("₹25,944", "spent on our own Meta ads"), ("186", "leads"), ("6,625", "link clicks"), ("3.6 lakh", "impressions")]) +
+            bars("Cost per lead: our best lead campaigns", "Meta-reported leads · lower is better", "Cost per lead",
+                 [("Lead test · Dec 2025", 3.56, "₹3.56", "52 leads from ₹185.32"), ("Lead test · Jan 2026", 4.73, "₹4.73", "32 leads from ₹151.44"),
+                  ("Hindi lead campaign · Oct 2026", 28.68, "₹28.68", "45 leads from ₹1,290.62"), ("ChatGPT-ads reel · Oct 2026", 47.76, "₹47.76", "32 form leads from ₹1,528.25")]) +
+            '<div class="rkpis rkpis--3">'
+            '<div class="rkpi" data-in><strong>₹0.27</strong><span>per link click · 2,789 clicks from ₹744 (traffic campaign, Aug 2025)</span></div>'
+            '<div class="rkpi" data-in><strong>₹1.36</strong><span>per Instagram profile visit · 413 visits from ₹560 (Oct 2026)</span></div>'
+            '<div class="rkpi" data-in><strong>₹31.88</strong><span>per WhatsApp conversation · 31 chats from ₹988 (Oct 2026)</span></div></div>'
+            '<p class="src-note">The totals include every campaign in both accounts, tests included. The two ₹3–₹5 lead tests ran on very small budgets (under ₹200 each); costs usually rise as budgets grow, which is why we also show the ₹28.68 and ₹47.76 campaigns.</p>'),
+        ("More proof", '<p>Read the full <a href="/case-studies/meta-ads-30k-52-enquiries">Meta ads case study: ₹30,000 → 52 enquiries</a>, where cost per enquiry fell from ₹7,500 to ₹577. Want numbers like these for your brand? Book a free 30-minute audit call and we’ll show you where your ad spend can work harder.</p>'),
+    ],
+    cards=[], steps=[],
+    faqs=[("What ROAS do Akarsa Studio’s Meta ads deliver?", "For an Indian e-commerce brand: a 3.7× average purchase ROAS over 30 days (6 Sep–7 Oct 2026), with 196 purchases from ₹74,600 of spend, or ₹381 per purchase. For an international store: 2.74× ROAS ($419 of ads → $1,149 in purchases). Results depend on your product, margins and offer, so we never promise fixed numbers."),
+          ("Are these numbers real?", "Yes. Client figures come from the clients’ own Meta Ads Manager, with the date range and attribution setting stated, and our own figures were pulled directly from Meta’s Marketing API on 21 October 2026. Every derived number shows its maths so you can check it."),
+          ("How much does a lead cost with Akarsa’s Meta ads?", "On our own campaigns, our best lead campaigns cost ₹28.68 and ₹47.76 per lead (October 2026), and two small tests reached ₹3.56 and ₹4.73. Costs vary by industry, offer and budget; we estimate yours in the free audit."),
+          ("Why are client names hidden?", "To protect our clients’ business data. We show the real figures, dates and settings, and can walk you through more detail on a call.")],
+    related=["case-studies/meta-ads-30k-52-enquiries", "meta-ads-agency-indore", "insights/meta-ads-cost-india", "about"],
+    sources=[],
 )
 
 # =====================================================================
