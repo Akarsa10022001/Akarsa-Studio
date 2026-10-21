@@ -333,6 +333,61 @@ def build_404():
 {footer()}'''
     open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8").write(html_)
 
+# ---------- security headers + caching (vercel.json) ----------
+# Third parties the pages really use: GSAP/Lenis (exact versions, SRI-pinned in index.html), the OpenAI Ads pixel,
+# and the Calendly booking popup. Anything else is refused by the browser.
+CSP_SOURCES = {
+    "default-src": ["'self'"],
+    "script-src": ["'self'", "https://cdn.jsdelivr.net/npm/gsap@3.12.5/", "https://cdn.jsdelivr.net/npm/lenis@1.1.13/",
+                   "https://bzrcdn.openai.com", "https://assets.calendly.com"],
+    "style-src": ["'self'", "'unsafe-inline'", "https://assets.calendly.com"],
+    "img-src": ["'self'", "data:", "https://bzr.openai.com", "https://assets.calendly.com"],
+    "font-src": ["'self'"],
+    "connect-src": ["'self'", "https://bzr.openai.com", "https://bzrcdn.openai.com"],
+    "frame-src": ["https://calendly.com"],
+    "frame-ancestors": ["'self'"],
+    "base-uri": ["'self'"],
+    "form-action": ["'self'"],
+    "object-src": ["'none'"],
+}
+
+def inline_script_hashes():
+    """sha256 of every inline executable script on every page, so CSP allows exactly these and nothing injected."""
+    import base64, glob, hashlib
+    hashes = set()
+    for f in glob.glob(os.path.join(ROOT, "*.html")) + glob.glob(os.path.join(ROOT, "*", "*.html")):
+        for attrs, body in re.findall(r"<script([^>]*)>(.*?)</script>", open(f, encoding="utf-8").read(), re.S):
+            if "src=" in attrs or "application/ld+json" in attrs:
+                continue
+            hashes.add("'sha256-" + base64.b64encode(hashlib.sha256(body.encode()).digest()).decode() + "'")
+    return sorted(hashes)
+
+def write_vercel_config():
+    src = {k: list(v) for k, v in CSP_SOURCES.items()}
+    src["script-src"] += inline_script_hashes()
+    csp = "; ".join(f"{k} {' '.join(v)}" for k, v in src.items())
+    cache = lambda v: [{"key": "Cache-Control", "value": v}]
+    config = {
+        "cleanUrls": True,
+        "headers": [
+            {"source": "/(.*)", "headers": [
+                {"key": "Content-Security-Policy", "value": csp},
+                {"key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains"},
+                {"key": "X-Content-Type-Options", "value": "nosniff"},
+                {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
+                {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+                {"key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"},
+                {"key": "Cross-Origin-Opener-Policy", "value": "same-origin-allow-popups"},
+            ]},
+            # later rules win: general first, most specific last
+            {"source": "/(.*)\\.(png|jpg|svg|ico|webmanifest)", "headers": cache("public, max-age=86400, stale-while-revalidate=86400")},
+            {"source": "/assets/(.*)", "headers": cache("public, max-age=2592000, stale-while-revalidate=86400")},
+            {"source": "/(.*)\\.(css|js)", "headers": cache("public, max-age=2592000, stale-while-revalidate=86400")},  # always referenced with ?v=
+            {"source": "/assets/fonts/(.*)", "headers": cache("public, max-age=31536000, immutable")},
+        ],
+    }
+    open(os.path.join(ROOT, "vercel.json"), "w", encoding="utf-8").write(json.dumps(config, indent=2, ensure_ascii=False) + "\n")
+
 def write(slug, content):
     path = os.path.join(ROOT, (slug + "index.html") if slug.endswith("/") else (slug + ".html"))
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -422,5 +477,6 @@ if __name__ == "__main__":
         write(p["slug"], render(p))
     write("insights/", render_hub(INSIGHTS_HUB))
     build_sitemap(); build_llms(); build_404()
+    write_vercel_config()  # last: hashes every inline script on every page, including index.html and privacy.html
     open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8").write(ROBOTS)
     print(f"built {len(PAGES) + 1} pages + sitemap.xml, llms.txt, llms-full.txt, robots.txt")
