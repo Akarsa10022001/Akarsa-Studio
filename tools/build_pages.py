@@ -4,13 +4,14 @@
 Usage (from the site root):  python3 tools/build_pages.py
 """
 import html, json, os, re, sys
-from urllib.parse import quote
 sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "22"  # asset cache-buster for styles/config
+V = "23"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
+BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # free 30-minute audit call; page.js opens it as a Calendly popup
+CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>'
 MARK = '<svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>'
 ORG_ID = SITE + "/#organization"
 BY_SLUG = {p["slug"]: p for p in PAGES}
@@ -125,15 +126,15 @@ NAV = f'''<body class="subpage">
         <a href="/insights/">Insights</a>
         <a href="/about">About</a>
       </nav>
-      <a class="nav__cta" data-wa href="https://wa.me/918109801383">Let’s Talk</a>
+      <a class="nav__cta" data-book="nav" href="{BOOKING}">Book a call</a>
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav__mobile">
       <a href="/">Home</a><a href="/#services">Services</a><a href="/reddit-ads-agency-india">Reddit Ads <i class="nav__newtag">NEW</i></a><a href="/chatgpt-ads-agency-india">ChatGPT Ads</a><a href="/insights/">Insights</a><a href="/about">About</a>
-      <a class="btn btn--dark" data-wa href="https://wa.me/918109801383"><span class="btn__label">Start on WhatsApp</span></a>
+      <a class="btn btn--dark" data-book="menu" href="{BOOKING}"><span class="btn__label">Book a free audit call</span></a>
     </div>
   </header>
-  <a class="wa-float is-in" data-wa href="https://wa.me/918109801383" aria-label="Chat with Akarsa Studio on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg><span class="wa-float__tip">Chat with us</span></a>
+  <a class="wa-float wa-float--book is-in" data-book="float" href="{BOOKING}" aria-label="Book a free 30-minute audit call">{CAL_ICON}<span class="wa-float__tip">Book a free call</span></a>
 '''
 
 def footer_cols():
@@ -155,7 +156,7 @@ def footer():
     <div class="container footer__mid">
       <div class="footer__contact">
         <span class="eyebrow eyebrow--dark">Contact</span>
-        <a class="footer__big" data-wa href="https://wa.me/918109801383">WhatsApp us →</a>
+        <a class="footer__big" data-book="footer" href="{BOOKING}">Book a free call →</a>
         <span class="footer__line" data-phone>+91 81098 01383</span>
         <a class="footer__line footer__addr" data-address href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore">Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010</a>
       </div>
@@ -184,7 +185,6 @@ def footer():
 </html>
 '''
 
-def wa_link(msg): return "https://wa.me/918109801383?text=" + quote(msg)
 
 CRUMB_ANCHORS = {"Services": "#services", "Case studies": "#work"}
 
@@ -211,7 +211,7 @@ def hero(p):
           {upd}
           <div class="answer"><span class="answer__label">Quick answer</span><p>{esc(p["answer"])}</p></div>
           <div class="phero__ctas">
-            <a class="btn btn--dark" data-wa data-wa-msg="{esc(p.get("wa", "Hi Akarsa! I found you on your website."))}" href="{wa_link(p.get("wa", "Hi Akarsa!"))}"><span class="btn__label">{esc(p.get("cta_label", "Talk to us on WhatsApp"))}</span><span class="btn__icon">{ARROW}</span></a>
+            <a class="btn btn--dark" data-book="page-hero" href="{BOOKING}"><span class="btn__label">{esc(p.get("cta_label", "Book a free audit call"))}</span><span class="btn__icon">{ARROW}</span></a>
             {btn2}
           </div>
         </div>
@@ -263,8 +263,8 @@ def sources_html(p):
 
 def cta_html(p):
     return f'''<section class="psec"><div class="container"><div class="ctaband" data-in>
-<h2>Ready to grow with Akarsa Studio?</h2><p>Tell us where you want to go. We usually reply the same day.</p>
-<a class="btn btn--light" data-wa data-wa-msg="{esc(p.get("wa", "Hi Akarsa!"))}" href="{wa_link(p.get("wa", "Hi Akarsa!"))}"><span class="btn__label">Start on WhatsApp</span><span class="btn__icon">{ARROW}</span></a>
+<h2>Ready to grow with Akarsa Studio?</h2><p>Book a free 30-minute audit call. We’ll look at your marketing and tell you honestly what to fix first.</p>
+<a class="btn btn--light" data-book="page-cta" href="{BOOKING}"><span class="btn__label">Book a free audit call</span><span class="btn__icon">{ARROW}</span></a>
 </div></div></section>
   </main>
 '''
@@ -322,6 +322,7 @@ FACTS = """- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also writ
 - Founder: Ritik Sharma (Founder & Director, host of Akarsa Live)
 - Address: Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010, India
 - Phone/WhatsApp: +91 81098 01383
+- Free 30-minute audit call (book online): {BOOKING}
 - Office hours: Mon–Fri 11:00–19:30, Sat 12:00–15:30, Sun closed (IST)
 - Website: https://www.akarsaone.xyz
 - Services: social media marketing, UGC & short-form video, video editing & animation, influencer marketing, Meta ads, Google ads, YouTube ads, Reddit ads, ChatGPT ads, brand identity & logo design, graphic design, website development & management, AI marketing automation

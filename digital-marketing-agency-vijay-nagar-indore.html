@@ -2,7 +2,7 @@
 <html lang="en-IN">
 <head>
   <meta charset="utf-8" />
-  <!-- OpenAI Ads pixel: loads tracking and fires "lead_created" on WhatsApp clicks -->
+  <!-- OpenAI Ads pixel: loads tracking and fires "lead_created" when someone books a call on Calendly -->
   <script>
     window.oaiq = window.oaiq || function () { (window.oaiq.q = window.oaiq.q || []).push(arguments); };
     (function () {
@@ -12,11 +12,10 @@
       document.head.appendChild(tag);
     })();
     oaiq("init", { pixelId: "LE4edrtbuXecbo6afZT4SS", debug: false });
-    document.addEventListener("click", function (e) {
-      var link = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
-      if (!link) return;
+    window.addEventListener("message", function (e) {
+      if (e.origin !== "https://calendly.com" || !e.data || e.data.event !== "calendly.event_scheduled") return;
       oaiq("measure", "lead_created", { type: "customer_action" });
-    }, true);
+    });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Digital Marketing Agency in Vijay Nagar, Indore | Akarsa</title>
@@ -44,8 +43,8 @@
   <script>document.documentElement.classList.add('js')</script>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/open-sauce-one-latin-700-normal.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/open-sauce-one-latin-400-normal.woff2" crossorigin />
-  <link rel="stylesheet" href="/styles.css?v=22" />
-  <link rel="stylesheet" href="/page.css?v=22" />
+  <link rel="stylesheet" href="/styles.css?v=23" />
+  <link rel="stylesheet" href="/page.css?v=23" />
   <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -151,7 +150,7 @@
      "name": "Can I meet the team in person?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Yes. Message us on WhatsApp at +91 81098 01383 to set up a meeting at our Vijay Nagar studio, or we can meet online."
+      "text": "Yes. Book a free 30-minute call online first, or call +91 81098 01383 to set up a meeting at our Vijay Nagar studio."
      }
     },
     {
@@ -183,7 +182,7 @@
      "name": "How do we get started?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Send us a message on WhatsApp with your goals. We’ll understand what you need and share a clear roadmap."
+      "text": "Book a free 30-minute audit call. We’ll understand your goals, look at your current marketing and share a clear roadmap."
      }
     }
    ]
@@ -207,15 +206,15 @@
         <a href="/insights/">Insights</a>
         <a href="/about">About</a>
       </nav>
-      <a class="nav__cta" data-wa href="https://wa.me/918109801383">Let’s Talk</a>
+      <a class="nav__cta" data-book="nav" href="https://calendly.com/beakarsa/15-minute-discovery-call">Book a call</a>
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav__mobile">
       <a href="/">Home</a><a href="/#services">Services</a><a href="/reddit-ads-agency-india">Reddit Ads <i class="nav__newtag">NEW</i></a><a href="/chatgpt-ads-agency-india">ChatGPT Ads</a><a href="/insights/">Insights</a><a href="/about">About</a>
-      <a class="btn btn--dark" data-wa href="https://wa.me/918109801383"><span class="btn__label">Start on WhatsApp</span></a>
+      <a class="btn btn--dark" data-book="menu" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Book a free audit call</span></a>
     </div>
   </header>
-  <a class="wa-float is-in" data-wa href="https://wa.me/918109801383" aria-label="Chat with Akarsa Studio on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg><span class="wa-float__tip">Chat with us</span></a>
+  <a class="wa-float wa-float--book is-in" data-book="float" href="https://calendly.com/beakarsa/15-minute-discovery-call" aria-label="Book a free 30-minute audit call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg><span class="wa-float__tip">Book a free call</span></a>
 
   <main class="page" id="main">
     <section class="phero">
@@ -228,7 +227,7 @@
           
           <div class="answer"><span class="answer__label">Quick answer</span><p>Akarsa Studio is a digital marketing agency in Vijay Nagar, Indore, at Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square. We help businesses grow with social media, Meta, Google, Reddit and ChatGPT ads, branding and websites.</p></div>
           <div class="phero__ctas">
-            <a class="btn btn--dark" data-wa data-wa-msg="Hi Akarsa! I found you on your website and would like to talk about working with your Vijay Nagar team." href="https://wa.me/918109801383?text=Hi%20Akarsa%21%20I%20found%20you%20on%20your%20website%20and%20would%20like%20to%20talk%20about%20working%20with%20your%20Vijay%20Nagar%20team."><span class="btn__label">Meet the team</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+            <a class="btn btn--dark" data-book="page-hero" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Meet the team</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
             <a class="ghost" href="#faq">Read the FAQs ↓</a>
           </div>
         </div>
@@ -251,14 +250,14 @@
 <a href="/website-development-company-indore">Website development</a></div></div></div></section>
 <section class="psec" id="built-for-indore-businesses"><div class="container psec__inner" data-in><h2 class="psec__h">Built for Indore businesses</h2><div class="prose"><p>We know what works in Indore because we work here. Our clients include cafés and restaurants like <b>Burger Singh</b>, <b>Chirmi</b>, <b>The Duke’s Table</b> and <b>Kahani</b>, fitness brands like <b>Olympia Fitness Gym</b>, retail and fashion brands like <b>The Korean Trends</b>, education brands like <b>Varenyam</b>, and national names like <b>Starbucks</b>, <b>Adidas</b> and <b>Decathlon</b>.</p>
 <p>Whether you’re in Vijay Nagar, Palasia, AB Road, Nipania, Bhawarkua or anywhere else in Indore, we can meet at our studio or online.</p></div></div></section>
-<section class="psec"><div class="container"><div class="psec__head" data-in><span class="pill">What’s included</span><h2 class="psec__h">Everything you get</h2></div><div class="kgrid"><div class="kcard kcard--pink" data-in><span class="kcard__n">01</span><h3>Local know-how</h3><p>Campaigns shaped by what Indore customers search, scroll and buy.</p></div><div class="kcard kcard--purple" data-in><span class="kcard__n">02</span><h3>One team, every channel</h3><p>Content, ads, branding and websites without juggling five vendors.</p></div><div class="kcard kcard--green" data-in><span class="kcard__n">03</span><h3>Real results</h3><p>₹30K turned into 52 enquiries on Meta ads — cost per enquiry down 13×.</p></div><div class="kcard kcard--orange" data-in><span class="kcard__n">04</span><h3>Fast replies</h3><p>Message us on WhatsApp — we usually reply the same day.</p></div></div></div></section>
-<section class="psec"><div class="container"><div class="psec__head" data-in><span class="pill">How we work</span><h2 class="psec__h">Our process</h2></div><ol class="ksteps"><li class="kstep" data-in><span>01</span><h3>Message us</h3><p>Share your goals on WhatsApp.</p></li><li class="kstep" data-in><span>02</span><h3>Meet</h3><p>At our Vijay Nagar studio or online.</p></li><li class="kstep" data-in><span>03</span><h3>Plan</h3><p>A clear roadmap and proposal.</p></li><li class="kstep" data-in><span>04</span><h3>Grow</h3><p>Launch, measure and scale.</p></li></ol></div></section>
+<section class="psec"><div class="container"><div class="psec__head" data-in><span class="pill">What’s included</span><h2 class="psec__h">Everything you get</h2></div><div class="kgrid"><div class="kcard kcard--pink" data-in><span class="kcard__n">01</span><h3>Local know-how</h3><p>Campaigns shaped by what Indore customers search, scroll and buy.</p></div><div class="kcard kcard--purple" data-in><span class="kcard__n">02</span><h3>One team, every channel</h3><p>Content, ads, branding and websites without juggling five vendors.</p></div><div class="kcard kcard--green" data-in><span class="kcard__n">03</span><h3>Real results</h3><p>₹30K turned into 52 enquiries on Meta ads — cost per enquiry down 13×.</p></div><div class="kcard kcard--orange" data-in><span class="kcard__n">04</span><h3>Easy booking</h3><p>Book a free 30-minute call online. Pick any weekday slot that suits you.</p></div></div></div></section>
+<section class="psec"><div class="container"><div class="psec__head" data-in><span class="pill">How we work</span><h2 class="psec__h">Our process</h2></div><ol class="ksteps"><li class="kstep" data-in><span>01</span><h3>Book a call</h3><p>Pick a free 30-minute slot online.</p></li><li class="kstep" data-in><span>02</span><h3>Meet</h3><p>At our Vijay Nagar studio or online.</p></li><li class="kstep" data-in><span>03</span><h3>Plan</h3><p>A clear roadmap and proposal.</p></li><li class="kstep" data-in><span>04</span><h3>Grow</h3><p>Launch, measure and scale.</p></li></ol></div></section>
 <section class="psec psec--dark"><div class="container"><div class="psec__head" data-in><span class="pill">Proof, not promises</span><h2 class="psec__h">Results you can count</h2></div><div class="kstats"><div class="kstat" data-in><strong>₹577</strong><span>cost per enquiry on Meta ads — down from ₹7,500</span></div><div class="kstat" data-in><strong>13×</strong><span>lower cost per enquiry in that campaign</span></div><div class="kstat" data-in><strong>3×</strong><span>qualified leads with Akarsa One, our AI business intelligence</span></div><div class="kstat" data-in><strong>20+</strong><span>brands including Starbucks, Adidas &amp; Decathlon</span></div></div></div></section>
-<section class="psec" id="faq"><div class="container psec__narrow"><div class="psec__head psec__head--center" data-in><span class="pill">FAQ</span><h2 class="psec__h">Frequently asked questions</h2></div><div class="qa2-list"><details class="qa2" data-in open><summary><h3>Where is Akarsa Studio located?</h3><i></i></summary><p>Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010.</p></details><details class="qa2" data-in><summary><h3>Can I meet the team in person?</h3><i></i></summary><p>Yes. Message us on WhatsApp at +91 81098 01383 to set up a meeting at our Vijay Nagar studio, or we can meet online.</p></details><details class="qa2" data-in><summary><h3>Which services do you offer in Indore?</h3><i></i></summary><p>Social media marketing, UGC and reels, influencer marketing, Meta, Google, YouTube, Reddit and ChatGPT ads, branding and logo design, and website development and management.</p></details><details class="qa2" data-in><summary><h3>Do you only work with Indore businesses?</h3><i></i></summary><p>No. We’re based in Indore and work with brands across India.</p></details><details class="qa2" data-in><summary><h3>Which industries do you work with?</h3><i></i></summary><p>Cafés and restaurants, fitness, fashion and retail, education, events and flowers, D2C brands and national retail chains.</p></details><details class="qa2" data-in><summary><h3>How do we get started?</h3><i></i></summary><p>Send us a message on WhatsApp with your goals. We’ll understand what you need and share a clear roadmap.</p></details></div></div></section>
+<section class="psec" id="faq"><div class="container psec__narrow"><div class="psec__head psec__head--center" data-in><span class="pill">FAQ</span><h2 class="psec__h">Frequently asked questions</h2></div><div class="qa2-list"><details class="qa2" data-in open><summary><h3>Where is Akarsa Studio located?</h3><i></i></summary><p>Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010.</p></details><details class="qa2" data-in><summary><h3>Can I meet the team in person?</h3><i></i></summary><p>Yes. Book a free 30-minute call online first, or call +91 81098 01383 to set up a meeting at our Vijay Nagar studio.</p></details><details class="qa2" data-in><summary><h3>Which services do you offer in Indore?</h3><i></i></summary><p>Social media marketing, UGC and reels, influencer marketing, Meta, Google, YouTube, Reddit and ChatGPT ads, branding and logo design, and website development and management.</p></details><details class="qa2" data-in><summary><h3>Do you only work with Indore businesses?</h3><i></i></summary><p>No. We’re based in Indore and work with brands across India.</p></details><details class="qa2" data-in><summary><h3>Which industries do you work with?</h3><i></i></summary><p>Cafés and restaurants, fitness, fashion and retail, education, events and flowers, D2C brands and national retail chains.</p></details><details class="qa2" data-in><summary><h3>How do we get started?</h3><i></i></summary><p>Book a free 30-minute audit call. We’ll understand your goals, look at your current marketing and share a clear roadmap.</p></details></div></div></section>
 <section class="psec"><div class="container"><div class="psec__head" data-in><span class="pill">Keep exploring</span><h2 class="psec__h">Related</h2></div><div class="rels"><a class="rel" href="/social-media-marketing-agency-indore" data-in><span class="rel__k">Social media marketing</span><strong>Social Media Marketing</strong><span class="rel__d">Instagram, Facebook, YouTube &amp; LinkedIn management in Indore: content calendars, reels, UGC, community and…</span><span class="rel__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a><a class="rel" href="/meta-ads-agency-indore" data-in><span class="rel__k">Meta ads · Facebook &amp; Instagram</span><strong>Meta Ads</strong><span class="rel__d">Facebook &amp; Instagram ads from Indore that cut cost per lead. Real result: ₹30K turned into 52 enquiries at…</span><span class="rel__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a><a class="rel" href="/website-development-company-indore" data-in><span class="rel__k">Website design &amp; development</span><strong>Website Development</strong><span class="rel__d">Fast, SEO-ready websites designed and built in Indore — business sites, landing pages, e-commerce and ongoing…</span><span class="rel__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a><a class="rel" href="/about" data-in><span class="rel__k">About us</span><strong>About Akarsa Studio</strong><span class="rel__d">Akarsa Studio Private Limited is an AI-driven marketing agency in Indore founded by Ritik Sharma. Facts,…</span><span class="rel__go"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a></div></div></section>
 <section class="psec"><div class="container"><div class="ctaband" data-in>
-<h2>Ready to grow with Akarsa Studio?</h2><p>Tell us where you want to go. We usually reply the same day.</p>
-<a class="btn btn--light" data-wa data-wa-msg="Hi Akarsa! I found you on your website and would like to talk about working with your Vijay Nagar team." href="https://wa.me/918109801383?text=Hi%20Akarsa%21%20I%20found%20you%20on%20your%20website%20and%20would%20like%20to%20talk%20about%20working%20with%20your%20Vijay%20Nagar%20team."><span class="btn__label">Start on WhatsApp</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+<h2>Ready to grow with Akarsa Studio?</h2><p>Book a free 30-minute audit call. We’ll look at your marketing and tell you honestly what to fix first.</p>
+<a class="btn btn--light" data-book="page-cta" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Book a free audit call</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
 </div></div></section>
   </main>
 
@@ -274,7 +273,7 @@
     <div class="container footer__mid">
       <div class="footer__contact">
         <span class="eyebrow eyebrow--dark">Contact</span>
-        <a class="footer__big" data-wa href="https://wa.me/918109801383">WhatsApp us →</a>
+        <a class="footer__big" data-book="footer" href="https://calendly.com/beakarsa/15-minute-discovery-call">Book a free call →</a>
         <span class="footer__line" data-phone>+91 81098 01383</span>
         <a class="footer__line footer__addr" data-address href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore">Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010</a>
       </div>
@@ -297,7 +296,7 @@
       <a href="#top" class="to-top">Back to top ↑</a>
     </div>
   </footer>
-  <script src="/config.js?v=22"></script>
-  <script src="/page.js?v=22"></script>
+  <script src="/config.js?v=23"></script>
+  <script src="/page.js?v=23"></script>
 </body>
 </html>

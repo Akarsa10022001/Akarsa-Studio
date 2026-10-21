@@ -3,10 +3,8 @@
    Edit the values below. Everything on the site updates.
    ========================================================== */
 window.AKARSA = {
-  // WhatsApp number with country code, digits only
-  whatsapp: "918109801383",
-  // Default message that opens in WhatsApp
-  whatsappMessage: "Hi Akarsa! I came across your website and would love to talk about a project.",
+  // Free 30-minute audit call on Calendly: every "Book" button on the site opens this
+  booking: "https://calendly.com/beakarsa/15-minute-discovery-call",
 
   email: "", // e.g. "hello@akarsa.studio" (leave empty to hide)
   phoneDisplay: "+91 81098 01383",

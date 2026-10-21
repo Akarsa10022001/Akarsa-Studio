@@ -183,6 +183,8 @@ em{font-style:normal}
 .wa-float.is-in{transform:scale(1)}
 .wa-float:hover{transform:scale(1.08)}
 .wa-float svg{width:28px;height:28px;fill:currentColor}
+.wa-float--book{background:var(--ink);box-shadow:0 12px 30px -8px rgba(28,25,23,.55)}
+.wa-float--book svg{width:24px;height:24px;fill:var(--pink)}
 .wa-float__tip{position:absolute;right:68px;white-space:nowrap;background:var(--ink);color:var(--bg);font-size:14px;font-weight:600;padding:8px 14px;border-radius:99px;opacity:0;transform:translateX(10px);transition:.35s var(--ease);pointer-events:none}
 .wa-float:hover .wa-float__tip{opacity:1;transform:none}
 

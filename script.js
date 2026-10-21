@@ -11,12 +11,44 @@
   const isTouch = matchMedia('(hover: none)').matches;
 
   /* ---------------- config wiring ---------------- */
-  const waBase = `https://wa.me/${(cfg.whatsapp || '').replace(/\D/g, '')}`;
-  $$('[data-wa]').forEach(a => {
-    const msg = a.dataset.waMsg || cfg.whatsappMessage || '';
-    a.href = `${waBase}?text=${encodeURIComponent(msg)}`;
+  /* ---------------- booking: free audit call on Calendly (popup; the booking page itself if the widget can't load) ---------------- */
+  const bookingUrl = cfg.booking || '';
+  let calendly = null;
+  const loadCalendly = () => calendly || (calendly = new Promise((resolve, reject) => {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://assets.calendly.com/assets/external/widget.css';
+    document.head.appendChild(css);
+    const js = document.createElement('script');
+    js.src = 'https://assets.calendly.com/assets/external/widget.js';
+    js.onload = () => (window.Calendly ? resolve(window.Calendly) : reject());
+    js.onerror = reject;
+    document.head.appendChild(js);
+  }));
+  // pause smooth scrolling while the popup is open, resume once Calendly removes its overlay
+  const holdScroll = () => {
+    window.__lenis?.stop();
+    const mo = new MutationObserver(() => {
+      if (!document.querySelector('.calendly-overlay')) { window.__lenis?.start(); mo.disconnect(); }
+    });
+    mo.observe(document.body, { childList: true });
+  };
+  $$('[data-book]').forEach(a => {
+    if (!bookingUrl) return;
+    const u = new URL(bookingUrl);
+    u.searchParams.set('utm_source', 'website');
+    u.searchParams.set('utm_medium', a.dataset.book || 'cta');
+    u.searchParams.set('utm_content', location.pathname);
+    a.href = u.href;
     a.target = '_blank';
     a.rel = 'noopener';
+    a.addEventListener('click', e => {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return; // modified clicks open the booking page in a new tab
+      e.preventDefault();
+      loadCalendly()
+        .then(C => { C.initPopupWidget({ url: `${a.href}&hide_gdpr_banner=1` }); holdScroll(); })
+        .catch(() => { location.href = a.href; });
+    });
   });
   $$('[data-email]').forEach(a => { if (cfg.email) { a.href = `mailto:${cfg.email}`; a.textContent = cfg.email; } else a.remove(); });
   $$('[data-phone]').forEach(el => { if (cfg.phoneDisplay) el.textContent = cfg.phoneDisplay; else el.remove(); });

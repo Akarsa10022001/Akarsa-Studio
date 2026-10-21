@@ -2,7 +2,7 @@
 <html lang="en-IN">
 <head>
   <meta charset="utf-8" />
-  <!-- OpenAI Ads pixel: loads tracking and fires "lead_created" on WhatsApp clicks -->
+  <!-- OpenAI Ads pixel: loads tracking and fires "lead_created" when someone books a call on Calendly -->
   <script>
     window.oaiq = window.oaiq || function () { (window.oaiq.q = window.oaiq.q || []).push(arguments); };
     (function () {
@@ -12,11 +12,10 @@
       document.head.appendChild(tag);
     })();
     oaiq("init", { pixelId: "LE4edrtbuXecbo6afZT4SS", debug: false });
-    document.addEventListener("click", function (e) {
-      var link = e.target.closest && e.target.closest('a[href*="wa.me"], a[href*="whatsapp"]');
-      if (!link) return;
+    window.addEventListener("message", function (e) {
+      if (e.origin !== "https://calendly.com" || !e.data || e.data.event !== "calendly.event_scheduled") return;
       oaiq("measure", "lead_created", { type: "customer_action" });
-    }, true);
+    });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Akarsa Studio | AI Marketing Agency in Indore, India</title>
@@ -317,6 +316,15 @@
     "addressCountry": "IN"
    },
    "hasMap": "https://www.google.com/maps/search/?api=1&query=Akarsa+Studio+Shagun+Arcade+Vijay+Nagar+Indore+452010",
+   "potentialAction": {
+    "@type": "ReserveAction",
+    "name": "Book a free 30-minute audit call",
+    "target": {
+     "@type": "EntryPoint",
+     "urlTemplate": "https://calendly.com/beakarsa/15-minute-discovery-call",
+     "actionPlatform": ["https://schema.org/DesktopWebPlatform", "https://schema.org/MobileWebPlatform"]
+    }
+   },
    "openingHoursSpecification": [
     {
      "@type": "OpeningHoursSpecification",
@@ -459,7 +467,7 @@
      "name": "Where is Akarsa Studio located?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Our studio is at Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010. We work with brands in Indore and across India — and most projects can start right away on WhatsApp."
+      "text": "Our studio is at Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010. We work with brands in Indore and across India — and most projects start with a free 30-minute call on Google Meet."
      }
     },
     {
@@ -467,7 +475,7 @@
      "name": "How do we get started?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "It begins with a conversation. Message us on WhatsApp with your idea or your vision — we’ll connect, understand what you need and build a clear roadmap to turn it into something extraordinary."
+      "text": "It begins with a free 30-minute audit call. Book a time that suits you — we’ll look at your current marketing, tell you honestly what’s working and what isn’t, and build a clear roadmap to turn your vision into something extraordinary."
      }
     }
    ]
@@ -480,7 +488,7 @@
   <link rel="preload" as="image" href="assets/instagram/r02.jpg" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/open-sauce-one-latin-700-normal.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/open-sauce-one-latin-400-normal.woff2" crossorigin />
-  <link rel="stylesheet" href="styles.css?v=22" />
+  <link rel="stylesheet" href="styles.css?v=23" />
   <script>document.documentElement.classList.add('js','footer-gated')</script>
   <noscript><style>.loader,.cursor{display:none!important}body.is-loading{overflow:auto}</style></noscript>
 </head>
@@ -514,19 +522,19 @@
         <a href="#faq" data-scramble>FAQ</a>
         <a href="#reddit-ads" class="nav__new">Reddit Ads<i>NEW</i></a>
       </nav>
-      <a class="nav__cta" data-wa href="#">Let’s Talk</a>
+      <a class="nav__cta" data-book="nav" href="https://calendly.com/beakarsa/15-minute-discovery-call">Book a call</a>
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav__mobile">
       <a href="#work">Work</a><a href="#services">Services</a><a href="#story">Our Story</a><a href="#process">Process</a><a href="#faq">FAQ</a><a href="#reddit-ads">Reddit Ads <i class="nav__newtag">NEW</i></a>
-      <a class="btn btn--dark" data-wa href="#"><span class="btn__label">Start on WhatsApp</span></a>
+      <a class="btn btn--dark" data-book="menu" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Book a free audit call</span></a>
     </div>
   </header>
 
-  <!-- floating WhatsApp -->
-  <a class="wa-float" data-wa href="#" aria-label="Chat with Akarsa on WhatsApp">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
-    <span class="wa-float__tip">Chat with us</span>
+  <!-- floating "book a call" button -->
+  <a class="wa-float wa-float--book" data-book="float" href="https://calendly.com/beakarsa/15-minute-discovery-call" aria-label="Book a free 30-minute audit call">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+    <span class="wa-float__tip">Book a free call</span>
   </a>
 
   <main class="page">
@@ -580,8 +588,8 @@
           </a>
           <div class="hero__cta">
             <p data-pop>A system for authentic attraction. Akarsa is an AI-driven, truth-seeking studio that turns brand essence into signal — design, data and gravity, aligned.</p>
-            <a class="btn btn--dark magnetic" data-wa href="#" data-pop>
-              <span class="btn__label">Start a conversation</span>
+            <a class="btn btn--dark magnetic" data-book="hero" href="https://calendly.com/beakarsa/15-minute-discovery-call" data-pop>
+              <span class="btn__label">Book a free audit call</span>
               <span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
             </a>
           </div>
@@ -696,7 +704,7 @@
         <div class="ring__item"><div class="media" data-art="8" data-src="assets/clients/reels/7th-heaven.jpg"></div></div>
         <div class="ring__item"><div class="media" data-art="1" data-src="assets/clients/reels/varenyam.jpg"></div></div>
       </div>
-      <a class="ring__cta" data-wa href="#" data-cursor="Let’s go">
+      <a class="ring__cta" data-book="ring" href="https://calendly.com/beakarsa/15-minute-discovery-call" data-cursor="Book a call">
         <span class="split-inline">Your brand could be next</span>
         <span class="ring__arrow magnetic"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
       </a>
@@ -811,7 +819,7 @@
               <span class="offer__line">on Reddit ads with us and get a <b>dedicated team from Reddit</b></span>
               <ul class="offer__list"><li><i class="tick"></i>Reddit’s own team assigned to your brand</li><li><i class="tick"></i>Working alongside the Akarsa team</li><li><i class="tick"></i>Sharper optimisation &amp; precise targeting</li></ul>
             </div>
-            <a class="btn btn--dark magnetic" data-wa data-wa-msg="Hi Akarsa! I’d like to run Reddit ads and get a dedicated team from Reddit." href="#"><span class="btn__label">Get your Reddit team</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+            <a class="btn btn--dark magnetic" data-book="reddit" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Get your Reddit team</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
             <a class="adcard__more" href="/reddit-ads-agency-india">Reddit ads in detail →</a>
           </article>
 
@@ -825,7 +833,7 @@
               <div class="gpt-chat__ad"><span class="gpt-chat__label">Sponsored</span><strong>Your Café</strong><span>★ 4.8 · Cold coffee from ₹149 · Order on WhatsApp</span></div>
             </div>
             <ul class="adcard__points"><li><i class="tick"></i>Placement strategy &amp; setup</li><li><i class="tick"></i>Ad copy built for AI conversations</li><li><i class="tick"></i>Testing, tracking &amp; reporting</li></ul>
-            <a class="btn btn--light magnetic" data-wa data-wa-msg="Hi Akarsa! I’d like to run ChatGPT ads for my brand." href="#"><span class="btn__label">Start ChatGPT ads</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+            <a class="btn btn--light magnetic" data-book="chatgpt" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Start ChatGPT ads</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
             <a class="adcard__more" href="/chatgpt-ads-agency-india">ChatGPT ads in India: full guide →</a>
           </article>
         </div>
@@ -956,7 +964,7 @@
       </div>
       <div class="container center team__foot">
         <p data-reveal>Designers, developers, filmmakers and AI specialists who work as one — so vision and execution never get lost in translation.</p>
-        <a class="btn btn--dark magnetic" data-wa href="#" data-pop><span class="btn__label">Talk to the team</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        <a class="btn btn--dark magnetic" data-book="team" href="https://calendly.com/beakarsa/15-minute-discovery-call" data-pop><span class="btn__label">Book a call with the team</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
       </div>
     </section>
 
@@ -971,9 +979,9 @@
             <button role="tab" class="is-active" data-plan="monthly" aria-selected="true">Monthly</button>
             <button role="tab" data-plan="project" aria-selected="false">One-time project</button>
           </div>
-          <a class="custom" data-wa href="#" data-pop>
+          <a class="custom" data-book="pricing-custom" href="https://calendly.com/beakarsa/15-minute-discovery-call" data-pop>
             <span class="custom__avatar"><svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg><i class="online"></i></span>
-            <span class="custom__text"><strong>Need something custom?</strong><span>Let’s talk on WhatsApp</span></span>
+            <span class="custom__text"><strong>Need something custom?</strong><span>Book a free 30-minute call</span></span>
             <span class="custom__arrow"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span>
           </a>
         </div>
@@ -988,7 +996,7 @@
               data-monthly="Content strategy &amp; calendar|Short-form &amp; UGC production|Social media management|Monthly performance report|Dedicated point of contact"
               data-project="Brand identity &amp; logo|Visual language &amp; guidelines|Launch website|Launch content kit|Two revision rounds">
           </ul>
-          <a class="btn btn--dark btn--block magnetic" data-wa href="#"><span class="btn__label">Get a proposal</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn btn--dark btn--block magnetic" data-book="pricing" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Get a proposal</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
         </div>
 
         <div class="plan plan--dark" data-reveal>
@@ -1001,7 +1009,7 @@
               data-monthly="Everything in Growth|Meta, Google, YouTube, Reddit &amp; ChatGPT ads|Influencer campaigns|Website management|AI-powered insights &amp; automation"
               data-project="Brand, website &amp; content|Performance ad setup|Influencer seeding|AI automation build|Unlimited revisions">
           </ul>
-          <a class="btn btn--light btn--block magnetic" data-wa href="#"><span class="btn__label">Get a proposal</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn btn--light btn--block magnetic" data-book="pricing" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Get a proposal</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
         </div>
       </div>
     </section>
@@ -1014,7 +1022,7 @@
             <span class="pill" data-pop>The Akarsa way</span>
             <h2 class="h2 split">What we believe.</h2>
           </div>
-          <a class="btn btn--dark magnetic" data-wa href="#" data-pop><span class="btn__label">Work with us</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn btn--dark magnetic" data-book="beliefs" href="https://calendly.com/beakarsa/15-minute-discovery-call" data-pop><span class="btn__label">Work with us</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
         </div>
         <div class="beliefs__grid">
           <article class="belief" data-reveal data-cursor="Read">
@@ -1078,11 +1086,11 @@
           </div>
           <div class="qa" data-reveal>
             <button class="qa__q" aria-expanded="false"><span>Where is Akarsa Studio located?</span><i class="qa__icon"></i></button>
-            <div class="qa__a"><p>Our studio is at Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010. We work with brands in Indore and across India — and most projects can start right away on WhatsApp.</p></div>
+            <div class="qa__a"><p>Our studio is at Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010. We work with brands in Indore and across India — and most projects start with a free 30-minute call on Google Meet.</p></div>
           </div>
           <div class="qa" data-reveal>
             <button class="qa__q" aria-expanded="false"><span>How do we get started?</span><i class="qa__icon"></i></button>
-            <div class="qa__a"><p>It begins with a conversation. Message us on WhatsApp with your idea or your vision — we’ll connect, understand what you need and build a clear roadmap to turn it into something extraordinary.</p></div>
+            <div class="qa__a"><p>It begins with a free 30-minute audit call. Book a time that suits you — we’ll look at your current marketing, tell you honestly what’s working and what isn’t, and build a clear roadmap to turn your vision into something extraordinary.</p></div>
           </div>
         </div>
       </div>
@@ -1095,9 +1103,9 @@
           <svg class="cta__scribble" viewBox="0 0 300 140" aria-hidden="true"><path d="M-10,110 C40,120 90,60 70,30 C50,0 10,40 40,70 C80,110 200,80 310,-10" /></svg>
           <h2 class="h2 cta__title split">Let’s create what others hesitate to imagine.</h2>
           <p>Tell us where you want to go. We’ll bring the art, the intelligence and the plan to get you there.</p>
-          <a class="btn btn--light magnetic" data-wa href="#"><span class="btn__label">Start on WhatsApp</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn btn--light magnetic" data-book="final" href="https://calendly.com/beakarsa/15-minute-discovery-call"><span class="btn__label">Book your free audit call</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
         </div>
-        <div class="cta__media" data-reveal><div class="media media--panel" style="--pc:#2a1b4d" data-reel="poster:talk|assets/clients/reels/crush-coffee.jpg|poster:next"></div><span class="cta__chip cta__chip--a">Replies within a day</span><span class="cta__chip cta__chip--b">20+ brands grown</span></div>
+        <div class="cta__media" data-reveal><div class="media media--panel" style="--pc:#2a1b4d" data-reel="poster:talk|assets/clients/reels/crush-coffee.jpg|poster:next"></div><span class="cta__chip cta__chip--a">Free 30-min call</span><span class="cta__chip cta__chip--b">20+ brands grown</span></div>
       </div>
     </section>
     <i class="page__end" aria-hidden="true"></i>
@@ -1133,14 +1141,14 @@
     <div class="container footer__mid">
       <div class="footer__contact">
         <span class="eyebrow eyebrow--dark">Contact</span>
-        <a class="footer__big" data-wa href="#">WhatsApp us →</a>
+        <a class="footer__big" data-book="footer" href="https://calendly.com/beakarsa/15-minute-discovery-call">Book a free call →</a>
         <span class="footer__line" data-phone>+91 81098 01383</span>
         <a class="footer__line footer__addr" data-address href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%2C%20Shagun%20Arcade%2C%20Vijay%20Nagar%2C%20Indore%20452010" target="_blank" rel="noopener">Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010</a>
       </div>
-      <a class="footer__card" data-wa href="#">
+      <a class="footer__card" data-book="footer-card" href="https://calendly.com/beakarsa/15-minute-discovery-call">
         <strong>Have an idea?</strong>
-        <span>Share it with us on WhatsApp. We usually reply the same day.</span>
-        <span class="btn btn--dark btn--block"><span class="btn__label">Start a conversation</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
+        <span>Book a free 30-minute audit call on Google Meet. Pick any weekday slot that suits you.</span>
+        <span class="btn btn--dark btn--block"><span class="btn__label">Book a free audit call</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></span>
       </a>
     </div>
     <div class="container footer__brand">
@@ -1154,10 +1162,10 @@
     </div>
   </footer>
 
-  <script src="config.js?v=22"></script>
+  <script src="config.js?v=23"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="script.js?v=22"></script>
+  <script src="script.js?v=23"></script>
 </body>
 </html>
