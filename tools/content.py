@@ -137,19 +137,34 @@ RESULTS_VISUAL = '''<div class="pvisual pvisual--mock"><div class="rcard">
   <span class="rcard__src">From Meta Ads Manager · 7-day click</span>
 </div></div>'''
 
-# Google reviews shown on the site: exact text from the Google Business Profile, still live on 21 Oct 2026.
+# Google reviews shown on the site: exact text from the Google Business Profile, all still live and 5 stars on 21 Oct 2026.
 # Deliberately no Review/AggregateRating schema (Google treats a business's own review markup as self-serving).
-GOOGLE_REVIEWS = [('Bhaskar Gupta', 'Restaurant franchise', 'We wanted to expand our restaurant franchise, and Akarsa helped us improve our online presence and generate more franchise enquiries. Their content strategy has made a real difference for us.'), ('Gyandeep Parashar', 'Real-estate firm', 'I went to them for my real-estate firm, my firm has grew a lot since the time I have started working with them.'), ('Deepak Dixit', '', 'Best in town for marketing 🙌 👏')]
+# (name, what they hired us for, exact review text, avatar background, avatar letter colour)
+GOOGLE_REVIEWS = [
+    ("Bhaskar Gupta", "Restaurant franchise", "We wanted to expand our restaurant franchise, and Akarsa helped us improve our online presence and generate more franchise enquiries. Their content strategy has made a real difference for us.", "#FFA8F2", "#1C1917"),
+    ("Gyandeep Parashar", "Real-estate firm", "I went to them for my real-estate firm, my firm has grew a lot since the time I have started working with them.", "#AA94FF", "#1C1917"),
+    ("Deepak Dixit", "", "Best in town for marketing 🙌 👏", "#9EF483", "#1C1917"),
+    ("Shashwat Mishra", "", "Great experience with akrarsa and team", "#FFA952", "#1C1917"),
+    ("Shivam Baghel", "", "Spectacular.", "#1C1917", "#FFA8F2"),
+]
 GOOGLE_PROFILE = "https://g.page/r/CcurrO6xi-njEBM"
 
-def google_reviews(attr="data-in", title=True):
-    cards = "".join(
-        f'<figure class="grev" {attr}><div class="grev__stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div>'
-        f'<blockquote><p>{t}</p></blockquote><figcaption><strong>{n}</strong><span>{(k + " · ") if k else ""}Google review · Oct 2026</span></figcaption></figure>'
-        for n, k, t in GOOGLE_REVIEWS)
+def google_reviews(attr="data-reveal", title=True):
+    """Homepage review strip (pasted into index.html by hand). The first set is read by assistive tech; the loop copies are hidden."""
+    def card(r, hidden):
+        name, what, text, bg, fg = r
+        hid = ' aria-hidden="true"' if hidden else ""
+        return (f'<figure class="grev"{hid}>'
+                f'<figcaption class="grev__who"><span class="grev__dp" style="--dp:{bg};--dpc:{fg}" aria-hidden="true">{name[0]}</span>'
+                f'<span><strong>{name}</strong><span class="grev__meta">{(what + " · ") if what else ""}Google review · Oct 2026</span></span></figcaption>'
+                f'<div class="grev__stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div>'
+                f'<blockquote><p>{text}</p></blockquote></figure>')
+    # four copies: each half of the track is two sets wide, so the loop never shows a gap on wide screens
+    track = "".join(card(r, k > 0) for k in range(4) for r in GOOGLE_REVIEWS)
     head = "<strong>What clients say on Google</strong>" if title else ""
     return (f'<div class="greviews"><div class="greviews__head" {attr}>{head}'
-            f'<a href="{GOOGLE_PROFILE}" target="_blank" rel="noopener">See all our reviews on Google →</a></div><div class="greviews__grid">{cards}</div></div>')
+            f'<a href="{GOOGLE_PROFILE}" target="_blank" rel="noopener">See all our reviews on Google →</a></div>'
+            f'<div class="greviews__viewport" {attr}><div class="greviews__track">{track}</div></div></div>')
 
 # ---------- shared blocks ----------
 PROOF_STATS = [("₹577", "cost per enquiry on Meta ads — down from ₹7,500"), ("3.7×", "average ROAS for an e-commerce brand — 196 purchases in 30 days"), ("3×", "qualified leads with Akarsa One, our AI business intelligence"), ("20+", "brands including Starbucks, Adidas & Decathlon")]
@@ -642,7 +657,6 @@ page(
             '<div class="rkpi" data-in><strong>₹1.36</strong><span>per Instagram profile visit · 413 visits from ₹560 (Oct 2026)</span></div>'
             '<div class="rkpi" data-in><strong>₹31.88</strong><span>per WhatsApp conversation · 31 chats from ₹988 (Oct 2026)</span></div></div>'
             '<p class="src-note">The totals include every campaign in both accounts, tests included. The two ₹3–₹5 lead tests ran on very small budgets (under ₹200 each); costs usually rise as budgets grow, which is why we also show the ₹28.68 and ₹47.76 campaigns.</p>'),
-        ("What clients say on Google", google_reviews(title=False)),
         ("More proof", '<p>Read the full <a href="/case-studies/meta-ads-30k-52-enquiries">Meta ads case study: ₹30,000 → 52 enquiries</a>, where cost per enquiry fell from ₹7,500 to ₹577. Want numbers like these for your brand? Book a free 30-minute audit call and we’ll show you where your ad spend can work harder.</p>'),
     ],
     cards=[], steps=[],
