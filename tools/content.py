@@ -156,7 +156,7 @@ def google_reviews(attr="data-reveal", title=True):
         hid = ' aria-hidden="true"' if hidden else ""
         return (f'<figure class="grev"{hid}>'
                 f'<figcaption class="grev__who"><span class="grev__dp" style="--dp:{bg};--dpc:{fg}" aria-hidden="true">{name[0]}</span>'
-                f'<span><strong>{name}</strong><span class="grev__meta">{(what + " · ") if what else ""}Google review · Oct 2026</span></span></figcaption>'
+                f'<span><strong>{name}</strong><span class="grev__meta">{(what + " · ") if what else ""}Google review</span></span></figcaption>'
                 f'<div class="grev__stars" role="img" aria-label="Rated 5 out of 5 on Google">★★★★★</div>'
                 f'<blockquote><p>{text}</p></blockquote></figure>')
     # four copies: each half of the track is two sets wide, so the loop never shows a gap on wide screens
