@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "24"  # asset cache-buster for styles/config
+V = "25"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # free 30-minute audit call; page.js opens it as a Calendly popup
 CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>'
@@ -301,6 +301,36 @@ def render_hub(h):
     body = f'<section class="psec"><div class="container"><div class="rels rels--2">{"".join(items)}</div></div></section>'
     return "\n".join([head(hub), NAV, hero(hub), body, cta_html(hub), footer()])
 
+def build_404():
+    """Branded page for unknown URLs. Vercel serves /404.html with a real 404 status; noindex keeps it out of search."""
+    links = "".join(f'<a class="rel" href="/{s}"><span class="rel__k">{esc(BY_SLUG[s]["eyebrow"])}</span><strong>{esc(BY_SLUG[s]["nav_label"])}</strong><span class="rel__go">{ARROW}</span></a>'
+                    for s in ["results", "meta-ads-agency-indore", "social-media-marketing-agency-indore", "about"])
+    html_ = f'''<!doctype html>
+<html lang="en-IN">
+<head>
+  <meta charset="utf-8" />
+{PIXEL}  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Page not found | Akarsa Studio</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#1C1917" />
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>document.documentElement.classList.add('js')</script>
+  <link rel="stylesheet" href="/styles.css?v={V}" />
+  <link rel="stylesheet" href="/page.css?v={V}" />
+</head>
+{NAV}  <main class="page" id="main">
+    <section class="phero"><div class="container psec__narrow">
+      <span class="pill">Error 404</span>
+      <h1 class="phero__title">This page doesn’t exist.</h1>
+      <p class="phero__lead">The link may be old or mistyped. Here’s where most people were heading.</p>
+      <div class="phero__ctas"><a class="btn btn--dark" href="/"><span class="btn__label">Back to the homepage</span><span class="btn__icon">{ARROW}</span></a></div>
+    </div></section>
+    <section class="psec"><div class="container"><div class="rels">{links}</div></div></section>
+  </main>
+{footer()}'''
+    open(os.path.join(ROOT, "404.html"), "w", encoding="utf-8").write(html_)
+
 def write(slug, content):
     path = os.path.join(ROOT, (slug + "index.html") if slug.endswith("/") else (slug + ".html"))
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -389,6 +419,6 @@ if __name__ == "__main__":
     for p in PAGES:
         write(p["slug"], render(p))
     write("insights/", render_hub(INSIGHTS_HUB))
-    build_sitemap(); build_llms()
+    build_sitemap(); build_llms(); build_404()
     open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8").write(ROBOTS)
     print(f"built {len(PAGES) + 1} pages + sitemap.xml, llms.txt, llms-full.txt, robots.txt")

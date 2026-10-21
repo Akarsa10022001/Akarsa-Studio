@@ -6,8 +6,22 @@ cost per enquiry ₹7,500 -> ₹577; Akarsa One: 3x qualified leads; 20+ brands)
 third-party fact cited in the page's `sources`. Do not add claims without a source.
 """
 
+import os
+from functools import lru_cache
+
 SITE = "https://www.akarsaone.xyz"
 TODAY = "2026-10-17"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+@lru_cache(None)
+def img_size(src):
+    """(width, height) of a site image, for width/height attributes; None if it can't be read."""
+    try:
+        from PIL import Image
+        with Image.open(os.path.join(ROOT, src.lstrip("/"))) as im:
+            return im.size
+    except Exception:
+        return None
 
 # ---------- shared sources ----------
 S_INC42 = ("Inc42 — OpenAI rolls out ChatGPT ads in India (27 Aug 2026)", "https://inc42.com/buzz/openai-rolls-out-chatgpt-ads-in-india/")
@@ -33,7 +47,10 @@ WA = "Hi Akarsa! I found you on your website and would like to talk about "
 def reels(paths, color="#1c1917", light=False, alts=None):
     cls = "media media--panel" + (" media--light" if light else "")
     alts = alts or [""] * len(paths)
-    imgs = "".join(f'<img class="reel" src="{p}" alt="{a}" loading="eager" decoding="async" />' for p, a in zip(paths, alts))
+    def wh(p):
+        d = img_size(p)
+        return f' width="{d[0]}" height="{d[1]}"' if d else ""
+    imgs = "".join(f'<img class="reel" src="{p}" alt="{a}"{wh(p)} loading="eager" decoding="async" />' for p, a in zip(paths, alts))
     return f'<div class="pvisual"><div class="{cls}" style="--pc:{color}"><div class="reels reels--{len(paths)}">{imgs}</div></div></div>'
 
 GPT_MOCK = '''<div class="pvisual pvisual--mock pvisual--dark"><div class="gpt-chat" aria-hidden="true">

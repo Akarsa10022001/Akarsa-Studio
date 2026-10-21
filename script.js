@@ -318,10 +318,15 @@
     const pathLen = path.getTotalLength();
     const reps = Math.ceil((pathLen + seqLen) / seqLen) + 1;
     tp.textContent = seq.repeat(reps);
-    let off = 0;
+    // redrawing text along a curve is the most expensive thing on the page: only while the hero is on screen, ~30fps on phones
+    let off = 0, heroOn = true, skip = false;
+    const coarse = matchMedia('(pointer: coarse)').matches;
+    new IntersectionObserver(([e]) => { heroOn = e.isIntersecting; }).observe($('.hero'));
     gsap.ticker.add((t, dt) => {
+      if (!heroOn) return;
       const boost = Math.min(Math.abs(velocity) / 300, 8);
       off = (off + (0.05 + boost * 0.05) * dt) % seqLen;
+      if (coarse && (skip = !skip)) return;
       tp.setAttribute('startOffset', -off);
     });
   })();
@@ -340,6 +345,9 @@
     play();
   })();
 
+  // looping tweens keep restyling their tracks every frame; stop them while they're off screen
+  const pauseOffscreen = (el, tw) => new IntersectionObserver(([e]) => (e.isIntersecting ? tw.resume() : tw.pause())).observe(el);
+
   /* ---------------- platform marquee (reacts to scroll speed) ---------------- */
   // the second half of each marquee track is a visual duplicate for looping — hide it from assistive tech
   $$('.logos__track').forEach(track => {
@@ -351,6 +359,7 @@
     const tw = rev
       ? gsap.fromTo(track, { xPercent: -50 }, { xPercent: 0, ease: 'none', duration: 40, repeat: -1 })
       : gsap.to(track, { xPercent: -50, ease: 'none', duration: 40, repeat: -1 });
+    pauseOffscreen(track.parentElement, tw);
     let hover = false;
     track.addEventListener('mouseenter', () => (hover = true));
     track.addEventListener('mouseleave', () => (hover = false));
@@ -365,6 +374,7 @@
     const track = $('.feed__track');
     if (!track) return;
     const tw = gsap.to(track, { xPercent: -50, ease: 'none', duration: 60, repeat: -1 });
+    pauseOffscreen(track.parentElement, tw);
     let hover = false;
     track.addEventListener('mouseenter', () => (hover = true));
     track.addEventListener('mouseleave', () => (hover = false));
