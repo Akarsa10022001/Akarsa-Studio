@@ -40,6 +40,8 @@ ORG_NODE = {
     "sameAs": ["https://www.instagram.com/akarsa_studio/", "https://www.youtube.com/@AkarsaStudio", "https://www.facebook.com/Akarsadyniq", "https://www.pinterest.com/beakarsa", "https://linktr.ee/Akarsa_Studio"],
 }
 
+def stamp(day): return f"{day}T09:00:00+05:30"  # Google wants full datetimes with a timezone (IST)
+
 def crumbs(p):
     trail = [("Home", "")]
     k = p["kind"]
@@ -55,7 +57,7 @@ def schema(p):
     ptype = {"about": "AboutPage", "hub": "CollectionPage"}.get(p["kind"], "WebPage")
     graph.append({"@type": ptype, "@id": page_url + "#webpage", "url": page_url, "name": p["title"], "description": p["desc"], "inLanguage": "en-IN",
                   "isPartOf": {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "Akarsa Studio"}, "about": {"@id": ORG_ID},
-                  "dateModified": TODAY, "primaryImageOfPage": SITE + "/og-image.jpg"})
+                  "dateModified": stamp(p.get("updated", (TODAY,))[0]), "primaryImageOfPage": SITE + "/og-image.jpg"})
     # Google requires "item" on every breadcrumb, so crumbs without their own page are left out
     linked = [(name, slug) for name, slug in crumbs(p) if slug is not None]
     items = [{"@type": "ListItem", "position": i, "name": name, "item": url(slug)} for i, (name, slug) in enumerate(linked, 1)]
@@ -64,7 +66,7 @@ def schema(p):
         graph.append({"@type": "Service", "name": p["h1"], "serviceType": p.get("service_type", p["h1"]), "description": strip(p["answer"]), "url": page_url,
                       "provider": {"@id": ORG_ID}, "areaServed": [{"@type": "City", "name": "Indore"}, {"@type": "Country", "name": "India"}]})
     if p["kind"] in ("article", "case"):
-        graph.append({"@type": "Article", "headline": p["h1"][:110], "description": p["desc"], "image": SITE + "/og-image.jpg", "datePublished": TODAY, "dateModified": TODAY,
+        graph.append({"@type": "Article", "headline": p["h1"][:110], "description": p["desc"], "image": SITE + "/og-image.jpg", "datePublished": stamp(p.get("published", TODAY)), "dateModified": stamp(p.get("updated", (TODAY,))[0]),
                       "author": {"@type": "Organization", "name": "Akarsa Studio", "url": SITE + "/"}, "publisher": {"@id": ORG_ID}, "mainEntityOfPage": page_url,
                       "citation": [s[1] for s in p.get("sources", [])]})
     if p.get("faqs"):

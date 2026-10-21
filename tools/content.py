@@ -588,7 +588,7 @@ page(
 # 11b. Real results (verified numbers)
 # =====================================================================
 page(
-    slug="results", kind="case", group="Proof", updated=("2026-10-21", "21 October 2026"),
+    slug="results", kind="case", group="Proof", published="2026-10-21", updated=("2026-10-21", "21 October 2026"),
     title="Meta Ads Results & ROAS: Real Numbers | Akarsa Studio",
     desc="Real Meta ads numbers from Ads Manager: 196 purchases at ₹381 each and 3.7× ROAS for an e-commerce brand, plus our own leads at ₹28–₹48.",
     nav_label="Real results",
