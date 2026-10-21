@@ -317,7 +317,7 @@ def build_sitemap():
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n' + "\n".join(urls) + "\n</urlset>\n"
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(xml)
 
-FACTS = """- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also written Ākarṣa)
+FACTS = f"""- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also written Ākarṣa)
 - What: AI-driven, truth-seeking marketing agency — "where art meets intelligence"
 - Founder: Ritik Sharma (Founder & Director, host of Akarsa Live)
 - Address: Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010, India
