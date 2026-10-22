@@ -37,7 +37,7 @@ ORG_NODE = {
     "address": {"@type": "PostalAddress", "streetAddress": "Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar",
                 "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "postalCode": "452010", "addressCountry": "IN"},
     "founder": {"@type": "Person", "name": "Ritik Sharma", "jobTitle": "Founder & Director"},
-    "sameAs": ["https://www.instagram.com/akarsa_studio/", "https://www.youtube.com/@AkarsaStudio", "https://www.facebook.com/Akarsadyniq", "https://www.pinterest.com/beakarsa", "https://linktr.ee/Akarsa_Studio"],
+    "sameAs": ["https://www.instagram.com/akarsa_studio/", "https://www.youtube.com/@AkarsaStudio", "https://www.facebook.com/profile.php?id=61577404206425", "https://www.pinterest.com/beakarsa", "https://linktr.ee/Akarsa_Studio"],
 }
 
 def stamp(day): return f"{day}T09:00:00+05:30"  # Google wants full datetimes with a timezone (IST)
@@ -124,7 +124,7 @@ NAV = f'''<body class="subpage">
         <a href="/#services">Services</a>
         <a href="/#work">Work</a>
         <a href="/results">Results</a>
-        <a href="/reddit-ads-agency-india" class="nav__new">Reddit Ads<i>NEW</i></a>
+        <a href="/reddit-ads-agency-india" class="nav__new">Reddit Ads</a>
         <a href="/chatgpt-ads-agency-india">ChatGPT Ads</a>
         <a href="/insights/">Insights</a>
         <a href="/about">About</a>
@@ -133,11 +133,11 @@ NAV = f'''<body class="subpage">
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav__mobile">
-      <a href="/">Home</a><a href="/#services">Services</a><a href="/results">Results</a><a href="/reddit-ads-agency-india">Reddit Ads <i class="nav__newtag">NEW</i></a><a href="/chatgpt-ads-agency-india">ChatGPT Ads</a><a href="/insights/">Insights</a><a href="/about">About</a>
-      <a class="btn btn--dark" data-book="menu" href="{BOOKING}"><span class="btn__label">Book a free audit call</span></a>
+      <a href="/">Home</a><a href="/#services">Services</a><a href="/results">Results</a><a href="/reddit-ads-agency-india">Reddit Ads</a><a href="/chatgpt-ads-agency-india">ChatGPT Ads</a><a href="/insights/">Insights</a><a href="/about">About</a>
+      <a class="btn btn--dark" data-book="menu" href="{BOOKING}"><span class="btn__label">Book an intro call</span></a>
     </div>
   </header>
-  <a class="wa-float wa-float--book is-in" data-book="float" href="{BOOKING}" aria-label="Book a free 30-minute audit call">{CAL_ICON}<span class="wa-float__tip">Book a free call</span></a>
+  <a class="wa-float wa-float--book is-in" data-book="float" href="{BOOKING}" aria-label="Book a 30-minute intro call">{CAL_ICON}<span class="wa-float__tip">Book an intro call</span></a>
 '''
 
 def footer_cols():
@@ -159,7 +159,7 @@ def footer():
     <div class="container footer__mid">
       <div class="footer__contact">
         <span class="eyebrow eyebrow--dark">Contact</span>
-        <a class="footer__big" data-book="footer" href="{BOOKING}">Book a free call →</a>
+        <a class="footer__big" data-book="footer" href="{BOOKING}">Book an intro call →</a>
         <span class="footer__line" data-phone>+91 81098 01383</span>
         <a class="footer__line footer__addr" data-address href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore">Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010</a>
       </div>
@@ -167,7 +167,7 @@ def footer():
         <div class="socials">
           <a data-social="instagram" aria-label="Instagram" href="https://www.instagram.com/akarsa_studio/"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
           <a data-social="youtube" aria-label="YouTube" href="https://www.youtube.com/@AkarsaStudio"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor"/></svg></a>
-          <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/Akarsadyniq"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2V3Z"/></svg></a>
+          <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61577404206425"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2V3Z"/></svg></a>
           <a data-social="pinterest" aria-label="Pinterest" href="https://www.pinterest.com/beakarsa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8.5c2.8-1 5 .6 4.6 3.2-.3 2-2 3.3-3.6 2.6M12 11l-2.5 9.5"/></svg></a>
         </div>
       </div>
@@ -215,7 +215,7 @@ def hero(p):
           {upd}
           <div class="answer"><span class="answer__label">Quick answer</span><p>{esc(p["answer"])}</p></div>
           <div class="phero__ctas">
-            <a class="btn btn--dark" data-book="page-hero" href="{BOOKING}"><span class="btn__label">{esc(p.get("cta_label", "Book a free audit call"))}</span><span class="btn__icon">{ARROW}</span></a>
+            <a class="btn btn--dark" data-book="page-hero" href="{BOOKING}"><span class="btn__label">{esc(p.get("cta_label", "Book an intro call"))}</span><span class="btn__icon">{ARROW}</span></a>
             {btn2}
           </div>
         </div>
@@ -267,8 +267,8 @@ def sources_html(p):
 
 def cta_html(p):
     return f'''<section class="psec"><div class="container"><div class="ctaband" data-in>
-<h2>Ready to grow with Akarsa Studio?</h2><p>Book a free 30-minute audit call. We’ll look at your marketing and tell you honestly what to fix first.</p>
-<a class="btn btn--light" data-book="page-cta" href="{BOOKING}"><span class="btn__label">Book a free audit call</span><span class="btn__icon">{ARROW}</span></a>
+<h2>Ready to grow with Akarsa Studio?</h2><p>Book a 30-minute intro call. We’ll look at your marketing and tell you honestly what to fix first.</p>
+<a class="btn btn--light" data-book="page-cta" href="{BOOKING}"><span class="btn__label">Book an intro call</span><span class="btn__icon">{ARROW}</span></a>
 </div></div></section>
   </main>
 '''
@@ -411,14 +411,14 @@ FACTS = f"""- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also wri
 - Founder: Ritik Sharma (Founder & Director, host of Akarsa Live)
 - Address: Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010, India
 - Phone/WhatsApp: +91 81098 01383
-- Free 30-minute audit call (book online): {BOOKING}
+- 30-minute intro call (book online): {BOOKING}
 - Office hours: Mon–Fri 11:00–19:30, Sat 12:00–15:30, Sun closed (IST)
 - Website: https://www.akarsaone.xyz
 - Services: social media marketing, UGC & short-form video, video editing & animation, influencer marketing, Meta ads, Google ads, YouTube ads, Reddit ads, ChatGPT ads, brand identity & logo design, graphic design, website development & management, AI marketing automation
 - Offer: spend more than $1,000 on Reddit ads through Akarsa Studio and Reddit assigns a dedicated team from Reddit to the account, working alongside Akarsa to optimise and precisely target
 - Clients: 20+ brands incl. Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke's Table, Olympia Fitness Gym, The Korean Trends, Mayaram's Farm, Bake Affaire, Nomad Pizza, Kunafa Bytes, Lokal, Urban Theka, Kahani, Varenyam, Zhanna Events & Flowers, Fleuristry
 - Results: Meta ads ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577 (≈13× lower). E-commerce client (RC toys), 6 Sep–7 Oct 2026: 196 purchases from ₹74,600, ₹381 per purchase, 3.7× average ROAS. International store: $419 → $1,149 (2.74× ROAS). Own lead campaigns (Meta API, Aug 2025–Oct 2026): ₹25,944 spent, 186 leads; best ₹28.68 and ₹47.76 per lead. Full data: https://www.akarsaone.xyz/results Akarsa One (AI business intelligence): 3× qualified leads
-- Social: Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook /Akarsadyniq · Pinterest /beakarsa"""
+- Social: Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook · Pinterest /beakarsa"""
 
 def build_llms():
     lines = ["# Akarsa Studio", "", "> Akarsa Studio (Akarsa Studio Private Limited) is an AI-driven marketing agency in Vijay Nagar, Indore, India. It runs social media, UGC/reels, influencer marketing, Meta, Google, YouTube, Reddit and ChatGPT ads, branding and website development for 20+ brands including Starbucks, Adidas and Decathlon.", "", "## Key facts", FACTS, "", "## Services"]

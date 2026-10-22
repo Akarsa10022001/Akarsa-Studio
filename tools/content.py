@@ -128,7 +128,7 @@ def _rc_table():
     rows = "".join(f'<tr><th scope="row">{a}</th><td>{p}</td><td>₹{s_:,}</td><td>₹{c}</td><td>{r:.1f}×</td><td>{re_:,}</td><td>{f}</td></tr>' for a, p, s_, c, r, re_, f in RC_ADS)
     return ('<div class="rtable" data-in><table><thead><tr><th scope="col">Ad</th><th scope="col">Purchases</th><th scope="col">Amount spent</th><th scope="col">Cost per purchase</th>'
             '<th scope="col">Purchase ROAS</th><th scope="col">Reach</th><th scope="col">Frequency</th></tr></thead><tbody>' + rows +
-            '</tbody><tfoot><tr><th scope="row">Total</th><td>196</td><td>₹74,600</td><td>₹381</td><td>3.7× avg</td><td>658,360</td><td>1.9</td></tr></tfoot></table></div>')
+            '</tbody><tfoot><tr><th scope="row">Total</th><td>196</td><td>₹74,600</td><td>₹381</td><td>3.7× total</td><td>—</td><td>1.9</td></tr></tfoot></table></div>')
 
 RESULTS_VISUAL = '''<div class="pvisual pvisual--mock"><div class="rcard">
   <span class="rcard__eyebrow">E-commerce brand · 6 Sep–7 Oct 2026</span>
@@ -167,7 +167,7 @@ def google_reviews(attr="data-reveal", title=True):
             f'<div class="greviews__viewport" {attr}><div class="greviews__track">{track}</div></div></div>')
 
 # ---------- shared blocks ----------
-PROOF_STATS = [("₹577", "cost per enquiry on Meta ads — down from ₹7,500"), ("3.7×", "average ROAS for an e-commerce brand — 196 purchases in 30 days"), ("3×", "qualified leads with Akarsa One, our AI business intelligence"), ("20+", "brands including Starbucks, Adidas & Decathlon")]
+PROOF_STATS = [("₹577", "cost per enquiry on Meta ads — down from ₹7,500"), ("3.7×", "ROAS for an e-commerce brand — 196 purchases in 32 days"), ("3×", "qualified leads with Akarsa One, our AI business intelligence"), ("20+", "brands including Starbucks, Adidas & Decathlon")]
 
 PAGES = []
 
@@ -273,7 +273,7 @@ page(
           ("How much do Reddit ads cost in India?", "Reddit’s minimum is $5 a day. Third-party estimates suggest typical CPCs of about $0.50–$2.50 globally, and one 2025 India guide reported around ₹8–₹20 per click. We forecast your costs during the audit."),
           ("Can Reddit ads target only Indian users?", "Yes. Reddit supports location targeting, so campaigns can focus on India, specific regions, or international markets if you sell globally."),
           ("Which businesses do best on Reddit?", "Tech and SaaS, gaming, D2C products, finance, education and any brand whose customers compare options and ask for recommendations before they buy."),
-          ("How quickly can you launch Reddit ads?", "Once we understand your goals and audience, we set up tracking, write Reddit-native creative and launch — then optimise weekly. Book a free 30-minute audit call to start.")],
+          ("How quickly can you launch Reddit ads?", "Once we understand your goals and audience, we set up tracking, write Reddit-native creative and launch — then optimise weekly. Book a 30-minute intro call to start.")],
     related=["chatgpt-ads-agency-india", "insights/reddit-ads-cost-india", "meta-ads-agency-indore", "social-media-marketing-agency-indore"],
     sources=[S_SAMOSA, S_E4M_REDDIT, S_AIMERS, S_STACKMATIX, S_TRILOKANA],
 )
@@ -306,7 +306,7 @@ page(
            ("Community management", "Replies to comments and DMs so every interested follower gets an answer."),
            ("Paid social", "Meta ads on proven posts to turn reach into enquiries, tracked to the lead.")],
     steps=[("Audit", "Your profiles, competitors and audience."), ("Plan", "Content pillars, calendar and hooks."), ("Create", "Reels, UGC, carousels and stories."), ("Grow", "Publish, engage, boost and report monthly.")],
-    faqs=[("How much does social media marketing cost in Indore?", "It depends on the platforms, how many reels and posts you need each month, whether we shoot on location, and your ad budget. We offer tailored monthly plans — book a free 30-minute call and we’ll send a proposal."),
+    faqs=[("How much does social media marketing cost in Indore?", "It depends on the platforms, how many reels and posts you need each month, whether we shoot on location, and your ad budget. We offer tailored monthly plans — book a 30-minute intro call and we’ll send a proposal."),
           ("How many posts and reels will I get each month?", "We set the volume in your plan based on your goals and budget. Consistency matters more than volume, so we prioritise a calendar you can sustain with content that performs."),
           ("Do you shoot content or do we need to provide it?", "We handle everything — strategy, scripting, shooting, editing and posting. If you already have photos or videos, we can improve and repurpose them."),
           ("Which social media platforms do you manage?", "Instagram, Facebook, YouTube and Shorts, LinkedIn, X and Pinterest. We recommend the right mix for your audience."),
@@ -329,10 +329,10 @@ page(
     answer="Akarsa Studio is a Meta ads agency in Indore that runs Facebook and Instagram campaigns for leads and sales. In one campaign, ₹30,000 of ad spend produced 52 enquiries — cost per enquiry fell from ₹7,500 to ₹577, about 13× lower.",
     visual=reels(["/assets/instagram/r05.jpg", "/assets/instagram/r03.jpg", "/assets/instagram/r11.jpg"], "#1c1917", False,
                  ["Akarsa Studio reel: Are Meta ads a waste of money?", "Meta Ads case study: ₹30K turned into 52 enquiries", "Akarsa Studio reel: Spent ₹40,000 and got zero clients?"]),
-    wa=WA + "Meta (Facebook & Instagram) ads.", cta_label="Get a free ad audit",
+    wa=WA + "Meta (Facebook & Instagram) ads.", cta_label="Book an intro call",
     service_type="Facebook and Instagram advertising",
     sections=[
-        ("Real results from our Meta ads", kpis([("3.7×", "average purchase ROAS"), ("196", "purchases in 30 days"), ("₹381", "per purchase")]) +
+        ("Real results from our Meta ads", kpis([("3.7×", "total purchase ROAS"), ("196", "purchases in 32 days"), ("₹381", "per purchase")]) +
             '<p>An Indian e-commerce brand, 6 Sep–7 Oct 2026, straight from the client’s Meta Ads Manager. <a href="/results">See every number, chart and the maths →</a></p>'),
         ("Real result: ₹30K → 52 enquiries", '''<div class="facts"><table>
 <tr><th>Ad spend</th><td>₹30,000</td></tr><tr><th>Enquiries</th><td>52</td></tr>
@@ -350,7 +350,7 @@ page(
     steps=[("Audit", "Spend, tracking and creative."), ("Rebuild", "Offer, audiences and funnel."), ("Test", "Creative rounds and A/B tests."), ("Scale", "More budget on what lowers cost per lead.")],
     faqs=[("What results can Meta ads deliver?", "In one of our campaigns, ₹30,000 of spend produced 52 enquiries and cut cost per enquiry from ₹7,500 to ₹577. Results vary by industry and offer, which is why we start with an audit."),
           ("How much do Meta ads cost in India?", "Third-party benchmarks suggest about ₹50–₹120 per 1,000 impressions, ₹8–₹25 per click and ₹150–₹400 per lead in many categories. Competitive industries like real estate and finance cost more."),
-          ("What are your Meta ads service charges?", "We price management based on your ad budget and scope (creative volume, platforms, landing pages). Book a free 30-minute audit call for a tailored proposal."),
+          ("What are your Meta ads service charges?", "We price management based on your ad budget and scope (creative volume, platforms, landing pages). Book a 30-minute intro call for a tailored proposal."),
           ("Do you create the ad creative?", "Yes. Our team writes, designs, shoots and edits ad creative — reels, statics and UGC — and tests new rounds every month."),
           ("Can you run WhatsApp ads?", "Yes. Click-to-WhatsApp campaigns are often the fastest way for Indian businesses to turn ad clicks into conversations."),
           ("Do you only work with businesses in Indore?", "No. We’re based in Vijay Nagar, Indore, and run Meta ads for brands across India.")],
@@ -423,7 +423,7 @@ page(
            ("Website management", "Updates, security, backups and performance — handled every month."),
            ("SEO & content", "Pages written to rank for what your customers search.")],
     steps=[("Discover", "Goals, audience and the pages you need."), ("Design", "Look, feel and content structure."), ("Build", "Fast, SEO-ready code with tracking."), ("Launch & grow", "Go live, then manage and improve.")],
-    faqs=[("How much does a website cost in Indore?", "It depends on the number of pages, features (like e-commerce or booking) and content needed. Book a free 30-minute call, tell us what you need, and we’ll send a fixed proposal."),
+    faqs=[("How much does a website cost in Indore?", "It depends on the number of pages, features (like e-commerce or booking) and content needed. Book a 30-minute intro call, tell us what you need, and we’ll send a fixed proposal."),
           ("How long does it take to build a website?", "A focused landing page can go live quickly; a full business website or store takes longer depending on pages and content. We share a timeline with every proposal."),
           ("Will my website be SEO-friendly?", "Yes. Every site ships with technical SEO, structured data, a sitemap and fast performance — and it’s ready for AI search engines too."),
           ("Can I update the website myself?", "Yes. We can build on a platform you can edit, or manage updates for you as part of website management."),
@@ -456,7 +456,7 @@ page(
            ("Graphic design", "Social templates, menus, brochures and packaging."),
            ("Brand launch", "Rolling the new identity out across social media and your website.")],
     steps=[("Discover", "Strategy, audience and competitors."), ("Explore", "Concepts and directions."), ("Refine", "Revisions to a final identity."), ("Deliver", "Files, guidelines and rollout.")],
-    faqs=[("How much does logo design cost in Indore?", "It depends on whether you need a logo only or a complete brand identity with guidelines. Book a free 30-minute call to share your brief, and we’ll send a proposal."),
+    faqs=[("How much does logo design cost in Indore?", "It depends on whether you need a logo only or a complete brand identity with guidelines. Book a 30-minute intro call to share your brief, and we’ll send a proposal."),
           ("What’s included in a brand identity?", "Typically a logo suite, colour palette, typography, graphic elements, imagery direction and a brand guidelines document, plus templates for social media."),
           ("How many revisions do I get?", "Our Brand Launch package includes two revision rounds, so you can refine the direction until it feels right."),
           ("Which files will I receive?", "Vector and web-ready files of your logo in every colour version, plus your colour and font specifications and guidelines."),
@@ -564,14 +564,14 @@ page(
     cards=[("Local know-how", "Campaigns shaped by what Indore customers search, scroll and buy."),
            ("One team, every channel", "Content, ads, branding and websites without juggling five vendors."),
            ("Real results", "₹30K turned into 52 enquiries on Meta ads — cost per enquiry down 13×."),
-           ("Easy booking", "Book a free 30-minute call online. Pick any weekday slot that suits you.")],
-    steps=[("Book a call", "Pick a free 30-minute slot online."), ("Meet", "At our Vijay Nagar studio or online."), ("Plan", "A clear roadmap and proposal."), ("Grow", "Launch, measure and scale.")],
+           ("Easy booking", "Book a 30-minute intro call online. Pick any weekday slot that suits you.")],
+    steps=[("Book a call", "Pick a 30-minute slot online."), ("Meet", "At our Vijay Nagar studio or online."), ("Plan", "A clear roadmap and proposal."), ("Grow", "Launch, measure and scale.")],
     faqs=[("Where is Akarsa Studio located?", "Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010."),
-          ("Can I meet the team in person?", "Yes. Book a free 30-minute call online first, or call +91 81098 01383 to set up a meeting at our Vijay Nagar studio."),
+          ("Can I meet the team in person?", "Yes. Book a 30-minute intro call online first, or call +91 81098 01383 to set up a meeting at our Vijay Nagar studio."),
           ("Which services do you offer in Indore?", "Social media marketing, UGC and reels, influencer marketing, Meta, Google, YouTube, Reddit and ChatGPT ads, branding and logo design, and website development and management."),
           ("Do you only work with Indore businesses?", "No. We’re based in Indore and work with brands across India."),
           ("Which industries do you work with?", "Cafés and restaurants, fitness, fashion and retail, education, events and flowers, D2C brands and national retail chains."),
-          ("How do we get started?", "Book a free 30-minute audit call. We’ll understand your goals, look at your current marketing and share a clear roadmap.")],
+          ("How do we get started?", "Book a 30-minute intro call. We’ll understand your goals, look at your current marketing and share a clear roadmap.")],
     related=["social-media-marketing-agency-indore", "meta-ads-agency-indore", "website-development-company-indore", "about"],
     sources=[],
 )
@@ -619,50 +619,39 @@ page(
 page(
     slug="results", kind="case", group="Proof", published="2026-10-21", updated=("2026-10-21", "21 October 2026"),
     title="Meta Ads Results & ROAS: Real Numbers | Akarsa Studio",
-    desc="Real Meta ads numbers from Ads Manager: 196 purchases at ₹381 each and 3.7× ROAS for an e-commerce brand, plus our own leads at ₹28–₹48.",
+    desc="Real Meta ads numbers from Ads Manager: 196 purchases at ₹381 each and 3.7× ROAS for an e-commerce brand, and 2.74× ROAS for an international store.",
     nav_label="Real results",
     eyebrow="Proof · Real numbers", h1="Real Meta Ads Results, in Numbers",
     lead="No mock-ups and no rounded-up claims. Every figure below comes from Meta Ads Manager, with the dates, the spend and the maths shown.",
-    answer="For an Indian e-commerce brand, Akarsa Studio’s Meta ads produced 196 purchases from ₹74,600 of ad spend in 30 days (6 Sep–7 Oct 2026): ₹381 per purchase and a 3.7× average ROAS. On our own lead campaigns, Meta reports 186 leads, with our best campaigns at ₹28.68 and ₹47.76 per lead.",
+    answer="For an Indian e-commerce brand, Akarsa Studio’s Meta ads produced 196 purchases from ₹74,600 of ad spend over 32 days (6 Sep–7 Oct 2026): ₹381 per purchase and a 3.7× total ROAS, about ₹2.74 lakh in tracked sales. For an international store, the same approach returned 2.74× ROAS.",
     visual=RESULTS_VISUAL,
-    wa=WA + "results like the ones on your Real Results page.", cta_label="Get a free ad audit",
+    wa=WA + "results like the ones on your Real Results page.", cta_label="Book an intro call",
     sections=[
         ("How we check these numbers", '''<ul class="ticks">
 <li><b>Client campaigns</b> come from the client’s own Meta Ads Manager, with the date range and attribution setting stated. Client and ad names are hidden for privacy.</li>
-<li><b>Our own campaigns</b> were pulled directly from Meta’s Marketing API for Akarsa Studio’s ad accounts on 21 October 2026.</li>
 <li><b>Every derived number shows its maths</b>, so you can check it yourself. Ask us on a call and we’ll walk you through the live dashboards.</li>
 </ul>'''),
         ("E-commerce brand: 196 purchases at ₹381 each", vsource("Client’s Meta Ads Manager · 5 ads in one campaign · 6 Sep–7 Oct 2026 · 7-day click attribution") +
-            kpis([("3.7×", "average purchase ROAS"), ("196", "purchases in 30 days"), ("₹381", "average cost per purchase"), ("₹74,600", "ad spend · 658,360 accounts reached")]) +
+            kpis([("3.7×", "total purchase ROAS"), ("196", "purchases in 32 days"), ("₹381", "average cost per purchase"), ("₹74,600", "ad spend")]) +
             '<div class="rgrid">' +
             bars("Purchase ROAS by ad", "Return on ad spend · higher is better", "ROAS",
                  [(a, r, f"{r:.1f}×", f"ROAS {r:.1f}× · ₹{s_:,} spent · {p} purchases") for a, p, s_, c, r, re_, f in sorted(RC_ADS, key=lambda x: -x[4])], best=0) +
             bars("Cost per purchase by ad", "What each sale cost in ads · lower is better", "Cost per purchase",
                  [(a, c, f"₹{c}", f"₹{c} per purchase · {p} purchases · ₹{s_:,} spent") for a, p, s_, c, r, re_, f in sorted(RC_ADS, key=lambda x: x[3])], best=0) +
             '</div>' + _rc_table() +
-            '<p class="src-note">Maths check: ₹74,600 ÷ 196 purchases = ₹381 per purchase. Each ad’s spend × its ROAS, added up, comes to about ₹2.74 lakh of tracked sales, roughly ₹3.68 back for every ₹1. Ads Manager’s “3.7” is the simple average of the five ads.</p>'),
+            '<p class="src-note">Maths check: ₹74,600 ÷ 196 purchases = ₹381 per purchase. Each ad’s spend × its ROAS, added up, comes to about ₹2.74 lakh of tracked sales: ₹2.74 lakh ÷ ₹74,600 = 3.68× total ROAS, shown rounded as 3.7×. Reach is shown per ad and not added up, because the same people can see more than one ad.</p>'),
         ("International e-commerce brand: 2.74× ROAS", vsource("Client’s Meta Ads Manager · ad-set view · USD account · website purchases") +
             kpis([("2.74×", "website purchase ROAS"), ("18", "website purchases"), ("$1,149", "purchase value"), ("$419", "ad spend")]) +
             bars("Purchase ROAS: the campaign’s top four ad sets", "Return on ad spend · higher is better", "ROAS",
                  [("Ad set 1", 9.07, "9.07×", "$15.32 spent → $139.00 · 4 purchases"), ("Ad set 2", 4.60, "4.60×", "$31.90 spent → $146.85 · 2 purchases"),
                   ("Ad set 3", 3.47, "3.47×", "$75.59 spent → $262.50 · 3 purchases"), ("Ad set 4", 2.06, "2.06×", "$129.94 spent → $268.04 · 5 purchases")], best=0) +
             '<p class="src-note">Maths check: $1,149.39 ÷ $419.39 = 2.74× for the whole campaign. The four ad sets above are the ones in the client’s report; the campaign had others, which is why its totals ($419.39 spent, 18 purchases) are higher than these four added together. The 9.07× ad set ran on a small $15 budget.</p>'),
-        ("Our own ads: 186 leads from ₹25,944", vsource("Meta Marketing API · Akarsa Studio’s two ad accounts · Aug 2025 – Oct 2026 · pulled 21 Oct 2026") +
-            kpis([("₹25,944", "spent on our own Meta ads"), ("186", "leads"), ("6,625", "link clicks"), ("3.6 lakh", "impressions")]) +
-            bars("Cost per lead: our best lead campaigns", "Meta-reported leads · lower is better", "Cost per lead",
-                 [("Lead test · Dec 2025", 3.56, "₹3.56", "52 leads from ₹185.32"), ("Lead test · Jan 2026", 4.73, "₹4.73", "32 leads from ₹151.44"),
-                  ("Hindi lead campaign · Oct 2026", 28.68, "₹28.68", "45 leads from ₹1,290.62"), ("ChatGPT-ads reel · Oct 2026", 47.76, "₹47.76", "32 form leads from ₹1,528.25")]) +
-            '<div class="rkpis rkpis--3">'
-            '<div class="rkpi" data-in><strong>₹0.27</strong><span>per link click · 2,789 clicks from ₹744 (traffic campaign, Aug 2025)</span></div>'
-            '<div class="rkpi" data-in><strong>₹1.36</strong><span>per Instagram profile visit · 413 visits from ₹560 (Oct 2026)</span></div>'
-            '<div class="rkpi" data-in><strong>₹31.88</strong><span>per WhatsApp conversation · 31 chats from ₹988 (Oct 2026)</span></div></div>'
-            '<p class="src-note">The totals include every campaign in both accounts, tests included. The two ₹3–₹5 lead tests ran on very small budgets (under ₹200 each); costs usually rise as budgets grow, which is why we also show the ₹28.68 and ₹47.76 campaigns.</p>'),
-        ("More proof", '<p>Read the full <a href="/case-studies/meta-ads-30k-52-enquiries">Meta ads case study: ₹30,000 → 52 enquiries</a>, where cost per enquiry fell from ₹7,500 to ₹577. Want numbers like these for your brand? Book a free 30-minute audit call and we’ll show you where your ad spend can work harder.</p>'),
+        ("More proof", '<p>Read the full <a href="/case-studies/meta-ads-30k-52-enquiries">Meta ads case study: ₹30,000 → 52 enquiries</a>, where cost per enquiry fell from ₹7,500 to ₹577. Want numbers like these for your brand? Book a 30-minute intro call and we’ll show you where your ad spend can work harder.</p>'),
     ],
     cards=[], steps=[],
-    faqs=[("What ROAS do Akarsa Studio’s Meta ads deliver?", "For an Indian e-commerce brand: a 3.7× average purchase ROAS over 30 days (6 Sep–7 Oct 2026), with 196 purchases from ₹74,600 of spend, or ₹381 per purchase. For an international store: 2.74× ROAS ($419 of ads → $1,149 in purchases). Results depend on your product, margins and offer, so we never promise fixed numbers."),
-          ("Are these numbers real?", "Yes. Client figures come from the clients’ own Meta Ads Manager, with the date range and attribution setting stated, and our own figures were pulled directly from Meta’s Marketing API on 21 October 2026. Every derived number shows its maths so you can check it."),
-          ("How much does a lead cost with Akarsa’s Meta ads?", "On our own campaigns, our best lead campaigns cost ₹28.68 and ₹47.76 per lead (October 2026), and two small tests reached ₹3.56 and ₹4.73. Costs vary by industry, offer and budget; we estimate yours in the free audit."),
+    faqs=[("What ROAS do Akarsa Studio’s Meta ads deliver?", "For an Indian e-commerce brand: a 3.7× total purchase ROAS over 32 days (6 Sep–7 Oct 2026), with 196 purchases from ₹74,600 of spend, or ₹381 per purchase. For an international store: 2.74× ROAS ($419 of ads → $1,149 in purchases). Results depend on your product, margins and offer, so we never promise fixed numbers."),
+          ("Are these numbers real?", "Yes. Client figures come from the clients’ own Meta Ads Manager, with the date range and attribution setting stated. Every derived number shows its maths so you can check it."),
+          ("How much does a lead cost with Akarsa’s Meta ads?", "It depends on industry, offer and budget. In our published lead campaign, cost per enquiry fell from ₹7,500 to ₹577. We estimate yours on an intro call."),
           ("Why are client names hidden?", "To protect our clients’ business data. We show the real figures, dates and settings, and can walk you through more detail on a call.")],
     related=["case-studies/meta-ads-30k-52-enquiries", "meta-ads-agency-indore", "insights/meta-ads-cost-india", "about"],
     sources=[],
@@ -695,13 +684,13 @@ page(
 <tr><th>Clients</th><td>20+ brands including Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke’s Table, Olympia Fitness Gym, The Korean Trends, Mayaram’s Farm, Bake Affaire, Nomad Pizza, The Crush Coffee, Nothing Before Coffee, Kunafa Bytes, Lokal, Urban Theka, Kahani, Mudoven, 7th Heaven, Varenyam, Zhanna Events &amp; Flowers and Fleuristry</td></tr>
 <tr><th>Notable result</th><td>Meta ads: ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577</td></tr>
 <tr><th>Offers</th><td>Spend more than $1,000 on Reddit ads with us and Reddit assigns a dedicated team from Reddit to your brand</td></tr>
-<tr><th>Social</th><td>Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook /Akarsadyniq · Pinterest /beakarsa</td></tr>
+<tr><th>Social</th><td>Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook · Pinterest /beakarsa</td></tr>
 </table></div>'''),
         ("What we believe", '''<p><b>We don’t sell illusions. We engineer impact.</b> Akarsa isn’t built on routine — we question what feels ordinary, combine creativity with data and intelligence, and create what others hesitate to imagine.</p>
 <ul class="ticks"><li><b>Truth over illusions</b> — no fake followers, no vanity metrics, no empty promises.</li>
 <li><b>AI assists. Emotion leads.</b> — AI sharpens every decision; human insight makes the work matter.</li>
 <li><b>Posting isn’t growth. Systems are.</b> — strategy, content, ads and data working together.</li></ul>'''),
-        ("Meet the founder", '''<p><b>Ritik Sharma</b> is the Founder &amp; Director of Akarsa Studio and the host of <b>Akarsa Live</b>, our free sessions on brand and marketing thinking — including “Your brand doesn’t have a design problem. It has a thinking problem.” with brand strategist and photographer Malhar Chaudhari.</p>'''),
+        ("Meet the founder", '''<p><b>Ritik Sharma</b> is the Founder &amp; Director of Akarsa Studio and the host of <b>Akarsa Live</b>, our live sessions on brand and marketing thinking — including “Your brand doesn’t have a design problem. It has a thinking problem.” with brand strategist and photographer Malhar Chaudhari.</p>'''),
     ],
     cards=[], steps=[],
     faqs=[("What is Akarsa Studio?", "Akarsa Studio is an AI-driven marketing agency in Vijay Nagar, Indore, India. It creates content, runs ads, builds brands and develops websites for businesses across India."),

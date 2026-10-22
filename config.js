@@ -13,7 +13,7 @@ window.AKARSA = {
   socials: {
     instagram: "https://www.instagram.com/akarsa_studio/",
     youtube: "https://www.youtube.com/@AkarsaStudio",
-    facebook: "https://www.facebook.com/Akarsadyniq",
+    facebook: "https://www.facebook.com/profile.php?id=61577404206425",
     pinterest: "https://www.pinterest.com/beakarsa"
   }
 };
