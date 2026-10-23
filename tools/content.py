@@ -54,24 +54,24 @@ def reels(paths, color="#0e3b30", light=False, alts=None):
     return f'<div class="pvisual"><div class="{cls}" style="--pc:{color}"><div class="reels reels--{len(paths)}">{imgs}</div></div></div>'
 
 GPT_MOCK = '''<div class="pvisual pvisual--mock pvisual--dark"><div class="gpt-chat" aria-hidden="true">
-  <p class="gpt-chat__q">Which gym in Indore has the best trainers?</p>
+  <p class="gpt-chat__q">Which jeweller in Indore has the best bridal collection?</p>
   <p class="gpt-chat__a">Here are a few well-reviewed options people recommend…</p>
-  <div class="gpt-chat__ad"><span class="gpt-chat__label">Sponsored</span><strong>Your Brand</strong><span>Free trial session · Book on WhatsApp</span></div>
+  <div class="gpt-chat__ad"><span class="gpt-chat__label">Sponsored</span><strong>Your Brand</strong><span>Bridal collection · Private viewing by appointment</span></div>
 </div><span class="pvisual__chip">Ads appear below answers · labelled “Sponsored”</span></div>'''
 
 REDDIT_MOCK = '''<div class="pvisual pvisual--mock pvisual--reddit"><div class="rd-post" aria-hidden="true">
   <div class="rd-post__votes"><svg viewBox="0 0 24 24"><path d="M12 4 4 13h5v7h6v-7h5z"/></svg><b>1.2k</b></div>
   <div class="rd-post__body"><div class="rd-post__meta"><span class="rd-post__sub"></span>r/IndianStartups · <em>Promoted</em></div>
   <p class="rd-post__title">Your brand, in front of the exact communities that buy.</p>
-  <div class="rd-post__actions"><span>💬 86 comments</span><span class="rd-post__cta">Learn more</span></div></div>
-</div><div class="offer offer--mini"><span class="offer__eyebrow">Reddit team offer</span><strong class="offer__big">$1,000+</strong><span class="offer__line">spend on Reddit ads = a <b>dedicated team from Reddit</b></span></div></div>'''
+  <div class="rd-post__actions"><span>86 comments</span><span class="rd-post__cta">Learn more</span></div></div>
+</div><div class="offer offer--mini"><span class="offer__eyebrow">Reddit partner support</span><strong class="offer__big">$1,000+</strong><span class="offer__line">spend on Reddit ads = a <b>dedicated team from Reddit</b></span></div></div>'''
 
 GOOGLE_MOCK = '''<div class="pvisual pvisual--mock"><div class="gad" aria-hidden="true">
-  <div class="gad__bar"><span>marketing agency in indore</span><i></i></div>
-  <div class="gad__res"><span class="gad__spon">Sponsored</span><span class="gad__url">www.yourbrand.in › services</span>
-  <strong class="gad__title">Your Brand — Book a Free Consultation Today</strong>
-  <p>Trusted by local customers. Fast response on WhatsApp. Call or visit our Vijay Nagar store.</p>
-  <div class="gad__links"><span>Pricing</span><span>Reviews</span><span>Contact</span></div></div>
+  <div class="gad__bar"><span>3 bhk apartments indore</span><i></i></div>
+  <div class="gad__res"><span class="gad__spon">Sponsored</span><span class="gad__url">www.yourproject.in › residences</span>
+  <strong class="gad__title">Your Project — Book a Private Site Visit</strong>
+  <p>Three and four bedroom residences. Sample flat open daily. Floor plans and pricing on request.</p>
+  <div class="gad__links"><span>Floor plans</span><span>Location</span><span>Enquire</span></div></div>
   <div class="gad__res gad__res--org"><span class="gad__url">www.competitor.com</span><strong class="gad__title">Organic result</strong><p>…</p></div>
 </div><span class="pvisual__chip">Search ads · Performance Max · YouTube</span></div>'''
 
@@ -80,14 +80,14 @@ BROWSER_MOCK = '''<div class="pvisual pvisual--mock"><div class="bmock"><div cla
 <span class="pvisual__chip">Our own site — designed, built &amp; SEO-optimised in-house</span></div>'''
 
 BRAND_MOCK = '''<div class="pvisual pvisual--mock"><div class="bboard" aria-hidden="true">
-  <div class="bboard__mark"><svg viewBox="110 60 400 400"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg></div>
-  <div class="bboard__type"><b>Aa</b><span>Open Sauce One<br/>Anton · Caveat</span></div>
-  <div class="bboard__sw"><i style="--c:#0e3b30">#0e3b30</i><i style="--c:#e9dcc0">#e9dcc0</i><i style="--c:#b39a62">#b39a62</i><i style="--c:#e9dcc0">#e9dcc0</i></div>
+  <div class="bboard__mark"><svg viewBox="110 60 400 400"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path transform="translate(13 -22)" fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg></div>
+  <div class="bboard__type"><b>Aa</b><span>Cormorant Garamond<br/>Figtree</span></div>
+  <div class="bboard__sw"><i style="--c:#0e3b30">#0e3b30</i><i style="--c:#e9dcc0">#e9dcc0</i><i style="--c:#b39a62">#b39a62</i><i style="--c:#f7f2e6">#f7f2e6</i></div>
   <p class="bboard__note">Our own identity system — mark, type and colour.</p>
 </div></div>'''
 
 ADDRESS_CARD = '''<div class="pvisual pvisual--mock"><div class="addr-card">
-  <svg class="addr-card__mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
+  <svg class="addr-card__mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path transform="translate(13 -22)" fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
   <span class="addr-card__eyebrow">Visit the studio</span>
   <strong>Akarsa Studio</strong>
   <address>Office No. 702, Shagun Arcade, Main Rd,<br/>near Apna Sweets, PU 4, near Vijay Nagar Square,<br/>Vijay Nagar, Indore, Madhya Pradesh 452010</address>
@@ -97,8 +97,8 @@ ADDRESS_CARD = '''<div class="pvisual pvisual--mock"><div class="addr-card">
 
 ABOUT_VISUAL = '''<div class="pvisual pvisual--mock"><div class="founder-card">
   <img src="/assets/founder/ritik-sharma.jpg" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" width="256" height="256" loading="eager" />
-  <strong>Ritik Sharma</strong><span>Founder &amp; Director · Host of Akarsa Live</span>
-  <p>“We don’t sell illusions. We engineer impact.”</p>
+  <strong>Ritik Sharma</strong><span>Founder &amp; Director</span>
+  <p>“We publish the numbers behind our work.”</p>
 </div></div>'''
 
 # ---------- verified results: stat tiles + bar charts built as real tables ----------
@@ -167,7 +167,7 @@ def google_reviews(attr="data-reveal", title=True):
             f'<div class="greviews__viewport" {attr}><div class="greviews__track">{track}</div></div></div>')
 
 # ---------- shared blocks ----------
-PROOF_STATS = [("₹577", "cost per enquiry on Meta ads — down from ₹7,500"), ("3.7×", "ROAS for an e-commerce brand — 196 purchases in 32 days"), ("3×", "qualified leads with Akarsa One, our AI business intelligence"), ("20+", "brands including Starbucks, Adidas & Decathlon")]
+PROOF_STATS = [("₹577", "cost per enquiry on Meta ads — down from ₹7,500"), ("3.7×", "ROAS for an e-commerce brand — 196 purchases in 32 days"), ("20+", "brands served, including Starbucks, Adidas and Decathlon")]
 
 PAGES = []
 
@@ -181,11 +181,11 @@ def page(**kw):
 page(
     slug="chatgpt-ads-agency-india", kind="service", group="Ads",
     title="ChatGPT Ads Agency in India | Akarsa Studio",
-    desc="Run ChatGPT ads in India with Akarsa Studio, an AI-driven agency in Indore: strategy, setup, conversational ad copy, tracking and reporting.",
+    desc="Run ChatGPT ads in India with Akarsa Studio, a performance studio in Indore: strategy, setup, conversational ad copy, tracking and reporting.",
     nav_label="ChatGPT Ads",
     eyebrow="New · ChatGPT Ads", h1="ChatGPT Ads Agency in India",
     lead="Be the brand people see when they ask ChatGPT what to buy, where to go and who to hire.",
-    answer="Akarsa Studio is an AI-driven marketing agency in Indore that plans, launches and optimises ChatGPT ads for Indian businesses. ChatGPT ads went live in India on 27 August 2026. They appear below answers for logged-in adults on the Free and Go plans, and self-serve buying starts at ₹725 a day.",
+    answer="Akarsa Studio is a brand, content and performance studio in Indore that plans, launches and optimises ChatGPT ads for Indian businesses. ChatGPT ads went live in India on 27 August 2026. They appear below answers for logged-in adults on the Free and Go plans, and self-serve buying starts at ₹725 a day.",
     visual=GPT_MOCK, wa=WA + "ChatGPT ads.", cta_label="Start ChatGPT ads",
     service_type="ChatGPT advertising",
     sections=[
@@ -646,7 +646,7 @@ page(
                  [("Ad set 1", 9.07, "9.07×", "$15.32 spent → $139.00 · 4 purchases"), ("Ad set 2", 4.60, "4.60×", "$31.90 spent → $146.85 · 2 purchases"),
                   ("Ad set 3", 3.47, "3.47×", "$75.59 spent → $262.50 · 3 purchases"), ("Ad set 4", 2.06, "2.06×", "$129.94 spent → $268.04 · 5 purchases")], best=0) +
             '<p class="src-note">Maths check: $1,149.39 ÷ $419.39 = 2.74× for the whole campaign. The four ad sets above are the ones in the client’s report; the campaign had others, which is why its totals ($419.39 spent, 18 purchases) are higher than these four added together. The 9.07× ad set ran on a small $15 budget.</p>'),
-        ("More proof", '<p>Read the full <a href="/case-studies/meta-ads-30k-52-enquiries">Meta ads case study: ₹30,000 → 52 enquiries</a>, where cost per enquiry fell from ₹7,500 to ₹577. Want numbers like these for your brand? Book a 30-minute intro call and we’ll show you where your ad spend can work harder.</p>'),
+        ("More proof", '<p>Read the full <a href="/case-studies/meta-ads-30k-52-enquiries">Meta ads case study: ₹30,000 → 52 enquiries</a>, where cost per enquiry fell from ₹7,500 to ₹577. For a project of your own, <a href="/#enquire">send an enquiry</a>.</p>'),
     ],
     cards=[], steps=[],
     faqs=[("What ROAS do Akarsa Studio’s Meta ads deliver?", "For an Indian e-commerce brand: a 3.7× total purchase ROAS over 32 days (6 Sep–7 Oct 2026), with 196 purchases from ₹74,600 of spend, or ₹381 per purchase. For an international store: 2.74× ROAS ($419 of ads → $1,149 in purchases). Results depend on your product, margins and offer, so we never promise fixed numbers."),
@@ -662,40 +662,42 @@ page(
 # =====================================================================
 page(
     slug="about", kind="about", group="Company",
-    title="About Akarsa Studio | AI-Driven Marketing Agency, Indore",
-    desc="Akarsa Studio Private Limited is an AI-driven marketing agency in Indore founded by Ritik Sharma. Facts, services, clients, results and contact.",
+    title="About Akarsa Studio | Brand, Content & Performance Studio, Dubai & Indore",
+    desc="Akarsa Studio Private Limited is a brand, content and performance studio for luxury real estate and jewellery brands, founded by Ritik Sharma. Facts, clients, results and contact.",
     nav_label="About Akarsa Studio",
     eyebrow="About us", h1="About Akarsa Studio",
-    lead="A rule-breaking, truth-seeking studio where art meets intelligence.",
-    answer="Akarsa Studio (Akarsa Studio Private Limited) is an AI-driven marketing agency based in Vijay Nagar, Indore, India, founded by Ritik Sharma. It offers social media marketing, UGC and reels, influencer marketing, Meta, Google, YouTube, Reddit and ChatGPT ads, branding and website development, and has worked with 20+ brands including Starbucks, Adidas and Decathlon.",
+    lead="A small senior studio for brands where the detail is the product. We make the brand, then run the campaigns that sell it.",
+    answer="Akarsa Studio (Akarsa Studio Private Limited) is a brand, content and performance studio for luxury real estate and jewellery brands, founded by Ritik Sharma. It works from Dubai and from its production studio in Vijay Nagar, Indore. It makes brand identities, films and content, runs Meta and Google campaigns, and has worked with 20+ brands including Starbucks, Adidas and Decathlon.",
     visual=ABOUT_VISUAL, wa=WA + "working with Akarsa Studio.", cta_label="Talk to us",
     sections=[
         ("Akarsa Studio at a glance", '''<div class="facts"><table>
 <tr><th>Legal name</th><td>Akarsa Studio Private Limited</td></tr>
 <tr><th>Brand</th><td>Akarsa (also written Ākarṣa)</td></tr>
-<tr><th>What we are</th><td>An AI-driven, truth-seeking marketing agency — “where art meets intelligence”</td></tr>
+<tr><th>What we are</th><td>A brand, content and performance studio for luxury real estate and jewellery brands</td></tr>
+<tr><th>Locations</th><td>Dubai · Indore</td></tr>
 <tr><th>Founder</th><td>Ritik Sharma, Founder &amp; Director</td></tr>
 <tr><th>Headquarters</th><td>Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010, India</td></tr>
 <tr><th>Office hours</th><td>Monday–Friday 11:00 am – 7:30 pm, Saturday 12:00 – 3:30 pm, Sunday closed</td></tr>
 <tr><th>Phone / WhatsApp</th><td>+91 81098 01383</td></tr>
 <tr><th>Website</th><td>https://www.akarsaone.xyz</td></tr>
 <tr><th>Services</th><td>Social media marketing, UGC &amp; short-form video, video editing &amp; animation, influencer marketing, Meta ads, Google ads, YouTube ads, Reddit ads, ChatGPT ads, brand identity &amp; logo design, graphic design, website development &amp; management, AI marketing automation</td></tr>
-<tr><th>Products</th><td>Akarsa One — AI business intelligence that finds buyers (3× qualified leads)</td></tr>
+<tr><th>Products</th><td>Akarsa One, our in-house system for finding and qualifying buyers</td></tr>
 <tr><th>Clients</th><td>20+ brands including Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke’s Table, Olympia Fitness Gym, The Korean Trends, Mayaram’s Farm, Bake Affaire, Nomad Pizza, The Crush Coffee, Nothing Before Coffee, Kunafa Bytes, Lokal, Urban Theka, Kahani, Mudoven, 7th Heaven, Varenyam, Zhanna Events &amp; Flowers and Fleuristry</td></tr>
-<tr><th>Notable result</th><td>Meta ads: ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577</td></tr>
-<tr><th>Offers</th><td>Spend more than $1,000 on Reddit ads with us and Reddit assigns a dedicated team from Reddit to your brand</td></tr>
+<tr><th>Published results</th><td>3.7× ROAS, 196 purchases in 32 days (client’s Meta Ads Manager, 6 Sep–7 Oct 2026). Meta ads: ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577</td></tr>
+<tr><th>Engagements</th><td>Monthly engagements start at ₹70,000 (about AED 3,000), excluding ad spend.</td></tr>
 <tr><th>Social</th><td>Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook · Pinterest /beakarsa</td></tr>
 </table></div>'''),
-        ("What we believe", '''<p><b>We don’t sell illusions. We engineer impact.</b> Akarsa isn’t built on routine — we question what feels ordinary, combine creativity with data and intelligence, and create what others hesitate to imagine.</p>
-<ul class="ticks"><li><b>Truth over illusions</b> — no fake followers, no vanity metrics, no empty promises.</li>
-<li><b>AI assists. Emotion leads.</b> — AI sharpens every decision; human insight makes the work matter.</li>
-<li><b>Posting isn’t growth. Systems are.</b> — strategy, content, ads and data working together.</li></ul>'''),
-        ("Meet the founder", '''<p><b>Ritik Sharma</b> is the Founder &amp; Director of Akarsa Studio and the host of <b>Akarsa Live</b>, our live sessions on brand and marketing thinking — including “Your brand doesn’t have a design problem. It has a thinking problem.” with brand strategist and photographer Malhar Chaudhari.</p>'''),
+        ("What we believe", '''<p><b>We publish the numbers behind our work.</b> Every result we report comes from the client’s own ad accounts, with its date range.</p>
+<ul class="ticks"><li><b>Truth over illusions.</b> No bought followers and no vanity metrics. We report what sold and what did not.</li>
+<li><b>Tools assist. Taste leads.</b> We use AI where it makes the work faster or sharper; the decisions about how a brand looks and sounds stay with people.</li>
+<li><b>Fewer things, made well.</b> We take on a few clients at a time and make every piece properly.</li></ul>'''),
+        ("Meet the founder", '''<p><b>Ritik Sharma</b> is the Founder &amp; Director of Akarsa Studio. He leads every engagement personally, with a core team of designers, filmmakers and performance marketers at the studio in Indore.</p>'''),
     ],
     cards=[], steps=[],
-    faqs=[("What is Akarsa Studio?", "Akarsa Studio is an AI-driven marketing agency in Vijay Nagar, Indore, India. It creates content, runs ads, builds brands and develops websites for businesses across India."),
-          ("Who founded Akarsa Studio?", "Ritik Sharma, who is the Founder & Director and hosts Akarsa Live."),
-          ("Where is Akarsa Studio based?", "Office No. 702, Shagun Arcade, Main Rd, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010."),
+    faqs=[("What is Akarsa Studio?", "Akarsa Studio is a brand, content and performance studio for luxury real estate and jewellery brands, working from Dubai and Indore. It makes brands, films and content and runs the campaigns that sell them."),
+          ("How much does Akarsa Studio cost?", "Monthly engagements start at ₹70,000 (about AED 3,000), excluding ad spend. Identities and films are quoted as projects after the first call."),
+          ("Who founded Akarsa Studio?", "Ritik Sharma, Founder & Director."),
+          ("Where is Akarsa Studio based?", "Dubai, and our production studio at Office No. 702, Shagun Arcade, Main Rd, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010."),
           ("Which brands has Akarsa Studio worked with?", "More than 20, including Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke’s Table and Olympia Fitness Gym.")],
     related=["digital-marketing-agency-vijay-nagar-indore", "case-studies/meta-ads-30k-52-enquiries", "social-media-marketing-agency-indore", "chatgpt-ads-agency-india"],
     sources=[],
@@ -812,7 +814,7 @@ page(
 INSIGHTS_HUB = dict(
     slug="insights/", kind="hub", group="Insights",
     title="Marketing Insights & Guides | Akarsa Studio",
-    desc="Data-backed guides on ChatGPT ads, Reddit ads and Meta ads costs in India — written by Akarsa Studio, an AI-driven marketing agency in Indore.",
+    desc="Data-backed guides on ChatGPT ads, Reddit ads and Meta ads costs in India — written by Akarsa Studio, a brand, content and performance studio in Indore.",
     nav_label="Insights", eyebrow="Insights", h1="Marketing Insights & Guides",
     lead="Data-backed guides for Indian businesses — with real numbers and sources.",
     answer="Akarsa Studio publishes practical, sourced guides on new and proven ad platforms in India: ChatGPT ads, Reddit ads and Meta ads — including costs, benchmarks and real campaign data.",

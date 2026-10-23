@@ -8,9 +8,10 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "30"  # asset cache-buster for styles/config
+V = "32"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
-BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # free 30-minute audit call; page.js opens it as a Calendly popup
+BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # intro call; reached through the enquiry form on the homepage
+ENQ = "/#enquire"  # every page CTA goes to the qualified enquiry form
 CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>'
 MARK = '<svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path transform="translate(13 -22)" fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>'
 ORG_ID = SITE + "/#organization"
@@ -124,20 +125,17 @@ NAV = f'''<body class="subpage">
         <a href="/#services">Services</a>
         <a href="/#work">Work</a>
         <a href="/results">Results</a>
-        <a href="/reddit-ads-agency-india" class="nav__new">Reddit Ads</a>
-        <a href="/chatgpt-ads-agency-india">ChatGPT Ads</a>
         <a href="/insights/">Insights</a>
         <a href="/about">About</a>
       </nav>
-      <a class="nav__cta" data-book="nav" href="{BOOKING}">Book a call</a>
+      <a class="nav__cta" href="{ENQ}">Enquire</a>
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav__mobile">
-      <a href="/">Home</a><a href="/#services">Services</a><a href="/results">Results</a><a href="/reddit-ads-agency-india">Reddit Ads</a><a href="/chatgpt-ads-agency-india">ChatGPT Ads</a><a href="/insights/">Insights</a><a href="/about">About</a>
-      <a class="btn btn--dark" data-book="menu" href="{BOOKING}"><span class="btn__label">Book an intro call</span></a>
+      <a href="/">Home</a><a href="/#services">Services</a><a href="/results">Results</a><a href="/insights/">Insights</a><a href="/about">About</a>
+      <a class="btn btn--dark" href="{ENQ}"><span class="btn__label">Send an enquiry</span></a>
     </div>
   </header>
-  <a class="wa-float wa-float--book is-in" data-book="float" href="{BOOKING}" aria-label="Book a 30-minute intro call">{CAL_ICON}<span class="wa-float__tip">Book an intro call</span></a>
 '''
 
 def footer_cols():
@@ -150,8 +148,8 @@ def footer():
     return f'''  <footer class="footer">
     <div class="container footer__top footer__top--wide">
       <div class="footer__intro">
-        <h2 class="footer__tag">We don’t sell illusions. We engineer impact.</h2>
-        <p class="footer__about">Akarsa Studio Private Limited is an AI-driven marketing agency based in Vijay Nagar, Indore, working with brands across India.</p>
+        <h2 class="footer__tag">We publish the numbers behind our work.</h2>
+        <p class="footer__about">Akarsa Studio Private Limited is a brand, content and performance studio for luxury real estate and jewellery brands. We work from Dubai and from our production studio in Vijay Nagar, Indore.</p>
       </div>
       <div class="footer__col footer__col--links"><span class="eyebrow eyebrow--dark">Services</span>{svc}</div>
       <div class="footer__col footer__col--links"><span class="eyebrow eyebrow--dark">Guides &amp; proof</span>{gd}<a href="/insights/">All insights</a><a href="/about">About Akarsa</a></div>
@@ -159,7 +157,7 @@ def footer():
     <div class="container footer__mid">
       <div class="footer__contact">
         <span class="eyebrow eyebrow--dark">Contact</span>
-        <a class="footer__big" data-book="footer" href="{BOOKING}">Book an intro call →</a>
+        <a class="footer__big" href="{ENQ}">Send an enquiry →</a>
         <span class="footer__line" data-phone>+91 81098 01383</span>
         <a class="footer__line footer__addr" data-address href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore">Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010</a>
       </div>
@@ -215,7 +213,7 @@ def hero(p):
           {upd}
           <div class="answer"><span class="answer__label">Quick answer</span><p>{esc(p["answer"])}</p></div>
           <div class="phero__ctas">
-            <a class="btn btn--dark" data-book="page-hero" href="{BOOKING}"><span class="btn__label">{esc(p.get("cta_label", "Book an intro call"))}</span><span class="btn__icon">{ARROW}</span></a>
+            <a class="btn btn--dark" href="{ENQ}"><span class="btn__label">Start a project</span><span class="btn__icon">{ARROW}</span></a>
             {btn2}
           </div>
         </div>
@@ -247,7 +245,7 @@ def proof_html(p):
     if p["kind"] not in ("service", "about"): return ""
     from content import PROOF_STATS
     st = "".join(f'<div class="kstat" data-in><strong>{esc(b)}</strong><span>{esc(l)}</span></div>' for b, l in PROOF_STATS)
-    return f'<section class="psec psec--dark"><div class="container"><div class="psec__head" data-in><span class="pill">Proof, not promises</span><h2 class="psec__h">Results you can count</h2></div><div class="kstats">{st}</div></div></section>'
+    return f'<section class="psec psec--dark"><div class="container"><div class="psec__head" data-in><span class="pill">Published results</span><h2 class="psec__h">Numbers, with their sources</h2></div><div class="kstats">{st}</div></div></section>'
 
 def faq_html(p):
     if not p.get("faqs"): return ""
@@ -267,8 +265,8 @@ def sources_html(p):
 
 def cta_html(p):
     return f'''<section class="psec"><div class="container"><div class="ctaband" data-in>
-<h2>Ready to grow with Akarsa Studio?</h2><p>Book a 30-minute intro call. We’ll look at your marketing and tell you honestly what to fix first.</p>
-<a class="btn btn--light" data-book="page-cta" href="{BOOKING}"><span class="btn__label">Book an intro call</span><span class="btn__icon">{ARROW}</span></a>
+<h2>Tell us about the project.</h2><p>We take on a small number of new clients each quarter. Send a short enquiry and Ritik will read it personally. Monthly engagements start at ₹70,000 (about AED 3,000), excluding ad spend.</p>
+<a class="btn btn--light" href="{ENQ}"><span class="btn__label">Send an enquiry</span><span class="btn__icon">{ARROW}</span></a>
 </div></div></section>
   </main>
 '''
@@ -282,7 +280,7 @@ def article_body(p):
 <article class="prose prose--article">
 <div class="takeaways"><span class="answer__label">Key takeaways</span><ul>{tk}</ul></div>
 {secs}
-<div class="authorbox"><img src="/icon-192.png" alt="" width="56" height="56" loading="lazy" /><div><strong>Akarsa Studio</strong><span>AI-driven marketing agency in Vijay Nagar, Indore. We run Meta, Google, Reddit and ChatGPT ads for brands across India. <a href="/about">About us</a></span></div></div>
+<div class="authorbox"><img src="/icon-192.png" alt="" width="56" height="56" loading="lazy" /><div><strong>Akarsa Studio</strong><span>Brand, content and performance studio, Dubai and Indore. We plan, make and run campaigns and publish the numbers behind them. <a href="/about">About us</a></span></div></div>
 </article></div></section>'''
 
 def render(p):
@@ -410,21 +408,22 @@ def build_sitemap():
     open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8").write(xml)
 
 FACTS = f"""- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also written Ākarṣa)
-- What: AI-driven, truth-seeking marketing agency — "where art meets intelligence"
-- Founder: Ritik Sharma (Founder & Director, host of Akarsa Live)
+- What: brand, content and performance studio for luxury real estate and jewellery brands, working from Dubai and Indore
+- Founder: Ritik Sharma (Founder & Director)
 - Address: Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010, India
 - Phone/WhatsApp: +91 81098 01383
-- 30-minute intro call (book online): {BOOKING}
+- Enquiries: https://www.akarsaone.xyz/#enquire (qualified by sector and budget, then a 30-minute intro call)
+- Pricing: Monthly engagements start at ₹70,000 (about AED 3,000), excluding ad spend.
 - Office hours: Mon–Fri 11:00–19:30, Sat 12:00–15:30, Sun closed (IST)
 - Website: https://www.akarsaone.xyz
 - Services: social media marketing, UGC & short-form video, video editing & animation, influencer marketing, Meta ads, Google ads, YouTube ads, Reddit ads, ChatGPT ads, brand identity & logo design, graphic design, website development & management, AI marketing automation
 - Offer: spend more than $1,000 on Reddit ads through Akarsa Studio and Reddit assigns a dedicated team from Reddit to the account, working alongside Akarsa to optimise and precisely target
 - Clients: 20+ brands incl. Starbucks, Adidas, Decathlon, Burger Singh, Chirmi, The Duke's Table, Olympia Fitness Gym, The Korean Trends, Mayaram's Farm, Bake Affaire, Nomad Pizza, Kunafa Bytes, Lokal, Urban Theka, Kahani, Varenyam, Zhanna Events & Flowers, Fleuristry
-- Results: Meta ads ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577 (≈13× lower). E-commerce client (RC toys), 6 Sep–7 Oct 2026: 196 purchases from ₹74,600, ₹381 per purchase, 3.7× average ROAS. International store: $419 → $1,149 (2.74× ROAS). Own lead campaigns (Meta API, Aug 2025–Oct 2026): ₹25,944 spent, 186 leads; best ₹28.68 and ₹47.76 per lead. Full data: https://www.akarsaone.xyz/results Akarsa One (AI business intelligence): 3× qualified leads
+- Results: Meta ads ₹30,000 → 52 enquiries; cost per enquiry ₹7,500 → ₹577 (≈13× lower). E-commerce client (RC toys), 6 Sep–7 Oct 2026: 196 purchases from ₹74,600, ₹381 per purchase, 3.7× average ROAS. International store: $419 → $1,149 (2.74× ROAS). Own lead campaigns (Meta API, Aug 2025–Oct 2026): ₹25,944 spent, 186 leads; best ₹28.68 and ₹47.76 per lead. Full data: https://www.akarsaone.xyz/results
 - Social: Instagram @akarsa_studio · YouTube @AkarsaStudio · Facebook · Pinterest /beakarsa"""
 
 def build_llms():
-    lines = ["# Akarsa Studio", "", "> Akarsa Studio (Akarsa Studio Private Limited) is an AI-driven marketing agency in Vijay Nagar, Indore, India. It runs social media, UGC/reels, influencer marketing, Meta, Google, YouTube, Reddit and ChatGPT ads, branding and website development for 20+ brands including Starbucks, Adidas and Decathlon.", "", "## Key facts", FACTS, "", "## Services"]
+    lines = ["# Akarsa Studio", "", "> Akarsa Studio (Akarsa Studio Private Limited) is a brand, content and performance studio for luxury real estate and jewellery brands, working from Dubai and from its production studio in Vijay Nagar, Indore, India. It makes brand identities, films and content and runs Meta and Google campaigns, and has worked with 20+ brands including Starbucks, Adidas and Decathlon.", "", "## Key facts", FACTS, "", "## Services"]
     for s in SERVICES_ORDER:
         p = BY_SLUG[s]; lines.append(f'- [{p["h1"]}]({url(s)}): {strip(p["answer"])}')
     lines += ["", "## Guides and proof"]
