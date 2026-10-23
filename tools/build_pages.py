@@ -384,6 +384,9 @@ def write_vercel_config():
             {"source": "/assets/(.*)", "headers": cache("public, max-age=2592000, stale-while-revalidate=86400")},
             {"source": "/(.*)\\.(css|js)", "headers": cache("public, max-age=2592000, stale-while-revalidate=86400")},  # always referenced with ?v=
             {"source": "/assets/fonts/(.*)", "headers": cache("public, max-age=31536000, immutable")},
+            # public brand kit: logos, avatar and banners, readable from other sites (press, partners, profile uploads)
+            {"source": "/assets/brand/(.*)", "headers": [{"key": "Access-Control-Allow-Origin", "value": "*"},
+                                                         {"key": "Cross-Origin-Resource-Policy", "value": "cross-origin"}]},
         ],
     }
     open(os.path.join(ROOT, "vercel.json"), "w", encoding="utf-8").write(json.dumps(config, indent=2, ensure_ascii=False) + "\n")
