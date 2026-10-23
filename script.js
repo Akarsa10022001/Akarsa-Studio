@@ -94,7 +94,7 @@
     icon: k => `<div class="pp-icon">${ICON[k]}</div>`
   };
   const POSTERS = {
-    result: { bg: '#1f7a3a', pin: '#0c3318', top: '52', bot: 'LEADS', cap: 'from ₹30K', pic: PIC.stat('₹577', 'per enquiry') },
+    result: { bg: '#0e3b30', pin: '#0a2e25', top: '3.7×', bot: 'ROAS', cap: '196 sales', pic: PIC.stat('₹381', 'per purchase') },
     truth: { bg: '#e5322d', pin: '#2a0d0c', top: 'TRUTH', bot: 'WINS', cap: 'over illusions', pic: PIC.list([[0, 'Fake followers'], [0, 'Vanity metrics'], [1, 'Real enquiries']]) },
     ai: { bg: '#6b3fd6', pin: '#170f2e', top: 'AI ×', bot: 'HEART', cap: 'Akarsa One', pic: PIC.glyph() },
     systems: { bg: '#0e5a52', pin: '#062a26', top: 'SYSTEMS', bot: 'SCALE', cap: 'posting ≠ growth', pic: PIC.chart() },

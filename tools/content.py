@@ -44,7 +44,7 @@ S_CASE_REEL = ("Akarsa Studio on Instagram — ₹30K → 52 enquiries breakdown
 WA = "Hi Akarsa! I found you on your website and would like to talk about "
 
 # ---------- reusable visuals ----------
-def reels(paths, color="#1c1917", light=False, alts=None):
+def reels(paths, color="#0e3b30", light=False, alts=None):
     cls = "media media--panel" + (" media--light" if light else "")
     alts = alts or [""] * len(paths)
     def wh(p):
@@ -82,7 +82,7 @@ BROWSER_MOCK = '''<div class="pvisual pvisual--mock"><div class="bmock"><div cla
 BRAND_MOCK = '''<div class="pvisual pvisual--mock"><div class="bboard" aria-hidden="true">
   <div class="bboard__mark"><svg viewBox="110 60 400 400"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg></div>
   <div class="bboard__type"><b>Aa</b><span>Open Sauce One<br/>Anton · Caveat</span></div>
-  <div class="bboard__sw"><i style="--c:#1C1917">#1C1917</i><i style="--c:#FFA8F2">#FFA8F2</i><i style="--c:#AA94FF">#AA94FF</i><i style="--c:#9EF483">#9EF483</i></div>
+  <div class="bboard__sw"><i style="--c:#0e3b30">#0e3b30</i><i style="--c:#e9dcc0">#e9dcc0</i><i style="--c:#b39a62">#b39a62</i><i style="--c:#e9dcc0">#e9dcc0</i></div>
   <p class="bboard__note">Our own identity system — mark, type and colour.</p>
 </div></div>'''
 
@@ -141,11 +141,11 @@ RESULTS_VISUAL = '''<div class="pvisual pvisual--mock"><div class="rcard">
 # Deliberately no Review/AggregateRating schema (Google treats a business's own review markup as self-serving).
 # (name, what they hired us for, exact review text, avatar background, avatar letter colour)
 GOOGLE_REVIEWS = [
-    ("Bhaskar Gupta", "Restaurant franchise", "We wanted to expand our restaurant franchise, and Akarsa helped us improve our online presence and generate more franchise enquiries. Their content strategy has made a real difference for us.", "#FFA8F2", "#1C1917"),
-    ("Gyandeep Parashar", "Real-estate firm", "I went to them for my real-estate firm, my firm has grew a lot since the time I have started working with them.", "#AA94FF", "#1C1917"),
-    ("Deepak Dixit", "", "Best in town for marketing 🙌 👏", "#9EF483", "#1C1917"),
-    ("Shashwat Mishra", "", "Great experience with akrarsa and team", "#FFA952", "#1C1917"),
-    ("Shivam Baghel", "", "Spectacular.", "#1C1917", "#FFA8F2"),
+    ("Bhaskar Gupta", "Restaurant franchise", "We wanted to expand our restaurant franchise, and Akarsa helped us improve our online presence and generate more franchise enquiries. Their content strategy has made a real difference for us.", "#e9dcc0", "#0e3b30"),
+    ("Gyandeep Parashar", "Real-estate firm", "I went to them for my real-estate firm, my firm has grew a lot since the time I have started working with them.", "#b39a62", "#0e3b30"),
+    ("Deepak Dixit", "", "Best in town for marketing 🙌 👏", "#e9dcc0", "#0e3b30"),
+    ("Shashwat Mishra", "", "Great experience with akrarsa and team", "#b39a62", "#0e3b30"),
+    ("Shivam Baghel", "", "Spectacular.", "#0e3b30", "#e9dcc0"),
 ]
 GOOGLE_PROFILE = "https://g.page/r/CcurrO6xi-njEBM"
 
@@ -327,7 +327,7 @@ page(
     eyebrow="Meta ads · Facebook & Instagram", h1="Meta Ads Agency in Indore",
     lead="Facebook and Instagram campaigns built around one number: what it costs you to get a real enquiry.",
     answer="Akarsa Studio is a Meta ads agency in Indore that runs Facebook and Instagram campaigns for leads and sales. In one campaign, ₹30,000 of ad spend produced 52 enquiries — cost per enquiry fell from ₹7,500 to ₹577, about 13× lower.",
-    visual=reels(["/assets/instagram/r05.jpg", "/assets/instagram/r03.jpg", "/assets/instagram/r11.jpg"], "#1c1917", False,
+    visual=reels(["/assets/instagram/r05.jpg", "/assets/instagram/r03.jpg", "/assets/instagram/r11.jpg"], "#0e3b30", False,
                  ["Akarsa Studio reel: Are Meta ads a waste of money?", "Meta Ads case study: ₹30K turned into 52 enquiries", "Akarsa Studio reel: Spent ₹40,000 and got zero clients?"]),
     wa=WA + "Meta (Facebook & Instagram) ads.", cta_label="Book an intro call",
     service_type="Facebook and Instagram advertising",
@@ -587,7 +587,7 @@ page(
     eyebrow="Case study · Meta ads", h1="Meta Ads Case Study: ₹30K → 52 Enquiries",
     lead="One lead-generation campaign, two numbers that matter: what it cost, and what it returned.",
     answer="In this Meta ads lead-generation campaign, Akarsa Studio turned ₹30,000 of ad spend into 52 enquiries. Cost per enquiry fell from ₹7,500 to ₹577 — about 13 times lower — because the campaign was rebuilt around offers, creative and tracking rather than boosting posts.",
-    visual=reels(["/assets/instagram/r03.jpg"], "#1c1917", False, ["Meta Ads case study: ₹30K turned into 52 enquiries"]),
+    visual=reels(["/assets/instagram/r03.jpg"], "#0e3b30", False, ["Meta Ads case study: ₹30K turned into 52 enquiries"]),
     wa=WA + "getting results like your ₹30K → 52 enquiries case study.", cta_label="Get results like this",
     sections=[
         ("The results", '''<div class="facts"><table>

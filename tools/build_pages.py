@@ -8,11 +8,11 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "28"  # asset cache-buster for styles/config
+V = "29"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # free 30-minute audit call; page.js opens it as a Calendly popup
 CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>'
-MARK = '<svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>'
+MARK = '<svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>'
 ORG_ID = SITE + "/#organization"
 BY_SLUG = {p["slug"]: p for p in PAGES}
 BY_SLUG["insights/"] = INSIGHTS_HUB
@@ -85,7 +85,7 @@ def head(p):
   <meta name="description" content="{esc(p["desc"])}" />
   <link rel="canonical" href="{page_url}" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <meta name="theme-color" content="#1C1917" />
+  <meta name="theme-color" content="#0e3b30" />
   <meta property="og:type" content="{og_type}" />
   <meta property="og:site_name" content="Akarsa Studio" />
   <meta property="og:locale" content="en_IN" />
@@ -115,11 +115,11 @@ def head(p):
 '''
 
 NAV = f'''<body class="subpage">
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="akg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0b0a10"/><stop offset=".45" stop-color="#1d1430"/><stop offset=".72" stop-color="#6b3fd6"/><stop offset="1" stop-color="#ff4f81"/></linearGradient></defs></svg>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="akg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#0e3b30"/><stop offset="1" stop-color="#0e3b30"/></linearGradient></defs></svg>
   <a class="skip" href="#main">Skip to content</a>
   <header class="nav" id="top">
     <div class="nav__bar">
-      <a href="/" class="nav__logo" aria-label="Akarsa Studio home">{MARK}<span>Akarsa</span></a>
+      <a href="/" class="nav__logo" aria-label="Akarsa Studio home">{MARK}<span class="nav__word">AKARSA</span></a>
       <nav class="nav__links" aria-label="Primary">
         <a href="/#services">Services</a>
         <a href="/#work">Work</a>
@@ -173,7 +173,7 @@ def footer():
       </div>
     </div>
     <div class="container footer__brand">
-      <svg class="footer__mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
+      <svg class="footer__mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
       <span class="footer__word">Akarsa</span>
     </div>
     <div class="container footer__bottom">
@@ -314,7 +314,7 @@ def build_404():
 {PIXEL}  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Page not found | Akarsa Studio</title>
   <meta name="robots" content="noindex, follow" />
-  <meta name="theme-color" content="#1C1917" />
+  <meta name="theme-color" content="#0e3b30" />
   <link rel="icon" href="/favicon.ico" sizes="any" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <script>document.documentElement.classList.add('js')</script>
