@@ -252,3 +252,16 @@
 .rcard__src{justify-self:start;font-size:12px;font-weight:600;color:#1f8a4c}
 .rcard__src::before{content:"✓ "}
 @media (max-width:900px){.rkpis{grid-template-columns:repeat(2,1fr)}.rkpis--3,.rgrid{grid-template-columns:1fr}}
+
+/* ===== phase 3: quieter inner pages ===== */
+.pvisual--mock{background-color:#0e3b30;background-image:radial-gradient(rgba(233,220,192,.08) 1.3px,transparent 1.7px)}
+.founder-card,.addr-card{border-radius:2px;background:#fffcf5;box-shadow:none;border:1px solid #d9cdb0}
+.founder-card strong,.addr-card strong{font-family:var(--serif);font-weight:500;letter-spacing:0}
+.founder-card img{border-color:#e9dcc0}
+.founder-card p{font-family:var(--serif);font-weight:500;font-size:22px}
+.kcard{border-radius:2px;background:#fffcf5!important;border:1px solid #d9cdb0;color:#0e3b30}
+.kcard h3{font-family:var(--serif);font-weight:500;letter-spacing:-.005em;font-size:26px}
+.kcard p{color:#4a5f57}
+.ctaband{border-radius:2px;background-image:none}
+.ctaband h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+.ctaband p{color:#c9bfa6;max-width:60ch}
