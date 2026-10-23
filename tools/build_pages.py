@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "32"  # asset cache-buster for styles/config
+V = "33"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # intro call; reached through the enquiry form on the homepage
 ENQ = "/#enquire"  # every page CTA goes to the qualified enquiry form
@@ -38,7 +38,7 @@ ORG_NODE = {
     "address": {"@type": "PostalAddress", "streetAddress": "Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar",
                 "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "postalCode": "452010", "addressCountry": "IN"},
     "founder": {"@type": "Person", "name": "Ritik Sharma", "jobTitle": "Founder & Director"},
-    "sameAs": ["https://www.instagram.com/akarsa_studio/", "https://www.youtube.com/@AkarsaStudio", "https://www.facebook.com/profile.php?id=61577404206425", "https://www.pinterest.com/beakarsa", "https://linktr.ee/Akarsa_Studio"],
+    "sameAs": ["https://www.instagram.com/akarsa_studio/", "https://www.youtube.com/@AkarsaStudio", "https://www.facebook.com/akarsastudio", "https://www.pinterest.com/beakarsa", "https://linktr.ee/Akarsa_Studio"],
 }
 
 def stamp(day): return f"{day}T09:00:00+05:30"  # Google wants full datetimes with a timezone (IST)
@@ -165,7 +165,7 @@ def footer():
         <div class="socials">
           <a data-social="instagram" aria-label="Instagram" href="https://www.instagram.com/akarsa_studio/"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
           <a data-social="youtube" aria-label="YouTube" href="https://www.youtube.com/@AkarsaStudio"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3V9Z" fill="currentColor"/></svg></a>
-          <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61577404206425"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2V3Z"/></svg></a>
+          <a data-social="facebook" aria-label="Facebook" href="https://www.facebook.com/akarsastudio"><svg viewBox="0 0 24 24"><path d="M15 3h-2.5A3.5 3.5 0 0 0 9 6.5V10H6v4h3v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h2V3Z"/></svg></a>
           <a data-social="pinterest" aria-label="Pinterest" href="https://www.pinterest.com/beakarsa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M11 8.5c2.8-1 5 .6 4.6 3.2-.3 2-2 3.3-3.6 2.6M12 11l-2.5 9.5"/></svg></a>
         </div>
       </div>
