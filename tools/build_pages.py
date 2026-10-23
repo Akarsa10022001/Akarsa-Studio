@@ -12,7 +12,7 @@ V = "29"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # free 30-minute audit call; page.js opens it as a Calendly popup
 CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>'
-MARK = '<svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>'
+MARK = '<svg class="mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path transform="translate(13 -22)" fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>'
 ORG_ID = SITE + "/#organization"
 BY_SLUG = {p["slug"]: p for p in PAGES}
 BY_SLUG["insights/"] = INSIGHTS_HUB
@@ -173,7 +173,7 @@ def footer():
       </div>
     </div>
     <div class="container footer__brand">
-      <svg class="footer__mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
+      <svg class="footer__mark" viewBox="110 60 400 400" aria-hidden="true"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path transform="translate(13 -22)" fill="#e9dcc0" d="M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z"/></svg>
       <span class="footer__word">Akarsa</span>
     </div>
     <div class="container footer__bottom">
