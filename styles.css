@@ -1136,3 +1136,4 @@ body{background:var(--bg)}
 .viz-create .poster{filter:grayscale(1) sepia(.45) brightness(.9)}
 .logos__row .blogo--dec img,.logos__row .blogo--badge img{filter:grayscale(1) sepia(.35) hue-rotate(100deg) brightness(.72) contrast(1.1)}
 .cta__card{border-radius:2px}
+.enq__floor{margin:-8px 0 0;font-size:14px;color:#4a5f57}
