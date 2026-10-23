@@ -1067,3 +1067,72 @@ body{background:var(--bg)}
 .hero .ribbon{display:none}
 .nav__word{font-family:var(--serif);font-weight:500;letter-spacing:.28em;font-size:19px;color:#e9dcc0}
 .nav__logo .mark{border-radius:50%}
+
+/* ===== phase 3: client row + enquiry ===== */
+.logos__row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:28px 56px;max-width:1120px;margin:0 auto;padding:0 16px}
+.logos__row .blogo{height:44px;opacity:.7}
+.logos__row .blogo--mono img,.logos__row .blogo--badge img{filter:grayscale(1) brightness(.35) sepia(.4) hue-rotate(110deg)}
+.cta__card{justify-content:flex-start;gap:20px;padding:48px 40px}
+.cta__card .eyebrow{color:#b39a62}
+.cta__card p{color:#c9bfa6;max-width:34ch}
+.cta__note{margin-top:auto;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#b39a62!important}
+.enq{display:flex;flex-direction:column;gap:20px;background:#fffcf5;border:1px solid #d9cdb0;border-radius:2px;padding:40px}
+.enq__row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.enq__f{display:flex;flex-direction:column;gap:8px}
+.enq__f>span,.enq__budget legend{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#4a5f57}
+.enq input:not([type=radio]),.enq select,.enq textarea{font:inherit;font-size:16px;color:#0e3b30;background:#f7f2e6;border:1px solid #d9cdb0;border-radius:2px;padding:12px 14px;width:100%;transition:border-color .2s}
+.enq textarea{resize:vertical;min-height:88px}
+.enq input:focus,.enq select:focus,.enq textarea:focus,.enq__budget label:focus-within span{outline:2px solid #7a6233;outline-offset:2px}
+.enq__budget{border:0;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.enq__budget legend{margin-bottom:8px;padding:0}
+.enq__budget label{position:relative;cursor:pointer}
+.enq__budget input{position:absolute;opacity:0;pointer-events:none}
+.enq__budget span{display:flex;flex-direction:column;gap:4px;height:100%;padding:12px 14px;border:1px solid #d9cdb0;border-radius:2px;background:#f7f2e6;font-weight:600;font-size:15px;color:#0e3b30;transition:background .2s,color .2s,border-color .2s}
+.enq__budget small{font-weight:400;font-size:13px;color:#4a5f57}
+.enq__budget input:checked+span{background:#0e3b30;border-color:#0e3b30;color:#e9dcc0}
+.enq__budget input:checked+span small{color:#c9bfa6}
+.enq__err{color:#8a2c1f;font-size:14px;margin:0}
+.enq__go{align-self:flex-start}
+.enq.is-invalid :invalid{border-color:#8a2c1f}
+@media (max-width:900px){
+  .cta__grid{grid-template-columns:1fr;min-height:0}
+  .enq{padding:24px 20px}
+  .enq__row{grid-template-columns:1fr}
+  .enq__budget{grid-template-columns:1fr 1fr}
+}
+.logos__row .blogo--badge img{filter:grayscale(1) contrast(1.05);opacity:.9}
+.logos__row .blogo--mono img{filter:brightness(0) invert(18%) sepia(30%) saturate(900%) hue-rotate(118deg)}
+.logos__row .blogo__word{color:#0e3b30}
+
+/* services: calm alternating cards, words over posters */
+.svc{--c:#fffcf5;--t:#0e3b30;--tm:#4a5f57;--hl:#d9cdb0}
+.stack .svc:nth-child(odd){--c:#0e3b30;--t:#e9dcc0;--tm:#c9bfa6;--hl:#2e5a4c}
+.svc__tab{color:var(--t);border:1px solid var(--hl);border-bottom:0}
+.svc__body{grid-template-columns:1.25fr .75fr;min-height:360px;color:var(--t);border:1px solid var(--hl);border-radius:0 2px 2px 2px;box-shadow:none;padding:48px}
+.svc__tab{border-radius:2px 2px 0 0}
+.svc__media{display:none}
+.svc__title{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--t)}
+.svc__text p{color:var(--tm)}
+.svc .chips li{background:transparent;border:1px solid var(--hl);color:var(--t)}
+.svc__more a{color:var(--t);text-decoration-color:var(--hl)}
+.svc__foot{grid-column:2;grid-row:1 / span 2;align-self:end;border-left:1px solid var(--hl);padding-left:32px}
+.svc__foot strong{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;color:var(--t)}
+.svc__foot span{color:var(--tm)}
+@media (max-width:900px){
+  .svc__body{grid-template-columns:1fr;padding:28px 24px}
+  .svc__foot{grid-column:auto;grid-row:auto;border-left:0;padding-left:0;border-top:1px solid var(--hl);padding-top:18px}
+}
+.step--purple{background:#efe5cf}
+.tcard--purple{background:#0e3b30;color:#e9dcc0}
+.tcard--purple p{color:#c9bfa6}
+.step:hover{rotate:0deg}
+.beliefs__grid{counter-reset:bel}
+.belief{counter-increment:bel}
+.belief__img{background:#0e3b30!important;display:flex;align-items:center;justify-content:center}
+.belief__img .poster{display:none}
+.belief__img::after{content:"0" counter(bel);font-family:var(--serif);font-weight:500;font-size:clamp(72px,8vw,120px);color:#e9dcc0;letter-spacing:.02em}
+.belief h3,.step__bottom h3,.tcard h3,.qa__q span{font-family:var(--serif);font-weight:500;letter-spacing:-.005em}
+.belief h3{font-size:28px}.step__bottom h3{font-size:30px}.tcard h3{font-size:24px;line-height:1.2}.qa__q span{font-size:20px}
+.viz-create .poster{filter:grayscale(1) sepia(.45) brightness(.9)}
+.logos__row .blogo--dec img,.logos__row .blogo--badge img{filter:grayscale(1) sepia(.35) hue-rotate(100deg) brightness(.72) contrast(1.1)}
+.cta__card{border-radius:2px}

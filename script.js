@@ -50,6 +50,31 @@
         .catch(() => { location.href = a.href; });
     });
   });
+  /* ---------------- enquiry form: qualify first, then offer a time on Calendly ---------------- */
+  (() => {
+    const form = $('.enq');
+    if (!form || !bookingUrl) return;
+    const err = $('.enq__err', form);
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.classList.add('is-invalid'); err.hidden = false; return; }
+      err.hidden = true; form.classList.remove('is-invalid');
+      const d = Object.fromEntries(new FormData(form));
+      const u = new URL(bookingUrl);
+      u.searchParams.set('utm_source', 'website');
+      u.searchParams.set('utm_medium', 'enquiry');
+      u.searchParams.set('utm_content', location.pathname);
+      const answers = { a1: d.company, a2: d.sector, a3: d.budget, a4: (d.brief || '').trim() };
+      const direct = new URL(u);
+      direct.searchParams.set('name', d.name);
+      direct.searchParams.set('email', d.email);
+      Object.entries(answers).forEach(([k, v]) => v && direct.searchParams.set(k, v));
+      loadCalendly()
+        .then(C => { C.initPopupWidget({ url: `${u.href}&hide_gdpr_banner=1`, prefill: { name: d.name, email: d.email, customAnswers: answers } }); holdScroll(); })
+        .catch(() => { location.href = direct.href; });
+    });
+  })();
+
   $$('[data-email]').forEach(a => { if (cfg.email) { a.href = `mailto:${cfg.email}`; a.textContent = cfg.email; } else a.remove(); });
   $$('[data-phone]').forEach(el => { if (cfg.phoneDisplay) el.textContent = cfg.phoneDisplay; else el.remove(); });
   $$('[data-address]').forEach(el => {

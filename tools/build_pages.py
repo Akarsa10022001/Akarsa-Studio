@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "29"  # asset cache-buster for styles/config
+V = "30"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # free 30-minute audit call; page.js opens it as a Calendly popup
 CAL_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>'
