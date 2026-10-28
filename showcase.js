@@ -72,6 +72,9 @@
     nums.forEach(n => io.observe(n));
   }
 
+  /* ---------- dashboard bars grow when seen ---------- */
+  $$('.dash').forEach(d => new IntersectionObserver(([e], o) => { if (e.isIntersecting) { d.classList.add('go'); o.disconnect(); } }, { threshold: 0.4 }).observe(d));
+
   /* ---------- 3D monogram (three.js, loaded only when it comes into view) ---------- */
   const stage = $('.glyph3d');
   if (!stage) return;
