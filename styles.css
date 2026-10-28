@@ -1315,7 +1315,7 @@ html.is-playing{overflow:hidden}
 .bb--mark svg{width:58%}
 .bb--word{grid-column:span 4;background:#f7f2e6}
 .bb--word img{width:62%}
-.bb--sw{grid-column:span 4;display:grid;grid-template-columns:repeat(4,1fr);padding:0;background:none;border:0;gap:6px}
+.bb--sw{grid-column:span 4;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:0;background:none;border:0;gap:6px}
 .bb--sw i{display:flex;align-items:flex-end;height:100%;background:var(--c);border-radius:3px;border:1px solid rgba(14,59,48,.12);padding:10px}
 .bb--sw em{font-style:normal;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#7a6233;background:rgba(255,252,245,.85);padding:2px 6px;border-radius:2px}
 .bb--type{grid-column:span 2;grid-row:span 2;display:grid;align-content:center;justify-items:start;padding:20px;gap:10px}
@@ -1343,7 +1343,7 @@ html.is-playing{overflow:hidden}
 @media (max-width:560px){.fan{height:420px}.fan__card{width:190px}.fan__card:nth-child(1){transform:translateX(-110px) rotate(-8deg) scale(.85)}.fan__card:nth-child(3){transform:translateX(110px) rotate(8deg) scale(.85)}}
 /* 03 phone with Instagram grid */
 .iphone{width:min(340px,80vw);margin:0 auto;padding:12px;border-radius:44px;background:#0b241d;box-shadow:0 50px 90px -40px rgba(14,59,48,.7),inset 0 0 0 2px #2e5a4c}
-.iphone__screen{border-radius:34px;overflow:hidden;background:#fff;aspect-ratio:9/19.2;display:flex;flex-direction:column}
+.iphone__screen{border-radius:34px;overflow:hidden;background:#fff;display:flex;flex-direction:column}
 .igp{display:flex;align-items:center;gap:12px;padding:30px 16px 10px}
 .igp__dp{flex:none;width:52px;height:52px;border-radius:50%;background:#0e3b30;display:grid;place-items:center;box-shadow:0 0 0 2px #fff,0 0 0 3.5px #b39a62}
 .igp__dp svg{width:58%}
@@ -1361,7 +1361,7 @@ html.is-playing{overflow:hidden}
 .browser__bar span{margin-left:12px;flex:1;max-width:260px;padding:4px 12px;border-radius:20px;background:#fffcf5;font-size:11px;color:#4a5f57}
 .browser img{display:block;width:100%}
 .iphone--sm{position:absolute;right:-12px;bottom:0;width:150px;padding:6px;border-radius:26px}
-.iphone--sm .iphone__screen{border-radius:20px}
+.iphone--sm .iphone__screen{border-radius:20px;aspect-ratio:9/16}
 .iphone--sm img{width:100%;height:100%;object-fit:cover}
 @media (max-width:560px){.iphone--sm{width:110px;right:-4px}}
 /* 05 dashboard */
@@ -1387,3 +1387,10 @@ html.is-playing{overflow:hidden}
 .aiwork__film{position:relative;width:100%}
 .aiwork__tag{position:absolute;left:12px;right:12px;bottom:12px;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#e9dcc0}
 @media (max-width:560px){.aiwork{grid-template-columns:1fr 1fr}}
+.igtabs{display:flex;justify-content:space-around;padding:10px 0 4px;border-bottom:1px solid #eee}
+.igtabs i{width:18px;height:18px;border:1.5px solid #111;border-radius:3px;opacity:.85}
+.igtabs i:nth-child(2){border-radius:50%;opacity:.35}.igtabs i:nth-child(3){opacity:.35}
+.igbar{display:flex;justify-content:space-around;padding:12px 0 16px;border-top:1px solid #eee;margin-top:auto}
+.igbar i{width:20px;height:20px;border-radius:5px;border:1.6px solid #111;opacity:.75}
+.igbar i:nth-child(3){border-radius:6px;background:#0e3b30;border-color:#0e3b30;opacity:1}
+.igbar i:nth-child(5){border-radius:50%;background:#0e3b30;border-color:#b39a62}
