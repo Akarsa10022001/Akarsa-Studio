@@ -1502,3 +1502,4 @@ html{scrollbar-color:#0e3b30 #efe8d8;scrollbar-width:thin}
 .totop:hover{opacity:1}.totop:hover i{transform:translateY(-3px)}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media (max-width:560px){.cm__track{gap:52px}.cm__track li{width:calc(var(--w) * .82);height:calc(var(--h) * .82)}}
+h1,h2,h3,h4,.h2,.ncard__mono,.film__meta b,.chapter h3{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
