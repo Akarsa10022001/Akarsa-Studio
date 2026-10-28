@@ -118,7 +118,7 @@ ADDRESS_CARD = '''<div class="pvisual pvisual--mock"><div class="addr-card">
   <a class="addr-card__btn" href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore%20452010" target="_blank" rel="noopener">Get directions ↗</a>
 </div></div>'''
 
-ABOUT_VISUAL = '''<div class="pvisual pvisual--portrait"><img src="/assets/founder/ritik-sharma-portrait.jpg" srcset="/assets/founder/ritik-sharma-portrait-800.jpg 800w, /assets/founder/ritik-sharma-portrait.jpg 1578w" sizes="(max-width: 900px) 92vw, 44vw" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" width="1578" height="1973" loading="eager" />
+ABOUT_VISUAL = '''<div class="pvisual pvisual--portrait"><img src="/assets/founder/ritik-sharma-hd-1578.jpg" srcset="/assets/founder/ritik-sharma-hd-800.jpg 800w, /assets/founder/ritik-sharma-hd-1578.jpg 1578w" sizes="(max-width: 900px) 92vw, 44vw" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" width="1578" height="1973" loading="eager" />
   <div class="pvisual__cap"><strong>Ritik Sharma</strong><span>Founder &amp; Director</span></div>
 </div>'''
 
