@@ -265,3 +265,15 @@
 .ctaband{border-radius:2px;background-image:none}
 .ctaband h2{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
 .ctaband p{color:#c9bfa6;max-width:60ch}
+/* real films and real results in page heroes */
+.pvisual--films{display:grid;place-items:center;padding:32px 24px 56px;background-color:#0e3b30;background-image:radial-gradient(rgba(233,220,192,.07) 1.3px,transparent 1.7px);background-size:18px 18px}
+.pvisual--films .fan{height:420px;width:100%}
+.pvisual--films .fan__card{width:190px;box-shadow:0 30px 60px -24px rgba(0,0,0,.6)}
+.pvisual--films .fan__card:nth-child(1){transform:translateX(-120px) rotate(-8deg) scale(.86)}
+.pvisual--films .fan__card:nth-child(3){transform:translateX(120px) rotate(8deg) scale(.86)}
+.pvisual--films .fan:hover .fan__card:nth-child(1){transform:translateX(-150px) rotate(-10deg) scale(.88)}
+.pvisual--films .fan:hover .fan__card:nth-child(3){transform:translateX(150px) rotate(10deg) scale(.88)}
+.pvisual__note{position:absolute;left:24px;right:24px;bottom:20px;margin:0;text-align:center;font-size:12px;letter-spacing:.04em;color:#c9bfa6}
+.pvisual--films .dash{width:100%;max-width:520px;background:transparent;box-shadow:none;padding:8px}
+.pvisual--films .dash.go .dash__chart i,.pvisual--films .dash__chart i{transform:none}
+@media (max-width:560px){.pvisual--films .fan{height:330px}.pvisual--films .fan__card{width:150px}.pvisual--films .fan__card:nth-child(1),.pvisual--films .fan:hover .fan__card:nth-child(1){transform:translateX(-84px) rotate(-7deg) scale(.84)}.pvisual--films .fan__card:nth-child(3),.pvisual--films .fan:hover .fan__card:nth-child(3){transform:translateX(84px) rotate(7deg) scale(.84)}}

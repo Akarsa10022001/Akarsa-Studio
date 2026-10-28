@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "34"  # asset cache-buster for styles/config
+V = "40"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # intro call; reached through the enquiry form on the homepage
 ENQ = "/#enquire"  # every page CTA goes to the qualified enquiry form
@@ -122,17 +122,18 @@ NAV = f'''<body class="subpage">
     <div class="nav__bar">
       <a href="/" class="nav__logo" aria-label="Akarsa Studio home">{MARK}<span class="nav__word">AKARSA</span></a>
       <nav class="nav__links" aria-label="Primary">
-        <a href="/#services">Services</a>
+        <a href="/about">Studio</a>
         <a href="/#work">Work</a>
+        <a href="/#services">Services</a>
+        <a href="/#process">Process</a>
         <a href="/results">Results</a>
         <a href="/insights/">Insights</a>
-        <a href="/about">About</a>
       </nav>
       <a class="nav__cta" href="{ENQ}">Enquire</a>
       <button class="nav__burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
     <div class="nav__mobile">
-      <a href="/">Home</a><a href="/#services">Services</a><a href="/results">Results</a><a href="/insights/">Insights</a><a href="/about">About</a>
+      <a href="/">Home</a><a href="/about">Studio</a><a href="/#work">Work</a><a href="/#services">Services</a><a href="/results">Results</a><a href="/insights/">Insights</a>
       <a class="btn btn--dark" href="{ENQ}"><span class="btn__label">Send an enquiry</span></a>
     </div>
   </header>
@@ -182,6 +183,7 @@ def footer():
   </footer>
   <script src="/config.js?v={V}"></script>
   <script src="/page.js?v={V}"></script>
+  <script src="/showcase.js?v={V}" defer></script>
 </body>
 </html>
 '''
@@ -336,13 +338,13 @@ def build_404():
 # and the Calendly booking popup. Anything else is refused by the browser.
 CSP_SOURCES = {
     "default-src": ["'self'"],
-    "script-src": ["'self'", "https://cdn.jsdelivr.net/npm/gsap@3.12.5/", "https://cdn.jsdelivr.net/npm/lenis@1.1.13/",
+    "script-src": ["'self'", "https://cdn.jsdelivr.net/npm/three@0.149.0/", "https://cdn.jsdelivr.net/npm/gsap@3.12.5/", "https://cdn.jsdelivr.net/npm/lenis@1.1.13/",
                    "https://bzrcdn.openai.com", "https://assets.calendly.com"],
     "style-src": ["'self'", "'unsafe-inline'", "https://assets.calendly.com"],
-    "img-src": ["'self'", "data:", "https://bzr.openai.com", "https://assets.calendly.com"],
+    "img-src": ["'self'", "data:", "https://i.ytimg.com", "https://bzr.openai.com", "https://assets.calendly.com"],
     "font-src": ["'self'"],
     "connect-src": ["'self'", "https://bzr.openai.com", "https://bzrcdn.openai.com"],
-    "frame-src": ["https://calendly.com"],
+    "frame-src": ["https://calendly.com", "https://www.youtube-nocookie.com"],
     "frame-ancestors": ["'self'"],
     "base-uri": ["'self'"],
     "form-action": ["'self'"],
@@ -367,6 +369,13 @@ def write_vercel_config():
     cache = lambda v: [{"key": "Cache-Control", "value": v}]
     config = {
         "cleanUrls": True,
+        # old Akarsa One addresses Google still knows about
+        "redirects": [
+            {"source": "/blog", "destination": "/insights/", "permanent": True},
+            {"source": "/blog/:path*", "destination": "/insights/", "permanent": True},
+            {"source": "/glossary/:path*", "destination": "/insights/", "permanent": True},
+            {"source": "/features/:path*", "destination": "/", "permanent": True},
+        ],
         "headers": [
             {"source": "/(.*)", "headers": [
                 {"key": "Content-Security-Policy", "value": csp},

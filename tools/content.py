@@ -53,6 +53,29 @@ def reels(paths, color="#0e3b30", light=False, alts=None):
     imgs = "".join(f'<img class="reel" src="{p}" alt="{a}"{wh(p)} loading="eager" decoding="async" />' for p, a in zip(paths, alts))
     return f'<div class="pvisual"><div class="{cls}" style="--pc:{color}"><div class="reels reels--{len(paths)}">{imgs}</div></div></div>'
 
+
+# real client films: YouTube frames that play in the site's player (showcase.js)
+FILM = {"dukes": ("UsLYYyKEknE", "The Duke’s Cafe"), "adidas": ("qPUTyvCxn5c", "Adidas"), "mayaram": ("_Dwz6OKhEaM", "Mayaram’s Farm"),
+        "crush": ("pRpE4iXurB8", "The Crush Coffee"), "decathlon": ("2Kg_WYRzAHM", "Decathlon"), "bake": ("6krFTV3Wa40", "Bake Affaire"),
+        "mudoven": ("yCsmyL8JwZc", "MudOven"), "kunafa": ("qouZJ_UWo-Q", "Kunafa Bytes"), "korean": ("24097PctQsI", "The Korean Trends"),
+        "chirmi": ("a6thk0saFjY", "Chirmi"), "zhanna": ("K_lGX6coePE", "Zhanna Events & Flowers")}
+def films(keys, note):
+    cards = "".join(
+        f'<button class="fan__card" type="button" data-cursor="Play" data-yt="{FILM[k][0]}" data-title="{FILM[k][1]} · Akarsa Studio">'
+        f'<img src="https://i.ytimg.com/vi/{FILM[k][0]}/oar2.jpg" alt="{FILM[k][1]}, film by Akarsa Studio" loading="eager" decoding="async" />'
+        f'<i class="film__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 7v10l8-5z"/></svg></i></button>' for k in keys)
+    return f'<div class="pvisual pvisual--films"><div class="fan">{cards}</div><p class="pvisual__note">{note}</p></div>'
+
+def ads_card(focus="both"):
+    rows = []
+    if focus in ("both", "sales"):
+        rows.append('<div class="dash__row"><div class="dash__kpi"><small>Purchases</small><b>196</b><em>in 32 days</em></div><div class="dash__kpi"><small>Return on ad spend</small><b>3.7×</b><em>e-commerce brand</em></div></div>')
+    if focus in ("both", "leads"):
+        rows.append('<div class="dash__row"><div class="dash__kpi"><small>Enquiries</small><b>52</b><em>lead-generation client</em></div><div class="dash__kpi"><small>Cost per enquiry</small><b>13× lower</b><em>start vs end of campaign</em></div></div>')
+    return ('<div class="pvisual pvisual--films"><div class="dash"><div class="dash__head"><span>Campaign results</span><small>From the clients’ own Meta Ads Manager</small></div>'
+            + "".join(rows) +
+            '<div class="dash__chart" aria-hidden="true"><i style="--h:100%"></i><i style="--h:72%"></i><i style="--h:48%"></i><i style="--h:30%"></i><i style="--h:16%"></i><i style="--h:8%"></i><span>Cost per enquiry, week by week</span></div></div></div>')
+
 GPT_MOCK = '''<div class="pvisual pvisual--mock pvisual--dark"><div class="gpt-chat" aria-hidden="true">
   <p class="gpt-chat__q">Which jeweller in Indore has the best bridal collection?</p>
   <p class="gpt-chat__a">Here are a few well-reviewed options people recommend…</p>
@@ -289,8 +312,7 @@ page(
     eyebrow="Social media marketing", h1="Social Media Marketing Agency in Indore",
     lead="Content that stops the scroll, built into a system that brings enquiries — not just likes.",
     answer="Akarsa Studio is a social media marketing agency in Vijay Nagar, Indore. We plan, create and manage content for Instagram, Facebook, YouTube and LinkedIn — reels, UGC, carousels and community — and pair it with paid social so your posts turn into real enquiries.",
-    visual=reels(["/assets/clients/reels/chirmi.jpg", "/assets/clients/reels/burger-singh.jpg", "/assets/clients/reels/dukes-table.jpg"], "#ffe6cf", True,
-                 ["Chirmi social media reel by Akarsa Studio", "Burger Singh social media reel by Akarsa Studio", "The Duke’s Table social media reel by Akarsa Studio"]),
+    visual=films(["chirmi", "dukes", "crush"], "Films for Chirmi, The Duke’s Cafe and The Crush Coffee. Tap to play."),
     wa=WA + "social media marketing.", cta_label="Get a social media plan",
     service_type="Social media marketing",
     sections=[
@@ -327,8 +349,7 @@ page(
     eyebrow="Meta ads · Facebook & Instagram", h1="Meta Ads Agency in Indore",
     lead="Facebook and Instagram campaigns built around one number: what it costs you to get a real enquiry.",
     answer="Akarsa Studio is a Meta ads agency in Indore that runs Facebook and Instagram campaigns for leads and sales. In one campaign, ₹30,000 of ad spend produced 52 enquiries — cost per enquiry fell from ₹7,500 to ₹577, about 13× lower.",
-    visual=reels(["/assets/instagram/r05.jpg", "/assets/instagram/r03.jpg", "/assets/instagram/r11.jpg"], "#0e3b30", False,
-                 ["Akarsa Studio reel: Are Meta ads a waste of money?", "Meta Ads case study: ₹30K turned into 52 enquiries", "Akarsa Studio reel: Spent ₹40,000 and got zero clients?"]),
+    visual=ads_card(),
     wa=WA + "Meta (Facebook & Instagram) ads.", cta_label="Book an intro call",
     service_type="Facebook and Instagram advertising",
     sections=[
@@ -477,8 +498,7 @@ page(
     eyebrow="Influencer marketing", h1="Influencer Marketing Agency in Indore",
     lead="Creators who genuinely fit your brand — and campaigns measured on results, not follower counts.",
     answer="Akarsa Studio is an influencer marketing agency in Indore that finds the right creators, briefs them, manages content and approvals, and tracks results. We choose creators by audience fit and engagement — not just follower count — for brands in Indore and across India.",
-    visual=reels(["/assets/clients/reels/kahani.jpg", "/assets/clients/reels/7th-heaven.jpg"], "#ebe3ff", True,
-                 ["Kahani social media reel by Akarsa Studio", "7th Heaven social media reel by Akarsa Studio"]),
+    visual=films(["zhanna", "bake", "korean"], "Recent films for Zhanna, Bake Affaire and The Korean Trends. Tap to play."),
     wa=WA + "influencer marketing.", cta_label="Plan a creator campaign",
     service_type="Influencer marketing",
     sections=[
@@ -513,8 +533,7 @@ page(
     eyebrow="UGC · reels · video editing", h1="UGC & Reels Production Agency",
     lead="Short-form video built to hook in the first second and hold attention till the last.",
     answer="Akarsa Studio produces UGC videos, reels and short-form edits from Indore for brands across India — hooks, scripting, creators, shooting, editing and motion graphics — made for Instagram Reels, YouTube Shorts and paid ads.",
-    visual=reels(["/assets/instagram/r06.jpg", "/assets/instagram/r02.jpg", "/assets/instagram/r12.jpg"], "#2a1b4d", False,
-                 ["Akarsa Studio talking-head short-form video", "Akarsa Studio reel: Your marketing is a lie", "Akarsa Studio short film reel"]),
+    visual=films(["mayaram", "adidas", "decathlon"], "Films for Mayaram’s Farm, Adidas and Decathlon. Tap to play."),
     wa=WA + "UGC and reels production.", cta_label="Get reels that perform",
     service_type="UGC and short-form video production",
     sections=[
@@ -587,7 +606,7 @@ page(
     eyebrow="Case study · Meta ads", h1="Meta Ads Case Study: ₹30K → 52 Enquiries",
     lead="One lead-generation campaign, two numbers that matter: what it cost, and what it returned.",
     answer="In this Meta ads lead-generation campaign, Akarsa Studio turned ₹30,000 of ad spend into 52 enquiries. Cost per enquiry fell from ₹7,500 to ₹577 — about 13 times lower — because the campaign was rebuilt around offers, creative and tracking rather than boosting posts.",
-    visual=reels(["/assets/instagram/r03.jpg"], "#0e3b30", False, ["Meta Ads case study: ₹30K turned into 52 enquiries"]),
+    visual=ads_card("leads"),
     wa=WA + "getting results like your ₹30K → 52 enquiries case study.", cta_label="Get results like this",
     sections=[
         ("The results", '''<div class="facts"><table>
