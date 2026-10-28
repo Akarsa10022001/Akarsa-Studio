@@ -99,51 +99,60 @@
   /* ---------------- designed thumbnails (Akarsa poster style, crisp at any size) ---------------- */
   const GLYPH = 'M300,122 L172,246 L243,250 A71,93 0 0 1 172,343 L172,396 A128,140 0 0 0 300,256 Z M313,256 L372,256 A75,87 0 0 0 447,343 L447,396 A134,140 0 0 1 313,256 Z';
   const ICON = {
-    play: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#fff"/><path d="M10 7.5v9l7-4.5z" fill="var(--pbg)"/></svg>',
+    play: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width=".8"><circle cx="12" cy="12" r="11"/><path d="M10 8v8l6-4z" fill="currentColor" stroke="none"/></svg>',
     mega: '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v3a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1Z"/><path d="M15 9a3 3 0 0 1 0 6M18 6a7 7 0 0 1 0 12"/></svg>',
     heart: '<svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-9.5-9.2C1.2 8.5 3.4 5 6.9 5c2 0 3.4 1.1 4.1 2.3C11.7 6.1 13.1 5 15.1 5c3.5 0 5.7 3.5 4.4 6.8C17.5 16.4 12 21 12 21Z" fill="#fff"/></svg>',
     spark: '<svg viewBox="0 0 24 24"><path d="M12 1.5l2.6 7.9L22.5 12l-7.9 2.6L12 22.5l-2.6-7.9L1.5 12l7.9-2.6z" fill="#fff"/></svg>'
   };
   const PIC = {
     stat: (b, t) => `<div class="pp-stat"><b>${b}</b><span>${t}</span></div>`,
-    list: items => `<ul class="pp-list">${items.map(([ok, t]) => `<li class="${ok ? 'ok' : ''}"><i>${ok ? '✓' : '✕'}</i>${t}</li>`).join('')}</ul>`,
-    glyph: () => `<div class="pp-glyph"><svg viewBox="110 60 400 400"><rect x="110" y="60" width="400" height="400" rx="100" fill="url(#akg)"/><path fill="#fff" d="${GLYPH}"/></svg></div>`,
-    chart: () => '<svg class="pp-chart" viewBox="0 0 100 80" preserveAspectRatio="none"><defs><linearGradient id="ppg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9EF483" stop-opacity=".55"/><stop offset="1" stop-color="#9EF483" stop-opacity="0"/></linearGradient></defs><path d="M0,70 L18,62 L34,66 L50,48 L66,40 L82,22 L100,8 L100,80 L0,80Z" fill="url(#ppg)"/><polyline points="0,70 18,62 34,66 50,48 66,40 82,22 100,8" fill="none" stroke="#9EF483" stroke-width="3" vector-effect="non-scaling-stroke"/></svg><span class="pp-up">↑</span>',
-    swatch: () => '<div class="pp-swatch"><b>Aa</b><div><i style="background:#FFA8F2"></i><i style="background:#AA94FF"></i><i style="background:#9EF483"></i><i style="background:#FFA952"></i></div></div>',
-    shapes: () => '<svg class="pp-shapes" viewBox="0 0 100 100" fill="none" stroke="#1c1917" stroke-width="1.6"><path d="M10 50h80M50 10v80" stroke-dasharray="3 3" opacity=".35"/><circle cx="50" cy="50" r="30"/><path d="M50 22 76 66H24Z" fill="#FFA8F2" fill-opacity=".85"/><rect x="38" y="38" width="24" height="24" rx="6" fill="#AA94FF" fill-opacity=".85"/></svg>',
-    playbar: () => `<div class="pp-play">${ICON.play}<div class="pp-bar"><i></i></div><span>0:01 · hooked</span></div>`,
+    list: items => `<ul class="pp-list">${items.map(([ok, t]) => `<li class="${ok ? 'ok' : ''}"><i>${ok ? '✓' : '–'}</i>${t}</li>`).join('')}</ul>`,
+    glyph: () => `<div class="pp-glyph"><svg viewBox="110 60 400 400"><path fill="currentColor" d="${GLYPH}"/></svg></div>`,
+    chart: () => '<svg class="pp-chart" viewBox="0 0 100 80" preserveAspectRatio="none"><polyline points="0,70 18,62 34,66 50,48 66,40 82,22 100,8" fill="none" stroke="currentColor" stroke-width="1.4" vector-effect="non-scaling-stroke"/></svg>',
+    swatch: () => '<div class="pp-swatch"><b>Aa</b><div><i style="background:#0e3b30"></i><i style="background:#b39a62"></i><i style="background:#e9dcc0"></i><i style="background:#f7f2e6"></i></div></div>',
+    shapes: () => '<svg class="pp-shapes" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M10 50h80M50 10v80" stroke-dasharray="2 3" opacity=".4"/><circle cx="50" cy="50" r="30"/><circle cx="50" cy="50" r="18" opacity=".6"/></svg>',
+    playbar: () => `<div class="pp-play">${ICON.play}<div class="pp-bar"><i></i></div></div>`,
     cal: () => `<div class="pp-cal">${Array.from({ length: 28 }, (_, i) => `<i class="${[1, 4, 6, 9, 12, 14, 17, 20, 22, 25, 27].includes(i) ? 'on' : ''}"></i>`).join('')}</div>`,
     bars: (arr, t) => `<div class="pp-bars"><div>${arr.map(v => `<i style="height:${v}%"></i>`).join('')}</div><span>${t}</span></div>`,
-    browser: () => `<div class="pp-browser"><div class="pp-browser__top"><i></i><i></i><i></i></div><div class="pp-browser__body"><span></span><span></span><span></span>${ICON.spark}</div></div>`,
-    chat: () => '<div class="pp-chat"><p>Hi Akarsa!</p><p class="me">Let’s grow your brand.</p></div>',
-    icon: k => `<div class="pp-icon">${ICON[k]}</div>`
+    browser: () => `<div class="pp-browser"><div class="pp-browser__top"><i></i><i></i><i></i></div><div class="pp-browser__body"><span></span><span></span><span></span></div></div>`,
+    chat: () => '<div class="pp-chat"><p>We launch in March.</p><p class="me">Who is the buyer?</p></div>',
+    icon: k => `<div class="pp-icon">${ICON[k]}</div>`,
+    arch: () => '<svg class="pp-line" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M14 92h72M24 92V34l26-18 26 18v58"/><path d="M34 92V58h32v34M34 44h32M50 16v76" opacity=".55"/><path d="M38 66h8M54 66h8M38 76h8M54 76h8" opacity=".55"/></svg>',
+    gem: () => '<svg class="pp-line" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"><path d="M28 30h44l14 16-36 40-36-40z"/><path d="M14 46h72M28 30l10 16 12-16 12 16 10-16M38 46l12 40 12-40" opacity=".6"/></svg>',
+    materials: () => '<div class="pp-mat"><i style="background:linear-gradient(135deg,#f3eee3,#d8cfbd 55%,#efe9dc)"></i><i style="background:linear-gradient(135deg,#8a7244,#e9dcc0 50%,#a88c55)"></i><i style="background:linear-gradient(135deg,#0e3b30,#245c4c)"></i><i style="background:linear-gradient(135deg,#e6dcc4,#cbbd9b)"></i></div>'
   };
+  // quiet plates in the brand palette: em = emerald, dp = deep emerald, cr = cream, st = stone
+  const TONE = { em: ['#0e3b30', '#e9dcc0'], dp: ['#0a2e25', '#e9dcc0'], cr: ['#f7f2e6', '#0e3b30'], st: ['#e6dcc4', '#0e3b30'] };
   const POSTERS = {
-    result: { bg: '#0e3b30', pin: '#0a2e25', top: '3.7×', bot: 'ROAS', cap: '196 sales', pic: PIC.stat('₹381', 'per purchase') },
-    truth: { bg: '#e5322d', pin: '#2a0d0c', top: 'TRUTH', bot: 'WINS', cap: 'over illusions', pic: PIC.list([[0, 'Fake followers'], [0, 'Vanity metrics'], [1, 'Real enquiries']]) },
-    ai: { bg: '#6b3fd6', pin: '#170f2e', top: 'AI ×', bot: 'HEART', cap: 'Akarsa One', pic: PIC.glyph() },
-    systems: { bg: '#0e5a52', pin: '#062a26', top: 'SYSTEMS', bot: 'SCALE', cap: 'posting ≠ growth', pic: PIC.chart() },
-    brand: { bg: '#f2a516', pin: '#1c1917', top: 'BRAND', bot: 'BOOK', cap: 'identity', pic: PIC.swatch() },
-    logo: { bg: '#1c1917', pin: '#f4f4f3', top: 'LOGO', bot: 'LAB', cap: 'mark making', pic: PIC.shapes() },
-    hook: { bg: '#ff4f81', pin: '#2b0a16', top: 'HOOK', bot: '1 SEC', cap: 'short-form', pic: PIC.playbar() },
-    always: { bg: '#1d4fb8', pin: '#0b1d47', top: 'ALWAYS', bot: 'ON', cap: 'social media', pic: PIC.cal() },
-    cpl: { bg: '#24124f', pin: '#0d0620', top: '₹577', bot: 'CPL', cap: 'meta ads', pic: PIC.bars([100, 70, 46, 24, 12], '₹7,500 → ₹577') },
-    one: { bg: '#111111', pin: '#1d1430', top: 'AKARSA', bot: 'ONE', cap: 'AI intelligence', pic: PIC.browser() },
-    data: { bg: '#0f2f6b', pin: '#07173a', top: 'DATA', bot: 'DRIVEN', cap: 'no guesswork', pic: PIC.bars([20, 34, 30, 52, 70, 94], '3× qualified leads') },
-    talk: { bg: '#ff8a3d', pin: '#2a1608', top: 'LET’S', bot: 'TALK', cap: 'say hi', pic: PIC.chat() },
-    next: { bg: '#6b46b5', pin: '#1a1033', top: 'YOUR', bot: 'BRAND', cap: 'could be next', pic: PIC.icon('spark') },
-    reel: { bg: '#e8692a', pin: '#2a1206', top: 'REEL', bot: 'MAGIC', cap: 'edit', pic: PIC.icon('play') },
-    ad: { bg: '#c41f2f', pin: '#2a070b', top: 'AD', bot: 'SPICE', cap: 'campaign', pic: PIC.icon('mega') },
-    post: { bg: '#2f6b2a', pin: '#0d260b', top: 'POST', bot: 'LOVE', cap: 'content', pic: PIC.icon('heart') }
+    result: { t: 'em', top: 'Published result', bot: '3.7× return', pic: PIC.stat('196', 'purchases in 32 days') },
+    truth: { t: 'cr', top: 'Principle 01', bot: 'Truth over illusion', pic: PIC.glyph() },
+    ai: { t: 'st', top: 'Principle 02', bot: 'Taste leads', pic: PIC.glyph() },
+    systems: { t: 'st', top: 'Principle 03', bot: 'Fewer, made well', pic: PIC.shapes() },
+    brand: { t: 'cr', top: 'Identity', bot: 'The brand book', pic: PIC.swatch() },
+    logo: { t: 'em', top: 'Identity', bot: 'Mark making', pic: PIC.shapes() },
+    hook: { t: 'em', top: 'Film', bot: 'Shot with light', pic: PIC.playbar() },
+    always: { t: 'cr', top: 'Social', bot: 'One consistent look', pic: PIC.cal() },
+    cpl: { t: 'em', top: 'Performance', bot: '13× lower cost', pic: PIC.bars([100, 70, 46, 24, 8], 'Cost per enquiry') },
+    one: { t: 'dp', top: 'Akarsa One', bot: 'Buyer intelligence', pic: PIC.browser() },
+    data: { t: 'dp', top: 'Performance', bot: 'Measured in sales', pic: PIC.chart() },
+    talk: { t: 'cr', top: 'Enquire', bot: 'Tell us more', pic: PIC.chat() },
+    next: { t: 'em', top: 'New projects', bot: 'By enquiry', pic: PIC.glyph() },
+    reel: { t: 'em', top: 'Film', bot: 'Brand film', pic: PIC.icon('play') },
+    ad: { t: 'cr', top: 'Campaign', bot: 'Launch', pic: PIC.chart() },
+    post: { t: 'st', top: 'Content', bot: 'Stills', pic: PIC.gem() },
+    estate: { t: 'em', top: 'Real estate', bot: 'Light and space', pic: PIC.arch() },
+    jewel: { t: 'cr', top: 'Fine jewellery', bot: 'Metal and stone', pic: PIC.gem() },
+    film: { t: 'dp', top: 'Brand film', bot: 'Made with restraint', pic: PIC.icon('play') },
+    materials: { t: 'cr', top: 'The studio', bot: 'Stone, metal, light', pic: PIC.materials() }
   };
-  const fitWord = w => Math.min(30, 94 / (Math.max([...w].length, 2) * 0.5));
   const buildPoster = (el, key) => {
     const p = POSTERS[key];
     if (!p) return el;
-    el.classList.add('poster');
-    el.style.setProperty('--pbg', p.bg);
-    el.style.setProperty('--pin', p.pin);
-    el.innerHTML = `<i class="poster__pat"></i><b class="poster__top" style="--fs:${fitWord(p.top)}">${p.top}</b><div class="poster__card"><div class="poster__pic">${p.pic}</div><span class="poster__cap">${p.cap}</span></div><b class="poster__bot" style="--fs:${fitWord(p.bot)}">${p.bot}</b>`;
+    const [bg, fg] = TONE[p.t];
+    el.classList.add('poster', 'plate');
+    el.style.setProperty('--pbg', bg);
+    el.style.setProperty('--pfg', fg);
+    el.innerHTML = `<span class="plate__top">${p.top}</span><div class="plate__pic">${p.pic}</div><b class="plate__bot">${p.bot}</b><svg class="plate__mark" viewBox="110 60 400 400" aria-hidden="true"><path fill="currentColor" d="${GLYPH}"/></svg>`;
     return el;
   };
   $$('[data-poster]').forEach(el => buildPoster(el, el.dataset.poster));
@@ -285,7 +294,6 @@
   gsap.set('.hero [data-pop]', { autoAlpha: 0, scale: 0.8, y: 20 });
   gsap.set('.np-card', { autoAlpha: 0, scale: 0.8, x: 40, y: 20 });
   gsap.set('.phone-wrap', { autoAlpha: 0, scale: 0.7, y: 40 });
-  gsap.set('.ribbon', { autoAlpha: 0 });
 
   /* ---------------- loader ---------------- */
   const loader = $('.loader');
@@ -322,12 +330,9 @@
     .to('.nav', { yPercent: 0, duration: 1, ease: 'expo.out' }, 0)
     .to('.hero__kicker', { autoAlpha: 1, y: 0, duration: 0.8, ease: 'back.out(2)' }, 0)
     .to('.hl__i', { yPercent: 0, duration: 1.1, stagger: 0.1, ease: 'expo.out' }, 0.05)
-    .to('.circled path', { strokeDashoffset: 0, duration: 1.1, ease: 'power2.inOut' }, 0.7)
     .to('.pw--3', { autoAlpha: 1, scale: 1, y: 0, duration: 1, ease: 'back.out(1.4)' }, 0.35)
     .to('.pw--2', { autoAlpha: 1, scale: 1, y: 0, duration: 1, ease: 'back.out(1.4)' }, 0.45)
     .to('.pw--1', { autoAlpha: 1, scale: 1, y: 0, duration: 1, ease: 'back.out(1.6)' }, 0.55)
-    .to('.ribbon', { autoAlpha: 1, duration: 0.8 }, 0.5)
-    .fromTo('.ribbon__band', { strokeDasharray: '0 4000' }, { strokeDasharray: '4000 0', duration: 1.6, ease: 'power3.inOut' }, 0.5)
     .to('.hero__benefits [data-pop]', { autoAlpha: 1, scale: 1, y: 0, duration: 0.7, stagger: 0.1, ease: 'back.out(2)' }, 0.6)
     .to('.np-card', { autoAlpha: 1, scale: 1, x: 0, y: 0, duration: 0.8, ease: 'back.out(1.8)' }, 0.75)
     .to('.hero__cta [data-pop]', { autoAlpha: 1, scale: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'back.out(1.7)' }, 0.85);
@@ -441,7 +446,7 @@
   $$('.split, .split-inline').forEach(el => {
     if (el.closest('.hero')) return;
     gsap.from($$('.w > span', el), {
-      yPercent: 110, rotate: 4, duration: 1.1, ease: 'expo.out', stagger: 0.05,
+      yPercent: 110, duration: 0.7, ease: 'expo.out', stagger: 0.025,
       scrollTrigger: { trigger: el, start: 'top 88%' }
     });
   });

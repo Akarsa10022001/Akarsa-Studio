@@ -1138,3 +1138,61 @@ body{background:var(--bg)}
 .cta__card{border-radius:2px}
 .enq__floor{margin:-8px 0 0;font-size:14px;color:#4a5f57}
 .footer__word{font-family:var(--serif);font-weight:500;letter-spacing:.24em;text-transform:uppercase;font-size:clamp(56px,11vw,180px)}
+
+/* ---------- phase 4: quiet plates replace loud posters ---------- */
+.poster.plate{background:var(--pbg);color:var(--pfg);border-radius:4px;box-shadow:0 30px 60px -36px rgba(14,59,48,.45);display:grid;grid-template-rows:auto 1fr auto;justify-items:center;padding:10% 8% 9%;font-family:var(--serif,'Cormorant Garamond',Georgia,serif)}
+.poster.plate::before{content:"";position:absolute;inset:3.2cqw;border:1px solid currentColor;opacity:.22;pointer-events:none}
+.plate__top{font-family:'Figtree',system-ui,sans-serif;font-size:4.2cqw;font-weight:600;letter-spacing:.24em;text-transform:uppercase;opacity:.7;color:var(--pfg)}
+.plate__pic{align-self:center;width:72%;display:grid;place-items:center;color:var(--pfg);opacity:.85}
+.plate__bot{font-weight:500;font-style:italic;font-size:10.5cqw;line-height:1.05;text-align:center;color:var(--pfg)}
+.plate__mark{position:absolute;right:6cqw;top:5.5cqw;width:6cqw;height:6cqw;color:var(--pfg);opacity:.5}
+.plate .pp-stat b{color:var(--pfg);font-size:24cqw}
+.plate .pp-stat span{font-family:'Figtree',system-ui,sans-serif;color:var(--pfg)}
+.plate .pp-glyph{width:46%;filter:none;color:var(--pfg)}
+.plate .pp-chart{position:static;width:100%;height:30cqw}
+.plate .pp-line{width:62%;stroke-linejoin:round;stroke-linecap:round}
+.plate .pp-shapes{width:62%}
+.plate .pp-play{width:100%;color:var(--pfg)}
+.plate .pp-play svg{width:18cqw;height:18cqw}
+.plate .pp-bar{height:1px;background:currentColor;opacity:.35}
+.plate .pp-bar i{background:transparent}
+.plate .pp-icon svg{width:22cqw;height:22cqw}
+.plate .pp-cal i{background:currentColor;opacity:.1;border-radius:1px}
+.plate .pp-cal i.on{opacity:.55}
+.plate .pp-bars div i{background:currentColor;opacity:.75;border-radius:1px}
+.plate .pp-bars span{font-family:'Figtree',system-ui,sans-serif;font-weight:500;font-size:4cqw;letter-spacing:.08em;text-transform:uppercase;color:var(--pfg)}
+.plate .pp-swatch{color:var(--pfg)}
+.plate .pp-swatch i{box-shadow:0 0 0 1px rgba(14,59,48,.18)}
+.plate .pp-browser{background:transparent;border:1px solid currentColor}
+.plate .pp-browser__top{background:transparent;border-bottom:1px solid currentColor}
+.plate .pp-browser__top i,.plate .pp-browser__body span{background:currentColor;opacity:.35}
+.plate .pp-chat{font-family:'Figtree',system-ui,sans-serif;font-weight:500}
+.plate .pp-chat p{background:transparent;border:1px solid currentColor;color:var(--pfg)}
+.plate .pp-chat p.me{background:var(--pfg);color:var(--pbg)}
+.pp-mat{display:grid;grid-template-columns:1fr 1fr;gap:3cqw;width:100%}
+.pp-mat i{aspect-ratio:1;border-radius:1px}
+.reel--poster.plate{border:0;border-radius:4px}
+.belief__img .poster.plate{rotate:0deg}
+.viz-create .poster.plate{padding:8% 6% 7%}
+/* hero: plates inside the phone frames, no ribbon, no scribble */
+.phone .poster.plate{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;border-radius:inherit;box-shadow:none;padding:22% 10% 18%}
+.phone .plate__top{font-size:3.6cqw}
+.phone .plate__bot{font-size:9cqw}
+.stories__bars i{background:rgba(233,220,192,.25);height:1px}
+.stories__bars b{background:#e9dcc0}
+/* studio plate */
+.feature__plate{justify-self:center;width:min(380px,100%)}
+/* client marks: one tone */
+.logos__row img{filter:grayscale(1) contrast(.85) brightness(.85);opacity:.8}
+.logos__row .blogo__word{color:#4a5f57}
+/* selected work as an index */
+.windex{list-style:none;margin:0 auto;padding:0;max-width:980px;border-top:1px solid #d9cdb0}
+.windex li{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:16px;padding:26px 4px;border-bottom:1px solid #d9cdb0}
+.windex b{font-family:var(--serif,'Cormorant Garamond',Georgia,serif);font-weight:500;font-size:clamp(28px,4vw,44px);line-height:1.1;color:#0e3b30;letter-spacing:-.01em}
+.windex span{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#7a6233}
+.windex__note{max-width:980px;margin:28px auto 0;color:#4a5f57;font-size:16px}
+@media (max-width:640px){.windex li{grid-template-columns:1fr;gap:6px;padding:20px 2px}}
+.sticker{rotate:0deg!important;border-radius:2px}
+.sticker strong{font-family:var(--serif);font-weight:500;letter-spacing:0}
+.sticker--purple span,.sticker--pink span{color:#0e3b30}
+.tcard__big{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
