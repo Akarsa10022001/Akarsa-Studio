@@ -1394,3 +1394,20 @@ html.is-playing{overflow:hidden}
 .igbar i{width:20px;height:20px;border-radius:5px;border:1.6px solid #111;opacity:.75}
 .igbar i:nth-child(3){border-radius:6px;background:#0e3b30;border-color:#0e3b30;opacity:1}
 .igbar i:nth-child(5){border-radius:50%;background:#0e3b30;border-color:#b39a62}
+.services{overflow-x:clip}
+@media (max-width:560px){
+  .fan{height:360px}.fan__card{width:160px}
+  .fan__card:nth-child(1),.fan:hover .fan__card:nth-child(1){transform:translateX(-92px) rotate(-7deg) scale(.86)}
+  .fan__card:nth-child(3),.fan:hover .fan__card:nth-child(3){transform:translateX(92px) rotate(7deg) scale(.86)}
+  .bboard{grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:84px;gap:8px}
+  .bb--mark{grid-column:span 2;grid-row:span 2}
+  .bb--word{grid-column:span 2;grid-row:span 1}
+  .bb--sw{grid-column:span 2;grid-row:span 1}
+  .bb--sw em{display:none}
+  .bb--type,.bb--card,.bb--hl{grid-column:span 2;grid-row:span 2}
+  .bb--hl{grid-column:span 4;grid-row:span 1}
+  .bb--hl img{width:18%}
+  .vcard{width:90%;padding:0 10px}.vcard span{font-size:13px}
+  .devices{padding-bottom:40px}
+  .iphone--sm{right:0}
+}
