@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "42"  # asset cache-buster for styles/config
+V = "43"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # intro call; reached through the enquiry form on the homepage
 ENQ = "/#enquire"  # every page CTA goes to the qualified enquiry form
@@ -25,7 +25,7 @@ def url(slug): return SITE + ("/" + slug if slug else "/")
 # keep the OpenAI Ads pixel identical to the homepage's
 _index = open(os.path.join(ROOT, "index.html"), encoding="utf-8").read()
 _m = re.search(r"  <!-- OpenAI Ads pixel.*?</script>\n", _index, re.S)
-PIXEL = _m.group(0) if _m else ""
+PIXEL = (_m.group(0) if _m else "") + f'  <script src="/analytics.js?v={V}" async></script>\n'
 
 SERVICES_ORDER = ["social-media-marketing-agency-indore", "meta-ads-agency-indore", "google-ads-agency-indore", "reddit-ads-agency-india",
                   "chatgpt-ads-agency-india", "ugc-video-production-agency", "influencer-marketing-agency-indore", "branding-agency-indore",
@@ -339,12 +339,12 @@ def build_404():
 # and the Calendly booking popup. Anything else is refused by the browser.
 CSP_SOURCES = {
     "default-src": ["'self'"],
-    "script-src": ["'self'", "https://cdn.jsdelivr.net/npm/three@0.149.0/", "https://cdn.jsdelivr.net/npm/gsap@3.12.5/", "https://cdn.jsdelivr.net/npm/lenis@1.1.13/",
+    "script-src": ["'self'", "https://www.googletagmanager.com", "https://connect.facebook.net", "https://cdn.jsdelivr.net/npm/three@0.149.0/", "https://cdn.jsdelivr.net/npm/gsap@3.12.5/", "https://cdn.jsdelivr.net/npm/lenis@1.1.13/",
                    "https://bzrcdn.openai.com", "https://assets.calendly.com"],
     "style-src": ["'self'", "'unsafe-inline'", "https://assets.calendly.com"],
-    "img-src": ["'self'", "data:", "https://i.ytimg.com", "https://bzr.openai.com", "https://assets.calendly.com"],
+    "img-src": ["'self'", "data:", "https://www.google-analytics.com", "https://www.googletagmanager.com", "https://www.facebook.com", "https://i.ytimg.com", "https://bzr.openai.com", "https://assets.calendly.com"],
     "font-src": ["'self'"],
-    "connect-src": ["'self'", "https://bzr.openai.com", "https://bzrcdn.openai.com"],
+    "connect-src": ["'self'", "https://*.google-analytics.com", "https://*.analytics.google.com", "https://www.googletagmanager.com", "https://www.facebook.com", "https://connect.facebook.net", "https://bzr.openai.com", "https://bzrcdn.openai.com"],
     "frame-src": ["https://calendly.com", "https://www.youtube-nocookie.com"],
     "frame-ancestors": ["'self'"],
     "base-uri": ["'self'"],
