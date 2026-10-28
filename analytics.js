@@ -9,6 +9,17 @@
   const read = () => { try { return localStorage.getItem(KEY); } catch (e) { return null; } };
   const save = v => { try { localStorage.setItem(KEY, v); } catch (e) {} };
 
+  /* ---------- the studio's own devices ----------
+     Open any page once with ?internal=1 on a team phone or laptop and that browser is
+     reported as internal traffic (filtered out of Analytics) and never loads the Meta Pixel.
+     ?internal=0 undoes it. */
+  const IKEY = 'akarsa-internal';
+  try {
+    const m = location.search.match(/[?&]internal=(1|0)(&|$)/);
+    if (m) { if (m[1] === '1') localStorage.setItem(IKEY, '1'); else localStorage.removeItem(IKEY); }
+  } catch (e) {}
+  const internal = (() => { try { return localStorage.getItem(IKEY) === '1'; } catch (e) { return false; } })();
+
   /* ---------- Google: consent mode first, then the tag ---------- */
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
@@ -22,7 +33,7 @@
     wait_for_update: 300
   });
   gtag('js', new Date());
-  gtag('config', GA, { anonymize_ip: true });
+  gtag('config', GA, internal ? { traffic_type: 'internal' } : {});
   const g = document.createElement('script');
   g.async = true;
   g.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA;
@@ -31,7 +42,7 @@
   /* ---------- Meta Pixel, only with consent ---------- */
   let fbReady = false;
   const loadPixel = () => {
-    if (fbReady) return;
+    if (fbReady || internal) return;
     fbReady = true;
     !function (f, b, e, v, n, t, s) { if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); }; if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = []; t = b.createElement(e); t.async = !0; t.src = v; s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s); }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', PIXEL);
