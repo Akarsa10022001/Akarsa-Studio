@@ -3,6 +3,11 @@
    Google runs in consent mode: until a visitor accepts, it sends cookieless pings only.
    The Meta Pixel loads only after a visitor accepts. No form contents are ever sent. */
 (() => {
+  /* Measure the live site only: Vercel preview links and local copies send nothing. */
+  if (!/(^|\.)akarsaone\.xyz$/.test(location.hostname)) {
+    window.gtag = function () {}; window.akarsaTrack = function () {};
+    return;
+  }
   const GA = 'G-FXH0GL55FH';
   const PIXEL = '1749830945647617';
   const KEY = 'akarsa-consent';
