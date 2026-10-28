@@ -83,5 +83,27 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/blog",
+      "destination": "/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/:path*",
+      "destination": "/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/glossary/:path*",
+      "destination": "/insights/",
+      "permanent": true
+    },
+    {
+      "source": "/features/:path*",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
