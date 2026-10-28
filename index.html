@@ -81,6 +81,7 @@
     "addressCountry": "IN"
    },
    "telephone": "+91-8109801383",
+   "email": "be@akarsaone.xyz",
    "founder": {
     "@type": "Person",
     "@id": "https://www.akarsaone.xyz/#founder",
@@ -105,6 +106,7 @@
     {
      "@type": "ContactPoint",
      "telephone": "+91-8109801383",
+   "email": "be@akarsaone.xyz",
      "contactType": "sales",
      "areaServed": "IN",
      "availableLanguage": [
@@ -307,6 +309,7 @@
    "image": "https://www.akarsaone.xyz/og-image.jpg",
    "logo": "https://www.akarsaone.xyz/icon-512.png",
    "telephone": "+91-8109801383",
+   "email": "be@akarsaone.xyz",
    "address": {
     "@type": "PostalAddress",
     "streetAddress": "Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar",
@@ -421,7 +424,7 @@
   <link rel="preload" as="image" href="https://i.ytimg.com/vi/UsLYYyKEknE/oar2.jpg" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cormorant-garamond-latin-500-normal.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/figtree-latin-400-normal.woff2" crossorigin />
-  <link rel="stylesheet" href="styles.css?v=41" />
+  <link rel="stylesheet" href="styles.css?v=42" />
   <script>document.documentElement.classList.add('js','footer-gated')</script>
   <noscript><style>.loader,.cursor{display:none!important}body.is-loading{overflow:auto}</style></noscript>
 </head>
@@ -848,17 +851,21 @@
 
     <!-- ============ TEAM ============ -->
     <section class="team">
-      <div class="container center">
-        <span class="pill" data-pop>The founder</span>
-        <h2 class="h2 split">Led by Ritik Sharma.</h2>
-        <div class="founder" data-pop>
-          <img src="assets/founder/ritik-sharma.jpg" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" />
-          <div><strong>Ritik Sharma</strong><span>Founder &amp; Director</span></div>
+      <div class="container founderx">
+        <figure class="founderx__photo" data-reveal>
+          <img src="assets/founder/ritik-sharma-portrait.jpg" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" width="620" height="767" loading="lazy" decoding="async" />
+        </figure>
+        <div class="founderx__text">
+          <span class="pill" data-pop>The founder</span>
+          <h2 class="h2 split">Led by Ritik Sharma.</h2>
+          <p class="founderx__role">Founder &amp; Director</p>
+          <p data-reveal>Ritik leads every engagement personally, from the first call to the weekly report, with a core team of designers, filmmakers and performance marketers at our studio in Indore.</p>
+          <p class="founderx__quote" data-reveal>“We publish the numbers behind our work.”</p>
+          <div class="founderx__cta" data-reveal>
+            <a class="btn btn--dark magnetic" href="#enquire"><span class="btn__label">Start a project</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+            <a class="founderx__mail" data-email href="mailto:be@akarsaone.xyz">be@akarsaone.xyz</a>
+          </div>
         </div>
-      </div>
-      <div class="container center team__foot">
-        <p data-reveal>Ritik leads every engagement personally, with a core team of designers, filmmakers and performance marketers at our studio in Indore.</p>
-        <a class="btn btn--dark magnetic" href="#enquire" data-pop><span class="btn__label">Start a project</span><span class="btn__icon"><svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
       </div>
     </section>
 
@@ -944,6 +951,7 @@
           <h2 class="h2 cta__title split">Tell us about the project.</h2>
           <p>We take on a small number of new clients each quarter. Send a short enquiry and Ritik will read it personally. If it is a fit, you can book a 30-minute call straight away.</p>
           <p>Our credentials deck follows the first reply.</p>
+          <p class="cta__mail">Prefer email? <a data-email href="mailto:be@akarsaone.xyz">be@akarsaone.xyz</a></p>
           <p class="cta__note">Dubai · Indore. Meetings by appointment.</p>
         </div>
         <form class="enq" data-reveal novalidate action="#enquire">
@@ -1005,6 +1013,7 @@
       <div class="footer__contact">
         <span class="eyebrow eyebrow--dark">Contact</span>
         <a class="footer__big" href="#enquire">Send an enquiry →</a>
+        <a class="footer__line" data-email href="mailto:be@akarsaone.xyz">be@akarsaone.xyz</a>
         <span class="footer__line" data-phone>+91 81098 01383</span>
         <a class="footer__line footer__addr" data-address href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%2C%20Shagun%20Arcade%2C%20Vijay%20Nagar%2C%20Indore%20452010" target="_blank" rel="noopener">Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010</a>
       </div>
@@ -1025,11 +1034,11 @@
     </div>
   </footer>
 
-  <script src="config.js?v=41"></script>
-  <script src="showcase.js?v=41" defer></script>
+  <script src="config.js?v=42"></script>
+  <script src="showcase.js?v=42" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" integrity="sha384-g4NTh/Iv5PPU4xPyhEWqPcwtNXOvdaDI8LLnyYfyNZOjKJeYQyjzQ9X5275eBjpt" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" integrity="sha384-Z3REaz79l2IaAZqJsSABtTbhjgOUYyV3p90XNnAPCSHg3EMTz1fouunq9WZRtj3d" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" integrity="sha384-B2WBjDzEjJpYvhmi2UyEn7rektqkf5suS6sNoyyrf0EBAwBHdkiXxIlU0V5Ru2ed" crossorigin="anonymous"></script>
-  <script src="script.js?v=41"></script>
+  <script src="script.js?v=42"></script>
 </body>
 </html>

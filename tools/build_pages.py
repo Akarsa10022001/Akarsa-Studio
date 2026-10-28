@@ -8,7 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from content import PAGES, INSIGHTS_HUB, SITE, TODAY
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-V = "41"  # asset cache-buster for styles/config
+V = "42"  # asset cache-buster for styles/config
 ARROW = '<svg viewBox="0 0 24 24"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 BOOKING = "https://calendly.com/beakarsa/15-minute-discovery-call"  # intro call; reached through the enquiry form on the homepage
 ENQ = "/#enquire"  # every page CTA goes to the qualified enquiry form
@@ -34,7 +34,7 @@ GUIDES_ORDER = ["results", "insights/chatgpt-ads-india-guide", "insights/reddit-
 
 ORG_NODE = {
     "@type": "Organization", "@id": ORG_ID, "name": "Akarsa Studio", "legalName": "Akarsa Studio Private Limited", "url": SITE + "/",
-    "logo": SITE + "/icon-512.png", "telephone": "+91-8109801383",
+    "logo": SITE + "/icon-512.png", "telephone": "+91-8109801383", "email": "be@akarsaone.xyz",
     "address": {"@type": "PostalAddress", "streetAddress": "Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar",
                 "addressLocality": "Indore", "addressRegion": "Madhya Pradesh", "postalCode": "452010", "addressCountry": "IN"},
     "founder": {"@type": "Person", "name": "Ritik Sharma", "jobTitle": "Founder & Director"},
@@ -159,6 +159,7 @@ def footer():
       <div class="footer__contact">
         <span class="eyebrow eyebrow--dark">Contact</span>
         <a class="footer__big" href="{ENQ}">Send an enquiry →</a>
+        <a class="footer__line" data-email href="mailto:be@akarsaone.xyz">be@akarsaone.xyz</a>
         <span class="footer__line" data-phone>+91 81098 01383</span>
         <a class="footer__line footer__addr" data-address href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore">Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010</a>
       </div>
@@ -420,6 +421,7 @@ FACTS = f"""- Legal name: Akarsa Studio Private Limited (brand: Akarsa, also wri
 - What: brand, content and performance studio for luxury real estate and jewellery brands, working from Dubai and Indore
 - Founder: Ritik Sharma (Founder & Director)
 - Address: Office No. 702, Shagun Arcade, Main Rd, near Apna Sweets, PU 4, near Vijay Nagar Square, Vijay Nagar, Indore, Madhya Pradesh 452010, India
+- Email: be@akarsaone.xyz
 - Phone/WhatsApp: +91 81098 01383
 - Enquiries: https://www.akarsaone.xyz/#enquire (qualified by sector and budget, then a 30-minute intro call)
 - Pricing: Monthly engagements start at ₹70,000 (about AED 3,000), excluding ad spend.

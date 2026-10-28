@@ -1503,3 +1503,17 @@ html{scrollbar-color:#0e3b30 #efe8d8;scrollbar-width:thin}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 @media (max-width:560px){.cm__track{gap:52px}.cm__track li{width:calc(var(--w) * .82);height:calc(var(--h) * .82)}}
 h1,h2,h3,h4,.h2,.ncard__mono,.film__meta b,.chapter h3{font-variant-numeric:lining-nums;font-feature-settings:"lnum" 1}
+.cta__mail{margin-top:18px;font-size:15px;color:#c9bfa6}.cta__mail a{color:#e9dcc0;border-bottom:1px solid rgba(233,220,192,.4);padding-bottom:2px;transition:border-color .3s}.cta__mail a:hover{border-color:#e9dcc0}
+/* founder */
+.founderx{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:80px;align-items:center;text-align:left}
+.founderx__photo{position:relative;margin:0;border-radius:4px;overflow:hidden;aspect-ratio:620/767;background:#0a2e25;box-shadow:0 50px 90px -50px rgba(14,59,48,.75)}
+.founderx__photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.founderx__photo:hover img{transform:scale(1.025)}
+.founderx__photo::after{content:"";position:absolute;inset:14px;border:1px solid rgba(233,220,192,.22);pointer-events:none}
+.founderx__text .h2{margin:16px 0 6px}
+.founderx__role{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#7a6233;margin:0 0 22px}
+.founderx__text p{font-size:18px;line-height:1.6;color:#4a5f57;max-width:520px}
+.founderx__quote{font-family:var(--serif);font-style:italic;font-size:26px!important;line-height:1.35!important;color:#0e3b30!important;border-left:1px solid #b39a62;padding-left:22px;margin:28px 0}
+.founderx__cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:8px}
+.founderx__mail{font-weight:600;color:#0e3b30;border-bottom:1px solid #b39a62;padding-bottom:2px}
+@media (max-width:900px){.founderx{grid-template-columns:1fr;gap:40px}.founderx__photo{max-width:420px}}

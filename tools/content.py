@@ -118,11 +118,9 @@ ADDRESS_CARD = '''<div class="pvisual pvisual--mock"><div class="addr-card">
   <a class="addr-card__btn" href="https://www.google.com/maps/search/?api=1&amp;query=Akarsa%20Studio%20Shagun%20Arcade%20Vijay%20Nagar%20Indore%20452010" target="_blank" rel="noopener">Get directions ↗</a>
 </div></div>'''
 
-ABOUT_VISUAL = '''<div class="pvisual pvisual--mock"><div class="founder-card">
-  <img src="/assets/founder/ritik-sharma.jpg" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" width="256" height="256" loading="eager" />
-  <strong>Ritik Sharma</strong><span>Founder &amp; Director</span>
-  <p>“We publish the numbers behind our work.”</p>
-</div></div>'''
+ABOUT_VISUAL = '''<div class="pvisual pvisual--portrait"><img src="/assets/founder/ritik-sharma-portrait.jpg" alt="Ritik Sharma, Founder &amp; Director of Akarsa Studio" width="620" height="767" loading="eager" />
+  <div class="pvisual__cap"><strong>Ritik Sharma</strong><span>Founder &amp; Director</span></div>
+</div>'''
 
 # ---------- verified results: stat tiles + bar charts built as real tables ----------
 # Numbers come from Meta Ads Manager (client exports) or Meta's API (our own accounts); keep the maths notes in sync.
