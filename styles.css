@@ -1412,3 +1412,93 @@ html.is-playing{overflow:hidden}
   .iphone--sm{right:0}
 }
 .bb--sw{place-items:stretch}
+
+/* =========================================================
+   phase 7: detail pass
+   ========================================================= */
+/* client wall on emerald: cream single-ink marks, true colours on hover */
+.logos--wall{background:#0e3b30;padding:64px 0 8px;margin:0}
+.logos--wall .eyebrow{color:#b39a62;margin-bottom:34px}
+.logos--wall + .numbers{padding-top:56px;border-top:1px solid rgba(233,220,192,.08)}
+.cm{mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);outline:none}
+.cm__track{gap:72px;padding:22px 36px 30px;animation-duration:70s}
+.cm:hover .cm__track,.cm:focus-within .cm__track,.cm:focus .cm__track{animation-play-state:paused}
+.cm__track li{position:relative;height:auto;width:var(--w);height:var(--h);display:block}
+.cm__track li img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:normal;filter:none;max-width:none;transition:opacity .45s cubic-bezier(.2,.8,.2,1),transform .6s cubic-bezier(.2,.8,.2,1)}
+.cm__track .cm__mono{opacity:.78}
+.cm__track .cm__col{opacity:0}
+.cm__track li:hover .cm__mono{opacity:0}
+.cm__track li:hover .cm__col{opacity:1}
+.cm__track li:hover img{transform:scale(1.06)}
+.cm__track li::after{content:attr(data-name);position:absolute;left:50%;top:calc(100% + 12px);transform:translate(-50%,4px);white-space:nowrap;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#b39a62;opacity:0;transition:opacity .35s,transform .35s;pointer-events:none}
+.cm__track li:hover::after{opacity:1;transform:translate(-50%,0)}
+.cm__word{width:auto!important;height:58px!important;display:flex!important;flex-direction:column;justify-content:center}
+.cm__word b{color:#e9dcc0;font-size:36px}
+.cm__word small{color:#b39a62}
+.cm__word:hover b{color:#fff}
+/* figures: lining, tabular, so numbers sit on the line and don't jitter while counting */
+.num b,.dash__kpi b,.tcard__big,.np-card strong,.sticker strong,.pp-stat b,.igp__stats b{font-variant-numeric:lining-nums tabular-nums;font-feature-settings:"lnum" 1,"tnum" 1}
+/* type */
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;-webkit-tap-highlight-color:transparent}
+h1,h2,h3,h4,.h2{text-wrap:balance}
+p,li,figcaption{text-wrap:pretty}
+::selection{background:#0e3b30;color:#e9dcc0}
+.numbers ::selection,.logos--wall ::selection,.dash ::selection,.ncard--dark ::selection{background:#e9dcc0;color:#0e3b30}
+/* focus you can see, only for keyboards */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:2px solid #b39a62;outline-offset:3px;border-radius:4px}
+/* sections land below the floating nav */
+[id]{scroll-margin-top:104px}
+/* scrollbar */
+html{scrollbar-color:#0e3b30 #efe8d8;scrollbar-width:thin}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#efe8d8}
+::-webkit-scrollbar-thumb{background:#0e3b30;border-radius:10px;border:2px solid #efe8d8}
+/* press feedback */
+.btn:active,.nav__cta:active,.films__nav button:active,.film:active .film__img,.fan__card:active{transform:scale(.97)}
+.btn,.nav__cta{transition:transform .25s cubic-bezier(.2,.8,.2,1),background .3s,color .3s}
+/* nav: where you are, and how far */
+.nav__links a{position:relative}
+.nav__links a::after{content:"";position:absolute;left:50%;bottom:-8px;width:4px;height:4px;margin-left:-2px;border-radius:50%;background:#b39a62;opacity:0;transform:scale(0);transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.nav__links a.is-here::after{opacity:1;transform:scale(1)}
+.nav__links a.is-here{color:#e9dcc0}
+.nav__progress{position:absolute;left:28px;right:28px;bottom:0;height:1px;background:rgba(233,220,192,.08);border-radius:1px;overflow:hidden;pointer-events:none}
+.nav__progress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#b39a62,#e9dcc0);transform-origin:left;transform:scaleX(var(--p,0))}
+.nav__bar{position:relative}
+/* underline that draws itself */
+.chapter__more,.numbers__src a,.chapter__proof figcaption a{background:linear-gradient(currentColor,currentColor) left bottom/0 1px no-repeat;text-decoration:none!important;padding-bottom:3px;transition:background-size .45s cubic-bezier(.2,.8,.2,1)}
+.chapter__more{background-image:linear-gradient(#b39a62,#b39a62);background-size:100% 1px}
+.chapter__more:hover{background-size:0 1px}
+.numbers__src a:hover,.chapter__proof figcaption a:hover{background-size:100% 1px}
+.numbers__src a,.chapter__proof figcaption a{background-size:100% 1px}
+.chapter__more::after{content:"";display:inline-block;transition:transform .35s}
+.chapter__more:hover{letter-spacing:.005em}
+/* images arrive softly, never pop */
+.film__img img,.fan__card img,.browser img,.iggrid img,.iphone--sm img{opacity:0;transition:opacity .7s ease,transform 1.2s cubic-bezier(.2,.8,.2,1),filter .6s}
+.film__img img.is-in,.fan__card img.is-in,.browser img.is-in,.iggrid img.is-in,.iphone--sm img.is-in{opacity:1}
+.film__img,.fan__card{background:linear-gradient(110deg,#0a2e25 30%,#14473a 50%,#0a2e25 70%) 0 0/300% 100%;animation:shimmer 2.2s linear infinite}
+@keyframes shimmer{to{background-position:-300% 0}}
+/* film rail: hint there's more, drag with the mouse */
+.films__rail{mask-image:linear-gradient(90deg,#000 88%,transparent);-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);cursor:grab}
+.films__rail.is-end{mask-image:none;-webkit-mask-image:none}
+.films__rail.is-drag{cursor:grabbing;scroll-snap-type:none}
+.films__rail.is-drag .film{pointer-events:none}
+.films__nav button[disabled]{opacity:.3;pointer-events:none}
+/* device glass */
+.iphone__screen{position:relative}
+.iphone__screen::after{content:"";position:absolute;inset:0;background:linear-gradient(125deg,rgba(255,255,255,.14),transparent 38%);pointer-events:none;border-radius:inherit}
+.iphone::before{content:"";display:block;width:84px;height:22px;margin:-2px auto -24px;position:relative;z-index:3;border-radius:14px;background:#0b241d}
+.iphone--sm::before{width:44px;height:12px;margin:-1px auto -13px}
+/* player */
+.player__frame{position:relative;background:#0a2e25}
+.player__frame::before{content:"";position:absolute;left:50%;top:50%;width:34px;height:34px;margin:-17px;border-radius:50%;border:2px solid rgba(233,220,192,.25);border-top-color:#e9dcc0;animation:spin 1s linear infinite}
+.player__frame iframe{position:relative;z-index:1}
+@keyframes spin{to{transform:rotate(360deg)}}
+.player__frame{transform:translateY(16px) scale(.98);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.player.is-open .player__frame{transform:none}
+/* back to top */
+.footer__bottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.totop{display:inline-flex;align-items:center;gap:8px;color:inherit;opacity:.8;transition:opacity .3s}
+.totop i{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;border:1px solid currentColor;font-style:normal;transition:transform .4s cubic-bezier(.2,.8,.2,1)}
+.totop:hover{opacity:1}.totop:hover i{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media (max-width:560px){.cm__track{gap:52px}.cm__track li{width:calc(var(--w) * .82);height:calc(var(--h) * .82)}}

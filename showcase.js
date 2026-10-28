@@ -6,8 +6,9 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- film player (YouTube, no cookies) ---------- */
-  let box;
+  let box, opener;
   const openFilm = (id, title) => {
+    opener = document.activeElement;
     if (!box) {
       box = document.createElement('div');
       box.className = 'player';
@@ -16,7 +17,11 @@
       box.innerHTML = '<button class="player__x" aria-label="Close film">×</button><div class="player__frame"></div><p class="player__cap"></p>';
       document.body.appendChild(box);
       box.addEventListener('click', e => { if (e.target === box || e.target.closest('.player__x')) closeFilm(); });
-      addEventListener('keydown', e => { if (e.key === 'Escape') closeFilm(); });
+      addEventListener('keydown', e => {
+        if (!box.classList.contains('is-open')) return;
+        if (e.key === 'Escape') closeFilm();
+        if (e.key === 'Tab') { e.preventDefault(); $('.player__x', box).focus(); }
+      });
     }
     $('.player__frame', box).innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&playsinline=1&rel=0&modestbranding=1&loop=1&playlist=${id}" title="${title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
     $('.player__cap', box).textContent = title;
@@ -28,7 +33,8 @@
     if (!box) return;
     box.classList.remove('is-open');
     document.documentElement.classList.remove('is-playing');
-    $('.player__frame', box).innerHTML = '';
+    setTimeout(() => { if (!box.classList.contains('is-open')) $('.player__frame', box).innerHTML = ''; }, 400);
+    opener?.focus?.({ preventScroll: true });
   };
   document.addEventListener('click', e => {
     const t = e.target.closest('[data-yt]');
@@ -43,6 +49,22 @@
     const step = () => (rail.querySelector('.film')?.offsetWidth || 300) + 24;
     $('.films__prev', wrap)?.addEventListener('click', () => rail.scrollBy({ left: -step() * 2, behavior: 'smooth' }));
     $('.films__next', wrap)?.addEventListener('click', () => rail.scrollBy({ left: step() * 2, behavior: 'smooth' }));
+    const prev = $('.films__prev', wrap), next = $('.films__next', wrap);
+    const edges = () => {
+      const max = rail.scrollWidth - rail.clientWidth - 2;
+      if (prev) prev.disabled = rail.scrollLeft <= 2;
+      if (next) next.disabled = rail.scrollLeft >= max;
+      rail.classList.toggle('is-end', rail.scrollLeft >= max);
+    };
+    rail.addEventListener('scroll', edges, { passive: true });
+    addEventListener('resize', edges);
+    edges();
+    // drag to scroll with a mouse; a short drag still counts as a click
+    let down = false, sx = 0, sl = 0, moved = 0;
+    rail.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = 0; sx = e.clientX; sl = rail.scrollLeft; });
+    addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - sx; moved = Math.max(moved, Math.abs(dx)); if (moved > 6) { rail.classList.add('is-drag'); rail.scrollLeft = sl - dx; } });
+    addEventListener('pointerup', () => { if (!down) return; down = false; setTimeout(() => rail.classList.remove('is-drag'), 0); });
+    rail.addEventListener('click', e => { if (moved > 6) { e.stopPropagation(); e.preventDefault(); } }, true);
     if (reduce) return;
     $$('.film', rail).forEach(card => {
       card.addEventListener('pointermove', e => {
@@ -74,6 +96,38 @@
 
   /* ---------- dashboard bars grow when seen ---------- */
   $$('.dash').forEach(d => new IntersectionObserver(([e], o) => { if (e.isIntersecting) { d.classList.add('go'); o.disconnect(); } }, { threshold: 0.4 }).observe(d));
+
+  /* ---------- images arrive softly ---------- */
+  $$('.film__img img, .fan__card img, .browser img, .iggrid img, .iphone--sm img').forEach(img => {
+    const done = () => img.classList.add('is-in');
+    if (img.complete && img.naturalWidth) done(); else { img.addEventListener('load', done, { once: true }); img.addEventListener('error', done, { once: true }); }
+  });
+
+  /* ---------- nav: show where you are, and how far down ---------- */
+  const bar = $('.nav__bar');
+  if (bar) {
+    const prog = document.createElement('span');
+    prog.className = 'nav__progress';
+    prog.innerHTML = '<i></i>';
+    bar.appendChild(prog);
+    let ticking = false;
+    const upd = () => { const h = document.documentElement.scrollHeight - innerHeight; prog.style.setProperty('--p', h > 0 ? (scrollY / h).toFixed(4) : 0); ticking = false; };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    upd();
+  }
+  const links = $$('.nav__links a[href^="#"]');
+  const secs = links.map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+  if (secs.length) {
+    const pick = () => {
+      let best = null, bestTop = -Infinity;
+      secs.forEach(sec => { const t = sec.getBoundingClientRect().top; if (t < innerHeight * 0.4 && t > bestTop) { bestTop = t; best = sec; } });
+      links.forEach(a => a.classList.toggle('is-here', !!best && a.getAttribute('href') === '#' + best.id));
+    };
+    let raf = 0;
+    addEventListener('resize', pick);
+    addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(pick); }, { passive: true });
+    pick();
+  }
 
   /* ---------- 3D monogram (three.js, loaded only when it comes into view) ---------- */
   const stage = $('.glyph3d');
