@@ -1506,7 +1506,7 @@ h1,h2,h3,h4,.h2,.ncard__mono,.film__meta b,.chapter h3{font-variant-numeric:lini
 .cta__mail{margin-top:18px;font-size:15px;color:#c9bfa6}.cta__mail a{color:#e9dcc0;border-bottom:1px solid rgba(233,220,192,.4);padding-bottom:2px;transition:border-color .3s}.cta__mail a:hover{border-color:#e9dcc0}
 /* founder */
 .founderx{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);gap:80px;align-items:center;text-align:left}
-.founderx__photo{position:relative;margin:0;border-radius:4px;overflow:hidden;aspect-ratio:620/767;background:#0a2e25;box-shadow:0 50px 90px -50px rgba(14,59,48,.75)}
+.founderx__photo{position:relative;margin:0;border-radius:4px;overflow:hidden;aspect-ratio:4/5;background:#0a2e25;box-shadow:0 50px 90px -50px rgba(14,59,48,.75)}
 .founderx__photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
 .founderx__photo:hover img{transform:scale(1.025)}
 .founderx__photo::after{content:"";position:absolute;inset:14px;border:1px solid rgba(233,220,192,.22);pointer-events:none}
