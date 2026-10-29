@@ -376,6 +376,10 @@ def write_vercel_config():
             {"source": "/blog/:path*", "destination": "/insights/", "permanent": True},
             {"source": "/glossary/:path*", "destination": "/insights/", "permanent": True},
             {"source": "/features/:path*", "destination": "/", "permanent": True},
+            {"source": "/login", "destination": "/", "permanent": True},
+            {"source": "/signup", "destination": "/", "permanent": True},
+            {"source": "/dashboard", "destination": "/", "permanent": True},
+            {"source": "/app/:path*", "destination": "/", "permanent": True},
         ],
         "headers": [
             {"source": "/(.*)", "headers": [

@@ -20,6 +20,26 @@
       "source": "/features/:path*",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/login",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/signup",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/dashboard",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/app/:path*",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [
